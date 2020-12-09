@@ -29,7 +29,7 @@ alias zln='noglob zmv -Ls'
 # fi
 
 # -- Load breakaway config files. -----------------------------
-for dot in $HOME/.rcs/{options,environment,aliases,functions}.sh; do
+for dot in $HOME/.rcs/{secrets,options,environment,aliases,functions}.sh; do
   test -f "$dot" && source "$dot"
 done
 

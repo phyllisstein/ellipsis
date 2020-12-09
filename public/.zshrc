@@ -1,3 +1,3 @@
 #!/usr/bin/env zsh
 
-source "$HOME/.rcs/zshrc.prezto"
+source "$HOME/.rcs/prezto.sh"
