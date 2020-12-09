@@ -1,0 +1,96 @@
+[core]
+	pager = diff-so-fancy | less --tabs=4 -RFX
+	excludesfile = /Users/daniel/.config/git/ignore
+	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+	trustctime = false
+	precomposeunicode = false
+	untrackedCache = true
+	ignorecase = false
+[color]
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = yellow
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[user]
+	name = Daniel P. Shannon
+	email = daniel@fleet.i.ng
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustexitcode = true
+[merge]
+	tool = Kaleidoscope
+	log = true
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[mergetool]
+	prompt = false
+	keepBackup = true
+[diff]
+	tool = Kaleidoscope
+	renames = copies
+[diff "bin"]
+	textconv = hexdump -v -C
+[push]
+	default = current
+	followTags = true
+[fetch]
+	prune = true
+[receive]
+	denyCurrentBranch = refuse
+[alias]
+	first = rev-list --max-parents=0 HEAD
+
+	# See https://stackoverflow.com/a/1459264.
+	repeal-init = reset --soft HEAD@{1}
+	repeal = commit -C HEAD@{1}
+[submodule]
+	fetchJobs = 16
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree-Beta.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[help]
+	autocorrect = 1
+[url "git@github.com:"]
+	insteadOf = "gh:"
+	pushInsteadOf = "github:"
+	pushInsteadOf = "git://github.com/"
+[url "git://github.com/"]
+	insteadOf = "github:"
+[url "git@gist.github.com:"]
+	insteadOf = "gst:"
+	pushInsteadOf = "gist:"
+	pushInsteadOf = "git://gist.github.com/"
+[url "git://gist.github.com/"]
+	insteadOf = "gist:"
+[gpg]
+	program = /usr/local/bin/gpg
+[commit]
+	gpgsign = false
+[lfs]
+	fetchrecentremoterefs = true
+	fetchrecentalways = true
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
+[checkout]
+	defaultRemote = origin

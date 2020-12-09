@@ -1,0 +1,26 @@
+# [conda]
+# disabled = true
+
+# [git_status]
+# disabled = true
+# conflicted = "🏳 "
+# ahead = "💨 "
+# behind = "😰 "
+# diverged = "😵 "
+# untracked = "🤷‍ "
+# stashed = "📦 "
+# modified = "📝 "
+# staged.value = "🔰 "
+# staged_count.enabled = true
+# staged_count.style = "green"
+# renamed = "👅 "
+# deleted = "🗑 "
+# show_sync_count = true
+# prefix = ""
+# suffix = " "
+
+# [time]
+# disabled = false
+# format = "%l:%M:%S%P"
+# use_12hr = true
+# utc_time_offset = -5

@@ -1,0 +1,9 @@
+[submodule "public/.local/share/pandoc"]
+	path = public/.local/share/pandoc
+	url = git@github.com:phyllisstein/pandoc-assets.git
+[submodule "public/.zprezto"]
+	path = public/.zprezto
+	url = https://github.com/sorin-ionescu/prezto.git
+[submodule "public/.oh-my-zsh"]
+	path = public/.oh-my-zsh
+	url = https://github.com/ohmyzsh/ohmyzsh
