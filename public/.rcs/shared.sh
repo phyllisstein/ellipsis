@@ -29,6 +29,11 @@ alias zln='noglob zmv -Ls'
 # fi
 
 # -- Load breakaway config files. -----------------------------
+if [[ "$ELLIPSIS_PLATFORM" == "Darwin" ]]; then
+  test -f "$HOME/.rcs/macos.sh" && source "$HOME/.rcs/macos.sh"
+else
+  test -f "$HOME/.rcs/wsl.sh" && source "$HOME/.rcs/wsl.sh"
+fi
 for dot in $HOME/.rcs/{secrets,options,environment,aliases,functions}.sh; do
   test -f "$dot" && source "$dot"
 done

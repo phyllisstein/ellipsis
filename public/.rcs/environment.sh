@@ -164,8 +164,7 @@ export PATH="${HOMEBREW_PREFIX}/curl/bin:$PATH"
 export PATH="$PATH:/opt/vagrant-vmware-desktop/bin"
 
 # ... for Google Cloud SDK.
-export CLOUDSDK_PYTHON="${HOMEBREW_PREFIX}/python@3.7/libexec/bin/python"
-export PATH="$PATH:${HOMEBREW_PREFIX}/google-cloud-sdk/bin"
+export CLOUDSDK_PYTHON="${HOMEBREW_PREFIX}/python@3.8/libexec/bin/python"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"

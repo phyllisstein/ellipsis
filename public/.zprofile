@@ -41,7 +41,8 @@ typeset -gU cdpath fpath mailpath path
 #   $cdpath
 # )
 
-export HOMEBREW_PREFIX=$(brew --prefix)
+export HOMEBREW_PREFIX="$(brew --prefix)"
+export ELLIPSIS_PLATFORM="$(uname -s)"
 
 # Set the list of directories that Zsh searches for programs.
 path=(
