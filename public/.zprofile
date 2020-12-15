@@ -41,21 +41,21 @@ typeset -gU cdpath fpath mailpath path
 #   $cdpath
 # )
 
-export HOMEBREW_PREFIX="$(brew --prefix)"
 export ELLIPSIS_PLATFORM="$(uname -s)"
+
+if [[ "$ELLIPSIS_PLATFORM" == "Linux" ]]; then
+  path=(
+    /home/linuxbrew/.linuxbrew/bin
+    $path
+  )
+
+fi
+
+export HOMEBREW_PREFIX="$(brew --prefix)"
 
 # Set the list of directories that Zsh searches for programs.
 path=(
-  ${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnubin
-  ${HOMEBREW_PREFIX}/opt/gnu-which/libexec/gnubin
-  ${HOMEBREW_PREFIX}/opt/gsed/libexec/gnubin
-  ${HOMEBREW_PREFIX}/opt/grep/libexec/gnubin
-  ${HOMEBREW_PREFIX}/opt/gnu-indent/libexec/gnubin
-  ${HOMEBREW_PREFIX}/opt/gnu-tar/libexec/gnubin
-  ${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin
-  ${HOMEBREW_PREFIX}/opt/make/libexec/gnubin
-  ${HOMEBREW_PREFIX}/opt/findutils/libexec/gnubin
-  ${HOMEBREW_PREFIX}/{bin,sbin}
+  /usr/local/{bin,sbin}
   $path
 )
 
