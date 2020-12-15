@@ -29,11 +29,7 @@ alias zln='noglob zmv -Ls'
 # fi
 
 # -------------------------- Breakaway Config Files -------------------------- #
-if [[ "$ELLIPSIS_PLATFORM" == "macos" ]]; then
-  test -f "$HOME/.rcs/macos.sh" && source "$HOME/.rcs/macos.sh"
-elif [[ "$ELLIPSIS_PLATFORM" == "wsl"]]; then
-  test -f "$HOME/.rcs/wsl.sh" && source "$HOME/.rcs/wsl.sh"
-fi
+test -f "$HOME/.rcs/${ELLIPSIS_PLATFORM}.sh" && source "$HOME/.rcs/${ELLIPSIS_PLATFORM}.sh"
 
 for dot in $HOME/.rcs/{secrets,options,environment,aliases,functions}.sh; do
   test -f "$dot" && source "$dot"
