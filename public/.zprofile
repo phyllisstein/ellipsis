@@ -41,9 +41,14 @@ typeset -gU cdpath fpath mailpath path
 #   $cdpath
 # )
 
-export ELLIPSIS_PLATFORM="$(uname -s)"
+__uname_value="$(uname -s)"
+if [[ "$__uname_value" == "Darwin" ]]; then
+  export ELLIPSIS_PLATFORM="macos"
+elif [[ "$__uname_value" == "Linux" && -d /mnt/c ]]; then
+  export ELLIPSIS_PLATFORM="wsl"
+fi
 
-if [[ "$ELLIPSIS_PLATFORM" == "Linux" ]]; then
+if [[ "$ELLIPSIS_PLATFORM" == "wsl" ]]; then
   path=(
     /home/linuxbrew/.linuxbrew/bin
     $path

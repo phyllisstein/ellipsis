@@ -28,21 +28,23 @@ alias zln='noglob zmv -Ls'
 #   conda activate global
 # fi
 
-# -- Load breakaway config files. -----------------------------
-if [[ "$ELLIPSIS_PLATFORM" == "Darwin" ]]; then
+# -------------------------- Breakaway Config Files -------------------------- #
+if [[ "$ELLIPSIS_PLATFORM" == "macos" ]]; then
   test -f "$HOME/.rcs/macos.sh" && source "$HOME/.rcs/macos.sh"
-else
+elif [[ "$ELLIPSIS_PLATFORM" == "wsl"]]; then
   test -f "$HOME/.rcs/wsl.sh" && source "$HOME/.rcs/wsl.sh"
 fi
+
 for dot in $HOME/.rcs/{secrets,options,environment,aliases,functions}.sh; do
   test -f "$dot" && source "$dot"
 done
 
-# Load help files for Brewed ZSH.
+# ----------------------------- Homebrew ZSH Help ---------------------------- #
 unalias run-help
 autoload run-help
 export HELPDIR="$HOMEBREW_PREFIX/share/zsh/helpfiles:$HELPDIR"
 
+# ------------------------------ Shell Utilities ----------------------------- #
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
 # [[ -f "${HOMEBREW_PREFIX}/opt/git-extras/share/git-extras/git-extras-completion.zsh" ]] && source "${HOMEBREW_PREFIX}/opt/git-extras/share/git-extras/git-extras-completion.zsh"

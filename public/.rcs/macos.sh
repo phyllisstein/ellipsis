@@ -4,6 +4,3 @@ export GRAAL_PATH="/Library/Java/VirtualMachines/graalvm-ee-java11-20.2.0/Conten
 
 # ----------------------------------- iTerm ---------------------------------- #
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# ---------------------------------- VSCode ---------------------------------- #
-export EDITOR="/usr/local/bin/code-insiders --wait --reuse-window"
