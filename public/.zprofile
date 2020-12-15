@@ -41,28 +41,28 @@ typeset -gU cdpath fpath mailpath path
 #   $cdpath
 # )
 
+export HOMEBREW_PREFIX=$(brew --prefix)
+
 # Set the list of directories that Zsh searches for programs.
 path=(
-  /usr/local/opt/gnu-sed/libexec/gnubin
-  /usr/local/opt/gnu-which/libexec/gnubin
-  /usr/local/opt/gsed/libexec/gnubin
-  /usr/local/opt/grep/libexec/gnubin
-  /usr/local/opt/gnu-indent/libexec/gnubin
-  /usr/local/opt/gnu-tar/libexec/gnubin
-  /usr/local/opt/coreutils/libexec/gnubin
-  /usr/local/opt/make/libexec/gnubin
-  /usr/local/opt/findutils/libexec/gnubin
-  /usr/local/{bin,sbin}
+  ${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnubin
+  ${HOMEBREW_PREFIX}/opt/gnu-which/libexec/gnubin
+  ${HOMEBREW_PREFIX}/opt/gsed/libexec/gnubin
+  ${HOMEBREW_PREFIX}/opt/grep/libexec/gnubin
+  ${HOMEBREW_PREFIX}/opt/gnu-indent/libexec/gnubin
+  ${HOMEBREW_PREFIX}/opt/gnu-tar/libexec/gnubin
+  ${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin
+  ${HOMEBREW_PREFIX}/opt/make/libexec/gnubin
+  ${HOMEBREW_PREFIX}/opt/findutils/libexec/gnubin
+  ${HOMEBREW_PREFIX}/{bin,sbin}
   $path
 )
 
 fpath=(
-  /usr/local/share/zsh/site-functions
-  /usr/local/share/zsh-completions
+  ${HOMEBREW_PREFIX}/share/zsh/site-functions
+  ${HOMEBREW_PREFIX}/share/zsh-completions
   $fpath
 )
-
-export HOMEBREW_PREFIX=$(brew --prefix)
 
 #
 # Less
@@ -78,5 +78,3 @@ export LESS='-g -i -M -R -S -w -z-4'
 if (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
-
-export PATH="$HOME/.cargo/bin:$PATH"

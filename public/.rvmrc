@@ -20,9 +20,9 @@ export rvm_silence_path_mismatch_check_flag=1
 export rvm_architectures=(x86_64)
 export rvm_configure_env=(
   ARCH_FLAG=x86_64
-  # CC=/usr/local/bin/gcc-10
-  # CPP=/usr/local/bin/cpp-10
-  # CXX=/usr/local/bin/g++-10
+  # CC=$HOMEBREW_PREFIX/bin/gcc-10
+  # CPP=$HOMEBREW_PREFIX/bin/cpp-10
+  # CXX=$HOMEBREW_PREFIX/bin/g++-10
   # CC=clang
   # CPP=clang
   # CXX=clang
@@ -33,16 +33,16 @@ export rvm_configure_env=(
   CCFLAGS='-mtune=native -Ofast'
   CXXFLAGS='-mtune=native -Ofast'
   # DYLD_FORCE_FLAT_NAMESPACE=true
-  # DYLD_INSERT_LIBRARIES=/usr/local/lib/libtcmalloc_minimal.dylib
-  # LDFLAGS="-L/usr/local/opt/openssl/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/gperftools/lib"
+  # DYLD_INSERT_LIBRARIES=$HOMEBREW_PREFIX/lib/libtcmalloc_minimal.dylib
+  # LDFLAGS="-L$HOMEBREW_PREFIX/opt/openssl/lib -L$HOMEBREW_PREFIX/opt/readline/lib -L$HOMEBREW_PREFIX/opt/gperftools/lib"
   # LIBS=-ltcmalloc_minimal
-  # PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig:/usr/local/opt/readline/lib/pkgconfig:/usr/local/opt/gperftools/lib/pkgconfig:$PKG_CONFIG_PATH"
+  # PKG_CONFIG_PATH="$HOMEBREW_PREFIX/opt/openssl/lib/pkgconfig:$HOMEBREW_PREFIX/opt/readline/lib/pkgconfig:$HOMEBREW_PREFIX/opt/gperftools/lib/pkgconfig:$PKG_CONFIG_PATH"
 )
 export rvm_configure_flags=(
   # --sysconfdir=/etc
-  # --with-openssl-dir=/usr/local/opt/openssl
-  # --with-opt-dir=/usr/local:/usr/local/opt:/usr/local/opt/openssl:/usr/local/opt/readline:/usr/local/opt/gperftools
-  # --with-readline-dir=/usr/local/opt/readline
+  # --with-openssl-dir=$HOMEBREW_PREFIX/opt/openssl
+  # --with-opt-dir=$HOMEBREW_PREFIX:$HOMEBREW_PREFIX/opt:$HOMEBREW_PREFIX/opt/openssl:$HOMEBREW_PREFIX/opt/readline:$HOMEBREW_PREFIX/opt/gperftools
+  # --with-readline-dir=$HOMEBREW_PREFIX/opt/readline
 )
 
 # Including this envvar breaks Go, and thus direnv;
@@ -51,6 +51,6 @@ export rvm_configure_flags=(
 # Requires Google perftools:
 #   `brew install google-perftools` or `apt-get install google-perftools libgoogle-perftools-dev`
 # export LD_PRELOAD=/usr/lib/libtcmalloc_minimal.so # (...under Linux)
-# export DYLD_INSERT_LIBRARIES=/usr/local/lib/libtcmalloc_minimal.dylib # (...under OS X)
+# export DYLD_INSERT_LIBRARIES=$HOMEBREW_PREFIX/lib/libtcmalloc_minimal.dylib # (...under OS X)
 
 umask u=rwx,g=rwx,o=rx

@@ -2,7 +2,6 @@
 
 # -- General shell configuration. ----------------------------------------------
 export BANG_HIST=true
-export EDITOR="/usr/local/bin/code-insiders --wait --reuse-window"
 export GIT_EDITOR="$EDITOR"
 export VISUAL="$EDITOR"
 export EXTENDED_HISTORY=true
@@ -36,8 +35,6 @@ export HOMEBREW_FORCE_BREWED_GIT=1
 # ...for GraalVM.
 export CORRETTO_11_JAVA_HOME="/Users/daniel/.asdf/installs/java/corretto-11.0.9.11.1"
 export CORRETTO_8_JAVA_HOME="/Users/daniel/.asdf/installs/java/corretto-8.275.01.1"
-export GRAAL_JAVA_HOME="/Library/Java/VirtualMachines/graalvm-ee-java11-20.2.0/Contents/Home"
-export GRAAL_PATH="/Library/Java/VirtualMachines/graalvm-ee-java11-20.2.0/Contents/Home/bin"
 export JAVA_HOME="$GRAAL_JAVA_HOME"
 export PATH="$GRAAL_PATH:$PATH"
 
@@ -46,7 +43,7 @@ export WORKON_HOME="$HOME/.local/share/virtualenvs"
 export PROJECT_HOME="$HOME/Code"
 
 if ! hash conda &>/dev/null; then
-  export PATH="/usr/local/opt/python@3.7/libexec/bin:$PATH"
+  export PATH="${HOMEBREW_PREFIX}/python@3.7/libexec/bin:$PATH"
 fi
 
 # ...for Node.
@@ -133,20 +130,13 @@ export PATH="$PATH:$HOME/Dropbox/Documents/Fonts"
 # ... for krew.
 export PATH="$PATH:${KREW_ROOT:-$HOME/.krew}/bin"
 
-# ... for Neo4j.
-export PATH="$PATH:/usr/local/opt/neo4j/4.1.2/bin"
-
-# ... for GNU coreutils.
-# export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:/usr/local/opt/grep/libexec/gnubin:$PATH"
-
 # ... for mkcert.
 export CAROOT="$HOME/Dropbox/Settings/SSL"
 export NODE_EXTRA_CA_CERTS="$CAROOT/rootCA.pem"
 
 # ... for Ruby.
 # export PATH="$PATH:$HOME/.rvm/bin"
-export PATH="/usr/local/rvm/bin:$PATH"
-# export RUBY_CONFIGURE_OPTS="--sysconfdir=/usr/local/etc --with-openssl-dir=/usr/local/opt/openssl --with-opt-dir=/usr/local:/usr/local/opt/openssl:/usr/local/opt/readline:/usr/local/opt/gperftools --with-readline-dir=/usr/local/opt/readline"
+# export PATH="/usr/local/rvm/bin:$PATH"
 
 # ... for Android Studio.
 export ANDROID_HOME="$HOME/Library/Android/sdk"
@@ -168,14 +158,14 @@ export CLIPPY_DISABLE_DOCS_LINKS=true
 export GPG_TTY="$(tty)"
 
 # ... for cURL.
-export PATH="/usr/local/opt/curl/bin:$PATH"
+export PATH="${HOMEBREW_PREFIX}/curl/bin:$PATH"
 
 # ... for Vagrant VMWare integration.
 export PATH="$PATH:/opt/vagrant-vmware-desktop/bin"
 
 # ... for Google Cloud SDK.
-export CLOUDSDK_PYTHON=/usr/local/opt/python@3.7/libexec/bin/python
-export PATH="$PATH:/usr/local/opt/google-cloud-sdk/bin"
+export CLOUDSDK_PYTHON="${HOMEBREW_PREFIX}/python@3.7/libexec/bin/python"
+export PATH="$PATH:${HOMEBREW_PREFIX}/google-cloud-sdk/bin"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"

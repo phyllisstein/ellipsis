@@ -203,7 +203,7 @@ yarn-quiet() {
 
   [[ -d "$(dirname "$log_path")" ]] || mkdir -p "$(dirname "$log_path")"
 
-  /usr/local/bin/yarn $* 2>"${log_path}"
+  $HOMEBREW_PREFIX/bin/yarn $* 2>"${log_path}"
 
   local ret="$?"
 

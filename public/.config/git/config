@@ -81,8 +81,6 @@
 	pushInsteadOf = "git://gist.github.com/"
 [url "git://gist.github.com/"]
 	insteadOf = "gist:"
-[gpg]
-	program = /usr/local/bin/gpg
 [commit]
 	gpgsign = false
 [lfs]

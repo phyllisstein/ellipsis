@@ -15,7 +15,7 @@ alias cpan='rlwrap cpan'
 alias du='du -mhs --apparent-size'
 alias f='cdf'
 # alias find='noglob find -E'
-alias ghostscript='/usr/local/bin/gs'
+alias ghostscript="$HOMEBREW_PREFIX/bin/gs"
 alias git='hub'
 compdef hub='git'
 alias gsu='git standup'
@@ -35,7 +35,7 @@ alias repath='sudo launchctl config user path "$PATH" && sudo launchctl config s
 alias urlencode='python -c "import sys; from urllib import parse as p; f = open(sys.argv[1], mode=''rb''); print(p.quote_plus(f.read())); f.close();"'
 # alias yarn='yarn-quiet'
 alias y='yarn'
-alias ydl='youtube-dl --format="bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best" --hls-prefer-ffmpeg --merge-output=mp4 --no-mtime --no-overwrites --no-warnings --output="%(title)s.%(ext)s" --playlist-random --restrict-filenames --user-agent="Mozilla/5.0"'
+alias ydl='youtube-dlc --format="bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best" --hls-prefer-ffmpeg --merge-output=mp4 --no-mtime --no-overwrites --no-warnings --output="%(title)s.%(ext)s" --playlist-random --restrict-filenames --user-agent="Mozilla/5.0"'
 
 # -- Handy network tricks. -----------------------------------------------------
 # alias myip='dig @resolver1.opendns.com -4 myip.opendns.com +short && dig +short -6 myip.opendns.com aaaa @resolver1.ipv6-sandbox.opendns.com'
@@ -47,7 +47,7 @@ alias emptytrash='sudo rm -rf /Volumes/*/.Trashes; sudo rm -rf ~/.Trash; sudo rm
 
 # -- Pretty directory listings. ------------------------------------------------
 #    Defaults to the `gls` command installed with GNU Coreutils (`brew install coreutils`).
-alias ls='/usr/local/bin/gls --group-directories-first --human-readable --color=auto --quoting-style=literal'
+alias ls="$HOMEBREW_PREFIX/bin/gls --group-directories-first --human-readable --color=auto --quoting-style=literal"
 
 # -- Trim newlines and copy. ---------------------------------------------------
 alias ccp="tr -d '\n' | pbcopy"

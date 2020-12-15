@@ -1,5 +1,5 @@
 function ydl
-    /usr/local/bin/youtube-dl \
+    youtube-dlc \
         --format "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best" \
         --hls-prefer-ffmpeg \
         --merge-output=mp4 \
