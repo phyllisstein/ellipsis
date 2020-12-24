@@ -13,3 +13,13 @@
     zcompile "$zcompdump"
   fi
 } &!
+
+{
+  if [[ -d "$HOME/.ellipsis" ]]; then
+    cd "$HOME/.ellipsis"
+
+    [[ -n $(git status --short) ]] && return
+
+    git pull
+  fi
+} &!
