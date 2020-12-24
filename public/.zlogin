@@ -20,6 +20,6 @@
 
     [[ -n $(git status --short) ]] && return
 
-    git pull
+    git pull &>/dev/null
   fi
 } &!
