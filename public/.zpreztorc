@@ -29,9 +29,9 @@ zstyle ':prezto:load' zfunction 'zargs' 'zmv'
 # Set the Prezto modules to load (browse modules).
 # The order matters.
 #   * `completion` must come after `utility`.
-#   * `syntax-highlighting` must come before `prompt` and after `history-substring-search`.
-#   * `history-substring-search` must come after `syntax-highlighting`.
+#   * `syntax-highlighting` must come before `prompt`.
 #   * `autosuggestions` must come after `syntax-highlighting`.
+#   * `history-substring-search` must come after `syntax-highlighting`.
 zstyle ':prezto:load' pmodule \
   'utility' \
   'completion' \
