@@ -43,13 +43,13 @@ export HELPDIR="$HOMEBREW_PREFIX/share/zsh/helpfiles:$HELPDIR"
 # ------------------------------ Shell Utilities ----------------------------- #
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
-# [[ -f "${HOMEBREW_PREFIX}/opt/git-extras/share/git-extras/git-extras-completion.zsh" ]] && source "${HOMEBREW_PREFIX}/opt/git-extras/share/git-extras/git-extras-completion.zsh"
+[[ -f "${HOMEBREW_PREFIX}/opt/git-extras/share/git-extras/git-extras-completion.zsh" ]] && source "${HOMEBREW_PREFIX}/opt/git-extras/share/git-extras/git-extras-completion.zsh"
 
-# [[ -f "${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] && source "${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+[[ -f "${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] && source "${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
-# [[ -f "${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] && source "${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+[[ -f "${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] && source "${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
-# [[ -f "${HOMEBREW_PREFIX}/share/zsh-history-substring-search/zsh-history-substring-search.zsh" ]] && source "${HOMEBREW_PREFIX}/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
+[[ -f "${HOMEBREW_PREFIX}/share/zsh-history-substring-search/zsh-history-substring-search.zsh" ]] && source "${HOMEBREW_PREFIX}/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
 
 [[ -f "${HOME}/.kubectl_aliases" ]] && source "${HOME}/.kubectl_aliases"
 source <($HOMEBREW_PREFIX/bin/kubectl completion zsh)

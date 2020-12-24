@@ -174,4 +174,4 @@ export PATH="${HOMEBREW_PREFIX}/curl/bin:$PATH"
 export PATH="$PATH:/opt/vagrant-vmware-desktop/bin"
 
 # ----------------------------- Google Cloud SDK ----------------------------- #
-export CLOUDSDK_PYTHON="${HOMEBREW_PREFIX}/python@3.8/libexec/bin/python"
+export CLOUDSDK_PYTHON="${HOMEBREW_PREFIX}/opt/python@3.8/libexec/bin/python"
