@@ -77,7 +77,7 @@ export GOPATH=$HOME/.go
 export PATH="$PATH:$GOPATH/bin"
 
 # ------------------------------- GNU Coreutils ------------------------------ #
-export PATH="${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnubin:${HOMEBREW_PREFIX}/opt/gnu-which/libexec/gnubin:${HOMEBREW_PREFIX}/opt/gsed/libexec/gnubin:${HOMEBREW_PREFIX}/opt/grep/libexec/gnubin:${HOMEBREW_PREFIX}/opt/gnu-indent/libexec/gnubin:${HOMEBREW_PREFIX}/opt/gnu-tar/libexec/gnubin:${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin:${HOMEBREW_PREFIX}/opt/make/libexec/gnubin:${HOMEBREW_PREFIX}/opt/findutils/libexec/gnubin:$PATH"
+export PATH="${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnubin:${HOMEBREW_PREFIX}/opt/gnu-which/libexec/gnubin:${HOMEBREW_PREFIX}/opt/gsed/libexec/gnubin:${HOMEBREW_PREFIX}/opt/grep/libexec/gnubin:${HOMEBREW_PREFIX}/opt/gnu-indent/libexec/gnubin:${HOMEBREW_PREFIX}/opt/gnu-tar/libexec/gnubin:${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin:${HOMEBREW_PREFIX}/opt/make/libexec/gnubin:${HOMEBREW_PREFIX}/opt/findutils/libexec/gnubin:${HOMEBREW_PREFIX}/opt/gawk/bin:$PATH"
 
 # -------------------------- ios-webkit-debug-proxy -------------------------- #
 export SDK_DIR="/Applications/Xcode-beta.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/"
