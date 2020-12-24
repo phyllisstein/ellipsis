@@ -51,9 +51,12 @@ export HELPDIR="$HOMEBREW_PREFIX/share/zsh/helpfiles:$HELPDIR"
 
 [[ -f "${HOMEBREW_PREFIX}/share/zsh-history-substring-search/zsh-history-substring-search.zsh" ]] && source "${HOMEBREW_PREFIX}/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
 
-[[ -f "${HOME}/.kubectl_aliases" ]] && source "${HOME}/.kubectl_aliases"
-source <($HOMEBREW_PREFIX/bin/kubectl completion zsh)
-complete -F __start_kubectl k
+[[ -f "${HOME}/.kubectl-aliases/.kubectl_aliases" ]] && source "${HOME}/.kubectl-aliases/.kubectl_aliases"
+
+if hash kubectl &>/dev/null; then
+  source <($HOMEBREW_PREFIX/bin/kubectl completion zsh)
+  complete -F __start_kubectl k
+fi
 
 eval "$(gdircolors -b "$HOME/.dircolors/phyllisstein")"
 
