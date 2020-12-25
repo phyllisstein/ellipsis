@@ -25,10 +25,15 @@ typeset -gU cdpath fpath mailpath path
 #   $cdpath
 # )
 
-__uname_value="$(uname -s)"
-if [[ "$__uname_value" == "Darwin" ]]; then
+# Set the list of directories that Zsh searches for programs.
+path=(
+  /usr/local/{bin,sbin}
+  $path
+)
+
+if [[ "$(uname -s)" == "Darwin" ]]; then
   export ELLIPSIS_PLATFORM="macos"
-elif [[ "$__uname_value" == "Linux" && -d /mnt/c ]]; then
+elif [[ "$(uname -s)" == "Linux" && "$(uname -r)" =~ "microsoft" ]]; then
   export ELLIPSIS_PLATFORM="wsl"
 fi
 
@@ -41,12 +46,6 @@ if [[ "$ELLIPSIS_PLATFORM" == "wsl" ]]; then
 fi
 
 export HOMEBREW_PREFIX="$(brew --prefix)"
-
-# Set the list of directories that Zsh searches for programs.
-path=(
-  /usr/local/{bin,sbin}
-  $path
-)
 
 fpath=(
   ${HOMEBREW_PREFIX}/share/zsh/site-functions
