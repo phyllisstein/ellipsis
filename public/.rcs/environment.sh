@@ -4,8 +4,6 @@
 # ========================== General Shell Settings ========================== #
 # ============================================================================ #
 export BANG_HIST=true
-export GIT_EDITOR="$EDITOR"
-export VISUAL="$EDITOR"
 export EXTENDED_HISTORY=true
 export HIST_IGNORE_DUPS=true
 export HISTSIZE=32768
@@ -15,15 +13,12 @@ export HISTIGNORE="*ydl*:*youtube-dl*"
 export SAVEHIST=32768
 export SHARE_HISTORY=false
 export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
 export PROMPT_EOL_MARK=''
-export SAVEHIST=32768
-export SHARE_HISTORY=false
-export LC_ALL=en_US.UTF-8
 
 # ---------------------------------- VSCode ---------------------------------- #
 export EDITOR="$(which code) --wait --reuse-window"
-
+export GIT_EDITOR="$EDITOR"
+export VISUAL="$EDITOR"
 
 # ============================================================================ #
 # ========================== Application Environment ========================= #
@@ -33,7 +28,6 @@ export EDITOR="$(which code) --wait --reuse-window"
 # export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export HOMEBREW_MAKE_JOBS=2
 export HOMEBREW_NO_ANALYTICS=true
-export HOMEBREW_NO_EMOJI=1
 export HOMEBREW_FORCE_BREWED_GIT=1
 
 # ----------------------------------- Java ----------------------------------- #
