@@ -69,7 +69,7 @@ fi
 
 # [[ -f "${HOMEBREW_PREFIX}/bin/virtualenvwrapper_lazy.sh" ]] && source "${HOMEBREW_PREFIX}/bin/virtualenvwrapper_lazy.sh"
 
-# eval "$(starship init zsh)"
+eval "$(starship init zsh)"
 
 eval "$(direnv hook zsh)"
 

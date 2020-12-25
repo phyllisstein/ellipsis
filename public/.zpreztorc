@@ -47,11 +47,7 @@ zstyle ':prezto:load' pmodule \
   'history' \
   'osx' \
   'terminal' \
-  'history' \
-  'syntax-highlighting' \
-  'history-substring-search' \
-  'autosuggestions' \
-  'prompt'
+  'history'
 
 #
 # Autosuggestions
@@ -145,7 +141,7 @@ zstyle ':prezto:module:osx:man' dash-keyword 'man'
 # zstyle ':prezto:module:prompt' theme 'peepcode' '❯'
 # zstyle ':prezto:module:prompt' theme 'sorin'
 # zstyle ':prezto:module:prompt' theme 'pure'
-zstyle ':prezto:module:prompt' theme 'powerlevel10k'
+# zstyle ':prezto:module:prompt' theme 'powerlevel10k'
 
 # Set the working directory prompt display length.
 # By default, it is set to 'short'. Set it to 'long' (without '~' expansion)
