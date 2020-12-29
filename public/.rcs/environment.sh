@@ -16,7 +16,7 @@ export LANG=en_US.UTF-8
 export PROMPT_EOL_MARK=''
 
 # ---------------------------------- VSCode ---------------------------------- #
-export EDITOR="$(which code) --wait --reuse-window"
+export EDITOR="$(which code-insiders) --wait --reuse-window"
 export GIT_EDITOR="$EDITOR"
 export VISUAL="$EDITOR"
 
