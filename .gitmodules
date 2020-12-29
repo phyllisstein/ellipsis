@@ -1,6 +1,6 @@
 [submodule "public/.local/share/pandoc"]
 	path = public/.local/share/pandoc
-	url = git@github.com:phyllisstein/pandoc-assets.git
+	url = https://github.com/phyllisstein/pandoc-assets.git
 [submodule "public/.zprezto"]
 	path = public/.zprezto
 	url = https://github.com/sorin-ionescu/prezto.git
