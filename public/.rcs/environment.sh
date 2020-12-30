@@ -120,15 +120,11 @@ export PATH="$HOME/.local/bin:$PATH"
 if [[ "$ELLIPSIS_PLATFORM" == "macos" ]]; then
   export PATH="$PATH:$HOME/Dropbox/Documents/Fonts"
 elif [[ "$ELLIPSIS_PLATFORM" == "wsl" ]]; then
-  export PATH="$PATH:/mnt/c/Dropbox/Documents/Fonts"
+  export PATH="$PATH:/c/Dropbox/Documents/Fonts"
 fi
 
 # ------------------------------ Kubernetes Krew ----------------------------- #
 export PATH="$PATH:${KREW_ROOT:-$HOME/.krew}/bin"
-
-# ... for mkcert.
-export CAROOT="$HOME/Dropbox/Settings/SSL"
-export NODE_EXTRA_CA_CERTS="$CAROOT/rootCA.pem"
 
 # ----------------------------------- Ruby ----------------------------------- #
 if [[ -d "$HOME/.rvm" ]]; then
