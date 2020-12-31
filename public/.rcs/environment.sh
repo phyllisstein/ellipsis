@@ -47,6 +47,7 @@ export WORKON_HOME="$HOME/.local/share/virtualenvs"
 export PROJECT_HOME="$HOME/Code"
 # export PIPENV_IGNORE_VIRTUALENVS=1
 export PIPENV_VERBOSITY=-1
+export PATH="${HOMEBREW_PREFIX}/opt/python3/libexec/bin:$PATH"
 
 # ---------------------------------- NodeJS ---------------------------------- #
 # export NODE_OPTIONS="--experimental-modules --experimental-vm-modules --experimental-repl-await --es-module-specifier-resolution=node"
