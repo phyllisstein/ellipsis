@@ -7,7 +7,7 @@ export JAVA_HOME="$GRAAL_JAVA_HOME"
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # ------------------------------ macOS CLI Trash ----------------------------- #
-alias rm='trash'
+alias tm='trash'
 
 # ---------------------------------- mkcert ---------------------------------- #
 export CAROOT="$HOME/Dropbox/Settings/SSL"
