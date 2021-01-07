@@ -47,6 +47,9 @@ zstyle ':prezto:load' pmodule \
   'osx' \
   'terminal' \
   'history' \
+  'syntax-highlighting' \
+  'autosuggestions' \
+  'history-substring-search' \
   'prompt'
 
 #
@@ -110,7 +113,7 @@ zstyle ':prezto:module:history-substring-search:color' found 'fg=green,bold'
 zstyle ':prezto:module:history-substring-search:color' not-found 'fg=red,bold'
 
 # Set the search globbing flags.
-zstyle ':prezto:module:history-substring-search' globbing-flags 'l'
+# zstyle ':prezto:module:history-substring-search' globbing-flags 'i'
 
 #
 # OS X
@@ -216,7 +219,7 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
 #
 
 # Auto set the tab and window titles.
-# zstyle ':prezto:module:terminal' auto-title 'yes'
+zstyle ':prezto:module:terminal' auto-title 'yes'
 
 # Set the window title format.
 # zstyle ':prezto:module:terminal:window-title' format '%n@%m: %s'

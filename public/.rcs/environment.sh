@@ -21,10 +21,10 @@ export GIT_EDITOR="$EDITOR"
 export VISUAL="$EDITOR"
 
 # ------------------------- History Substring Search ------------------------- #
-export HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS='li'
-export HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
-export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='fg=green,bold'
-export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='fg=red,bold'
+# export HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS='li'
+# export HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
+# export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='fg=green,bold'
+# export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='fg=red,bold'
 
 # ============================================================================ #
 # ========================== Application Environment ========================= #
