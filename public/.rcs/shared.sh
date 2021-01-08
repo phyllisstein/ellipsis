@@ -6,7 +6,7 @@ alias zmv='noglob zmv'
 alias zcp='noglob zmv -C'
 alias zln='noglob zmv -Ls'
 
-[[ -d "$HOME/.asdf" ]] && source "$HOME/.asdf/asdf.sh"
+[[ -f "$HOME/.asdf/asdf.sh" ]] && source "$HOME/.asdf/asdf.sh"
 
 # if hash conda 2>/dev/null; then
 #   # >>> conda initialize >>>
