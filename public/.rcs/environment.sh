@@ -37,8 +37,6 @@ export HOMEBREW_NO_ANALYTICS=true
 export HOMEBREW_FORCE_BREWED_GIT=1
 
 # ----------------------------------- Java ----------------------------------- #
-export CORRETTO_11_JAVA_HOME="/Users/daniel/.asdf/installs/java/corretto-11.0.9.11.1"
-export CORRETTO_8_JAVA_HOME="/Users/daniel/.asdf/installs/java/corretto-8.275.01.1"
 export JAVA_HOME="$GRAAL_JAVA_HOME"
 export PATH="$GRAAL_PATH:$PATH"
 
@@ -171,4 +169,4 @@ export PATH="${HOMEBREW_PREFIX}/curl/bin:$PATH"
 export PATH="$PATH:/opt/vagrant-vmware-desktop/bin"
 
 # ----------------------------- Google Cloud SDK ----------------------------- #
-export CLOUDSDK_PYTHON="${HOMEBREW_PREFIX}/opt/python@3.8/libexec/bin/python"
+# export CLOUDSDK_PYTHON="${HOMEBREW_PREFIX}/opt/python@3.8/libexec/bin/python"
