@@ -29,11 +29,11 @@ alias zln='noglob zmv -Ls'
 # fi
 
 # -------------------------- Breakaway Config Files -------------------------- #
+test -f "$HOME/.rcs/${ELLIPSIS_PLATFORM}.sh" && source "$HOME/.rcs/${ELLIPSIS_PLATFORM}.sh"
+
 for dot in $HOME/.rcs/{secrets,options,environment,aliases,functions}.sh; do
   test -f "$dot" && source "$dot"
 done
-
-test -f "$HOME/.rcs/${ELLIPSIS_PLATFORM}.sh" && source "$HOME/.rcs/${ELLIPSIS_PLATFORM}.sh"
 
 # ----------------------------- Homebrew ZSH Help ---------------------------- #
 unalias run-help
