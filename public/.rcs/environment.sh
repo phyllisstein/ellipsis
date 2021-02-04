@@ -60,7 +60,7 @@ export PATH="$PATH:/usr/local/yarn/node_modules/.bin:$HOME/.yarn/bin:$HOME/.conf
 # export PYTHONPATH="$PYTHONPATH:/Applications/Sublime Text.app/Contents/MacOS"
 
 # ---------------------------------- AWS CLI --------------------------------- #
-export AWS_PROFILE=ignota
+export AWS_PROFILE=personal
 
 # ------------------------------------ hub ----------------------------------- #
 export GITHUB_USERNAME="phyllisstein"
