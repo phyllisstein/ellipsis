@@ -35,11 +35,6 @@ for dot in $HOME/.rcs/{secrets,options,environment,aliases,functions}.sh; do
   test -f "$dot" && source "$dot"
 done
 
-# ----------------------------- Homebrew ZSH Help ---------------------------- #
-unalias run-help
-autoload run-help
-export HELPDIR="$HOMEBREW_PREFIX/share/zsh/helpfiles:$HELPDIR"
-
 # ------------------------------ Shell Utilities ----------------------------- #
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
@@ -51,8 +46,6 @@ if hash kubectl &>/dev/null; then
   source <($HOMEBREW_PREFIX/bin/kubectl completion zsh)
   complete -F __start_kubectl k
 fi
-
-eval "$(gdircolors -b "$HOME/.dircolors/phyllisstein")"
 
 if [[ -d "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/" ]]; then
   source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"

@@ -42,10 +42,9 @@ if [[ "$ELLIPSIS_PLATFORM" == "wsl" ]]; then
     /home/linuxbrew/.linuxbrew/bin
     $path
   )
-
 fi
 
-export HOMEBREW_PREFIX="$(brew --prefix)"
+export HOMEBREW_PREFIX="$(brew --prefix 2>/dev/null)"
 
 fpath=(
   ${HOMEBREW_PREFIX}/share/zsh/site-functions

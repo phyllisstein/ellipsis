@@ -1,3 +1,8 @@
+# ----------------------------- Homebrew ZSH Help ---------------------------- #
+unalias run-help
+autoload run-help
+export HELPDIR="$HOMEBREW_PREFIX/share/zsh/helpfiles:$HELPDIR"
+
 # ---------------------------------- GraalVM --------------------------------- #
 export GRAAL_JAVA_HOME="/Library/Java/JavaVirtualMachines/graalvm-ee-java11-21.0.0/Contents/Home"
 export GRAAL_PATH="/Library/Java/JavaVirtualMachines/graalvm-ee-java11-21.0.0/Contents/Home/bin"
@@ -11,3 +16,6 @@ alias tm='trash'
 # ---------------------------------- mkcert ---------------------------------- #
 export CAROOT="$HOME/Dropbox/Settings/SSL"
 export NODE_EXTRA_CA_CERTS="$CAROOT/rootCA.pem"
+
+# --------------------------------- dircolors -------------------------------- #
+eval "$(gdircolors -b "$HOME/.dircolors/phyllisstein")"
