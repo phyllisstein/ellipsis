@@ -14,7 +14,7 @@ fi
 autoload run-help
 
 # ---------------------------------- mkcert ---------------------------------- #
-export CAROOT="/mnt/c/Users/danie/Dropbox/Settings/SSL"
+export CAROOT="/mnt/c/Users/Daniel P. Shannon/Dropbox/Settings/SSL"
 export NODE_EXTRA_CA_CERTS="$CAROOT/rootCA.pem"
 
 # ------------------------------------ X11 ----------------------------------- #
@@ -26,3 +26,6 @@ export GDK_SCALE=2
 
 # --------------------------------- dircolors -------------------------------- #
 eval "$(dircolors -b "$HOME/.dircolors/phyllisstein")"
+
+# --------------------------------- Anaconda --------------------------------- #
+eval "$(/usr/local/anaconda/bin/conda shell.zsh hook)"
