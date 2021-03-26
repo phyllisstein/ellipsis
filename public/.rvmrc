@@ -17,9 +17,9 @@ export rvm_silence_path_mismatch_check_flag=1
 
 # `brew install gcc openssl readline gperftools`
 
-export rvm_architectures=(x86_64)
+# export rvm_architectures=(x86_64)
 export rvm_configure_env=(
-  ARCH_FLAG=x86_64
+  # ARCH_FLAG=x86_64
   # CC=$HOMEBREW_PREFIX/bin/gcc-10
   # CPP=$HOMEBREW_PREFIX/bin/cpp-10
   # CXX=$HOMEBREW_PREFIX/bin/g++-10
@@ -29,9 +29,15 @@ export rvm_configure_env=(
   # CFLAGS='-fno-builtin-malloc -fno-builtin-calloc -fno-builtin-realloc -fno-builtin-free -march=native -mtune=native -Ofast'
   # CCFLAGS='-fno-builtin-malloc -fno-builtin-calloc -fno-builtin-realloc -fno-builtin-free -march=native -mtune=native -Ofast'
   # CXXFLAGS='-fno-builtin-malloc -fno-builtin-calloc -fno-builtin-realloc -fno-builtin-free -march=native -mtune=native -Ofast'
-  CFLAGS='-mtune=native -Ofast'
-  CCFLAGS='-mtune=native -Ofast'
-  CXXFLAGS='-mtune=native -Ofast'
+  CFLAGS='-mtune=native -Ofast -Wno-error=implicit-function-declaration -I/opt/homebrew/opt/openssl@1.1/include'
+  CCFLAGS='-mtune=native -Ofast -Wno-error=implicit-function-declaration -I/opt/homebrew/opt/openssl@1.1/include'
+  CPPFLAGS='-mtune=native -Ofast -Wno-error=implicit-function-declaration -I/opt/homebrew/opt/openssl@1.1/include'
+  CXXFLAGS='-mtune=native -Ofast -Wno-error=implicit-function-declaration -I/opt/homebrew/opt/openssl@1.1/include'
+  RUBY_CFLAGS='-mtune=native -Ofast -Wno-error=implicit-function-declaration -I/opt/homebrew/opt/openssl@1.1/include'
+  PKG_CONFIG_PATH='/opt/homebrew/opt/openssl@1.1/lib/pkgconfig'
+  LDFLAGS='-L/opt/homebrew/opt/openssl@1.1/lib'
+  RUBY_CONFIGURE_OPTS='--with-openssl-dir=/opt/homebrew/opt/openssl@1.1'
+
   # DYLD_FORCE_FLAT_NAMESPACE=true
   # DYLD_INSERT_LIBRARIES=$HOMEBREW_PREFIX/lib/libtcmalloc_minimal.dylib
   # LDFLAGS="-L$HOMEBREW_PREFIX/opt/openssl/lib -L$HOMEBREW_PREFIX/opt/readline/lib -L$HOMEBREW_PREFIX/opt/gperftools/lib"

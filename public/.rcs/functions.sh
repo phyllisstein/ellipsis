@@ -73,15 +73,6 @@ s() {
   fi
 }
 
-unalias a &>/dev/null
-a() {
-  if [[ $# -eq 0 ]]; then
-    atom .
-  else
-    atom $*
-  fi
-}
-
 c() {
   if [[ $# -eq 0 ]]; then
     code .

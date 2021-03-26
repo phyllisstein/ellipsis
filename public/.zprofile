@@ -33,6 +33,7 @@ path=(
 
 if [[ "$(uname -s)" == "Darwin" ]]; then
   export ELLIPSIS_PLATFORM="macos"
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 elif [[ "$(uname -s)" == "Linux" && "$(uname -r)" =~ "microsoft" ]]; then
   export ELLIPSIS_PLATFORM="wsl"
 fi
