@@ -3,9 +3,15 @@ unalias run-help
 autoload run-help
 export HELPDIR="$HOMEBREW_PREFIX/share/zsh/helpfiles:$HELPDIR"
 
+# --------------------------------- MacPorts --------------------------------- #
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+export MANPATH="/opt/local/share/man:/opt/homebrew/share/man:$MANPATH"
+export DISPLAY=:0
+
 # ---------------------------------- GraalVM --------------------------------- #
-export GRAAL_JAVA_HOME="/Library/Java/JavaVirtualMachines/graalvm-ee-java11-21.0.0/Contents/Home"
-export GRAAL_PATH="/Library/Java/JavaVirtualMachines/graalvm-ee-java11-21.0.0/Contents/Home/bin"
+export GRAAL_VERSION=graalvm-ee-java8-21.0.0.2
+export GRAAL_JAVA_HOME="/Library/Java/JavaVirtualMachines/$GRAAL_VERSION/Contents/Home"
+export GRAAL_PATH="/Library/Java/JavaVirtualMachines/$GRAAL_VERSION/Contents/Home/bin"
 
 # ----------------------------------- iTerm ---------------------------------- #
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
@@ -19,3 +25,10 @@ export NODE_EXTRA_CA_CERTS="$CAROOT/rootCA.pem"
 
 # --------------------------------- dircolors -------------------------------- #
 eval "$(gdircolors -b "$HOME/.dircolors/phyllisstein")"
+
+# ---------------------------------- Netlify --------------------------------- #
+test -f "$HOME/Library/Preferences/netlify/helper/path.zsh.inc" && source "$HOME/Library/Preferences/netlify/helper/path.zsh.inc"
+
+# ---------------------------------- Python ---------------------------------- #
+export PATH="$HOME/Library/Python/3.9/bin:$PATH"
+export PYTHONPATH="$HOME/Library/Python/3.9/site-packages:$PYTHONPATH"

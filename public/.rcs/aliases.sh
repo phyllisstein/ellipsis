@@ -6,9 +6,11 @@ unalias mv &>/dev/null
 # -- Obviously. ----------------------------------------------------------------
 alias -- -="cd -"
 alias ~="cd ~"
+alias a='arch -x86_64'
 alias apm='apm-beta'
 alias atom='atom-beta'
 alias b='brew'
+alias ib='arch -x86_64 /usr/local/bin/brew'
 alias bups='brew update && brew upgrade'
 # alias code='code-insiders'
 # alias cpan='rlwrap cpan'
@@ -40,7 +42,7 @@ alias ydl='youtube-dl --format="bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=m
 # -- Handy network tricks. -----------------------------------------------------
 # alias myip='dig @resolver1.opendns.com -4 myip.opendns.com +short && dig +short -6 myip.opendns.com aaaa @resolver1.ipv6-sandbox.opendns.com'
 alias myip='dig @resolver1.opendns.com -4 myip.opendns.com +short'
-alias flush='sudo killall -HUP mDNSResponder && sudo dscacheutil -flushcache && sudo lunchy restart dnsmasq'
+alias flush='sudo killall -HUP mDNSResponder && sudo dscacheutil -flushcache && lunchy restart dnsmasq'
 
 # -- Empty the trash on all mounted volumes ------------------------------------
 alias emptytrash='sudo rm -rf /Volumes/*/.Trashes; sudo rm -rf ~/.Trash; sudo rm -rf /private/var/log/asl/*.asl'
