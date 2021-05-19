@@ -11,7 +11,8 @@
 .project
 .settings
 .sonarlint
-**/.vscode/*
-.wakatime-project
-*gitFinderDeleted
 .tool-versions
+.wakatime-project
+*.code-workspace
+**/.vscode/*
+*gitFinderDeleted

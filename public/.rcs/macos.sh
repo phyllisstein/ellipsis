@@ -9,9 +9,10 @@ export MANPATH="/opt/local/share/man:/opt/homebrew/share/man:$MANPATH"
 export DISPLAY=:0
 
 # ---------------------------------- GraalVM --------------------------------- #
-export GRAAL_VERSION=graalvm-ee-java8-21.0.0.2
-export GRAAL_JAVA_HOME="/Library/Java/JavaVirtualMachines/$GRAAL_VERSION/Contents/Home"
-export GRAAL_PATH="/Library/Java/JavaVirtualMachines/$GRAAL_VERSION/Contents/Home/bin"
+# export GRAAL_VERSION=graalvm-ee-java8-21.0.0.2
+# export GRAAL_JAVA_HOME="/Library/Java/JavaVirtualMachines/$GRAAL_VERSION/Contents/Home"
+# export GRAAL_PATH="/Library/Java/JavaVirtualMachines/$GRAAL_VERSION/Contents/Home/bin"
+# export JAVA_HOME="$(/usr/libexec/java_home)"
 
 # ----------------------------------- iTerm ---------------------------------- #
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

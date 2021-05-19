@@ -31,7 +31,7 @@ alias zln='noglob zmv -Ls'
 # -------------------------- Breakaway Config Files -------------------------- #
 test -f "$HOME/.rcs/${ELLIPSIS_PLATFORM}.sh" && source "$HOME/.rcs/${ELLIPSIS_PLATFORM}.sh"
 
-for dot in $HOME/.rcs/{secrets,options,environment,aliases,functions}.sh; do
+for dot in $HOME/.rcs/{aliases,functions,environment,secrets,options}.sh; do
   test -f "$dot" && source "$dot"
 done
 
@@ -67,7 +67,7 @@ eval "$(keychain --ignore-missing --quiet --eval ~/.ssh/personal_ed25519 ~/.ssh/
 
 eval "$(perl -I$HOME/.perl5/lib/perl5 -Mlocal::lib=$HOME/.perl5)"
 
-# eval "$(starship init zsh)"
+eval "$(starship init zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

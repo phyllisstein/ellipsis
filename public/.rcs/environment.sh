@@ -16,7 +16,8 @@ export LANG=en_US.UTF-8
 export PROMPT_EOL_MARK=''
 
 # ---------------------------------- VSCode ---------------------------------- #
-export EDITOR="'$(which code)' --wait --reuse-window"
+# export EDITOR="code --wait --reuse-window"
+export EDITOR="code-insiders --wait --reuse-window"
 export GIT_EDITOR="$EDITOR"
 export VISUAL="$EDITOR"
 
@@ -37,8 +38,8 @@ export HOMEBREW_NO_ANALYTICS=true
 export HOMEBREW_FORCE_BREWED_GIT=1
 
 # ----------------------------------- Java ----------------------------------- #
-export JAVA_HOME="$GRAAL_JAVA_HOME"
-export PATH="$GRAAL_PATH:$PATH"
+# export JAVA_HOME="$GRAAL_JAVA_HOME"
+# export PATH="$GRAAL_PATH:$PATH"
 
 # ---------------------------------- Python ---------------------------------- #
 export WORKON_HOME="$HOME/.local/share/virtualenvs"

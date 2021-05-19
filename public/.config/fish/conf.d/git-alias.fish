@@ -6,13 +6,13 @@
 #
 
 function git-branch-current
-    set -l ref (command git symbolic-ref HEAD 2> /dev/null)
-    if ! test -z "$ref"
-        printf (string replace "refs/heads/" "" $ref)
-        return 0
-    else
-        return 1
-    end
+  set -l ref (command git symbolic-ref HEAD 2> /dev/null)
+  if ! test -z "$ref"
+    printf (string replace "refs/heads/" "" $ref)
+    return 0
+  else
+    return 1
+  end
 end
 
 alias g='git'
@@ -196,8 +196,21 @@ alias gpF='git push --force'
 alias gpa='git push --all'
 alias gpA='git push --all && git push --tags'
 alias gpt='git push --tags'
-alias gpc='git push --set-upstream origin '(git-branch-current 2> /dev/null)
-alias gpp='git pull origin '(git-branch-current 2> /dev/null)' && git push origin '(git-branch-current 2> /dev/null)
+
+function gpc
+  git push --set-upstream origin (git-branch-current 2> /dev/null)
+end
+
+function gpp
+  set current_branch (git-branch-current 2> /dev/null)
+
+  if ! test -z "$current_branch"
+    exit 1
+  end
+
+  git pull origin "$current_branch"
+  git push origin "$current_branch"
+end
 
 # Rebase (r)
 alias gr='git rebase'

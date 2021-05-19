@@ -21,6 +21,7 @@ alias ghostscript="$HOMEBREW_PREFIX/bin/gs"
 alias git='hub'
 compdef hub='git'
 alias gsu='git standup'
+alias gbXa='git checkout -q main && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base main $branch) && [[ $(git cherry main $(git commit-tree $(git rev-parse $branch\^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done'
 alias https='http --default-scheme=https'
 alias iex='rlwrap iex'
 alias k='kubectl'
@@ -42,7 +43,7 @@ alias ydl='youtube-dl --format="bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=m
 # -- Handy network tricks. -----------------------------------------------------
 # alias myip='dig @resolver1.opendns.com -4 myip.opendns.com +short && dig +short -6 myip.opendns.com aaaa @resolver1.ipv6-sandbox.opendns.com'
 alias myip='dig @resolver1.opendns.com -4 myip.opendns.com +short'
-alias flush='sudo killall -HUP mDNSResponder && sudo dscacheutil -flushcache && lunchy restart dnsmasq'
+alias flush='sudo killall -HUP mDNSResponder && sudo dscacheutil -flushcache && sudo lunchy restart dnsmasq'
 
 # -- Empty the trash on all mounted volumes ------------------------------------
 alias emptytrash='sudo rm -rf /Volumes/*/.Trashes; sudo rm -rf ~/.Trash; sudo rm -rf /private/var/log/asl/*.asl'
