@@ -8,6 +8,8 @@ alias zln='noglob zmv -Ls'
 
 [[ -f "$HOME/.asdf/asdf.sh" ]] && source "$HOME/.asdf/asdf.sh"
 
+[[ -f "$HOME/.asdf/rust/beta/env" ]] && source "$HOME/.asdf/rust/beta/env"
+
 # if hash conda 2>/dev/null; then
 #   # >>> conda initialize >>>
 #   # !! Contents within this block are managed by 'conda init' !!
