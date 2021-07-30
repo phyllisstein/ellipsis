@@ -1,5 +1,5 @@
 # ----------------------------- Homebrew ZSH Help ---------------------------- #
-unalias run-help
+unalias run-help &> /dev/null
 autoload run-help
 export HELPDIR="$HOMEBREW_PREFIX/share/zsh/helpfiles:$HELPDIR"
 
@@ -9,10 +9,10 @@ export MANPATH="/opt/local/share/man:/opt/homebrew/share/man:$MANPATH"
 export DISPLAY=:0
 
 # ---------------------------------- GraalVM --------------------------------- #
-# export GRAAL_VERSION=graalvm-ee-java8-21.0.0.2
-# export GRAAL_JAVA_HOME="/Library/Java/JavaVirtualMachines/$GRAAL_VERSION/Contents/Home"
-# export GRAAL_PATH="/Library/Java/JavaVirtualMachines/$GRAAL_VERSION/Contents/Home/bin"
-# export JAVA_HOME="$(/usr/libexec/java_home)"
+export GRAAL_VERSION=graalvm-ee-java11-21.2.0
+export GRAAL_JAVA_HOME="/Library/Java/JavaVirtualMachines/$GRAAL_VERSION/Contents/Home"
+export GRAAL_PATH="/Library/Java/JavaVirtualMachines/$GRAAL_VERSION/Contents/Home/bin"
+export JAVA_HOME="$(/usr/libexec/java_home)"
 
 # ----------------------------------- iTerm ---------------------------------- #
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
