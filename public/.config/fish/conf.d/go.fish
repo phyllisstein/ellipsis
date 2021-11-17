@@ -1,1 +1,1 @@
-set -x GOPATH "$HOME/.go"
+set -gx GOPATH "$HOME/.go"

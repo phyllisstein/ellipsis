@@ -1,11 +1,11 @@
 [core]
 	pager = diff-so-fancy | less --tabs=4 -RFX
-	excludesfile = ~/.config/git/ignore
 	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
 	trustctime = false
 	precomposeunicode = false
 	untrackedCache = true
 	ignorecase = false
+	excludesfile = /Users/daniel/.ellipsis/public/.config/git/ignore
 [color]
 	ui = true
 [user]
@@ -40,11 +40,6 @@
 	# See https://stackoverflow.com/a/1459264.
 	repeal-init = reset --soft HEAD@{1}
 	repeal = commit -C HEAD@{1}
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
 [help]
 	autocorrect = 1
 [url "git@github.com:"]
@@ -77,3 +72,10 @@
 [credential]
 	helper =
 	helper = /usr/local/share/gcm-core/git-credential-manager-core
+[rerere]
+	enabled = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

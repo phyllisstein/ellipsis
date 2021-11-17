@@ -1,1 +1,1 @@
-set -x AWS_PROFILE personal
+set -gx AWS_PROFILE personal

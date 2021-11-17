@@ -1,3 +1,8 @@
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the start of this file.
+[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
+#### END FIG ENV VARIABLES ####
 #
 # Executes commands at login pre-zshrc.
 #
@@ -44,8 +49,6 @@ if [[ "$ELLIPSIS_PLATFORM" == "wsl" ]]; then
     $path
   )
 fi
-
-export HOMEBREW_PREFIX="$(brew --prefix 2>/dev/null)"
 
 fpath=(
   ${HOMEBREW_PREFIX}/share/zsh/site-functions

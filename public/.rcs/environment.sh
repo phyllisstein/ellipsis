@@ -16,8 +16,8 @@ export LANG=en_US.UTF-8
 export PROMPT_EOL_MARK=''
 
 # ---------------------------------- VSCode ---------------------------------- #
-# export EDITOR="code --wait --reuse-window"
-export EDITOR="code-insiders --wait --reuse-window"
+export EDITOR="code --wait --reuse-window"
+# export EDITOR="code-insiders --wait --reuse-window"
 export GIT_EDITOR="$EDITOR"
 export VISUAL="$EDITOR"
 
@@ -40,6 +40,7 @@ export HOMEBREW_FORCE_BREWED_GIT=1
 # ----------------------------------- Java ----------------------------------- #
 # export JAVA_HOME="$GRAAL_JAVA_HOME"
 # export PATH="$GRAAL_PATH:$PATH"
+export JAVA_HOME="$HOME/.asdf/installs/java/zulu-11.50.19"
 
 # ---------------------------------- Python ---------------------------------- #
 export WORKON_HOME="$HOME/.local/share/virtualenvs"
@@ -77,7 +78,7 @@ export GOPATH=$HOME/.go
 export PATH="$PATH:$GOPATH/bin"
 
 # ------------------------------- GNU Coreutils ------------------------------ #
-export PATH="${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnubin:${HOMEBREW_PREFIX}/opt/gnu-which/libexec/gnubin:${HOMEBREW_PREFIX}/opt/gsed/libexec/gnubin:${HOMEBREW_PREFIX}/opt/grep/libexec/gnubin:${HOMEBREW_PREFIX}/opt/gnu-indent/libexec/gnubin:${HOMEBREW_PREFIX}/opt/gnu-tar/libexec/gnubin:${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin:${HOMEBREW_PREFIX}/opt/make/libexec/gnubin:${HOMEBREW_PREFIX}/opt/findutils/libexec/gnubin:${HOMEBREW_PREFIX}/opt/gawk/bin:$PATH"
+# export PATH="${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnubin:${HOMEBREW_PREFIX}/opt/gnu-which/libexec/gnubin:${HOMEBREW_PREFIX}/opt/gsed/libexec/gnubin:${HOMEBREW_PREFIX}/opt/grep/libexec/gnubin:${HOMEBREW_PREFIX}/opt/gnu-indent/libexec/gnubin:${HOMEBREW_PREFIX}/opt/gnu-tar/libexec/gnubin:${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin:${HOMEBREW_PREFIX}/opt/make/libexec/gnubin:${HOMEBREW_PREFIX}/opt/findutils/libexec/gnubin:${HOMEBREW_PREFIX}/opt/gawk/bin:$PATH"
 
 # -------------------------- ios-webkit-debug-proxy -------------------------- #
 export SDK_DIR="/Applications/Xcode-beta.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/"
@@ -89,6 +90,7 @@ export SIM_APP="/Applications/Xcode-beta.app/Contents/Developer/Applications/Sim
 # export DOCKER_CERT_PATH="$HOME/.docker/machine/machines/default"
 # export DOCKER_MACHINE_NAME="default"
 # export MACHINE_NATIVE_SSH=true
+# export MACHINE_DRIVER=parallels
 export COMPOSE_DOCKER_CLI_BUILD=1
 export DOCKER_CLI_EXPERIMENTAL=enabled
 export DOCKER_BUILDKIT=1
@@ -99,10 +101,10 @@ export MINIKUBE_MEMORY=4096
 export MINIKUBE_DISK_SIZE=64g
 export MINIKUBE_ENABLE_DEFAULT_CNI=true
 export MINIKUBE_NETWORK_PLUGIN=cni
-export PARALLELS_CPU_COUNT=4
-export PARALLELS_DISK_SIZE=65536
-export PARALLELS_MEMORY_SIZE=4096
-export PARALLELS_VIDEO_SIZE=256
+# export PARALLELS_CPU_COUNT=4
+# export PARALLELS_DISK_SIZE=65536
+# export PARALLELS_MEMORY_SIZE=4096
+# export PARALLELS_VIDEO_SIZE=256
 
 # ---------------------------------- Neovim ---------------------------------- #
 export VIMCONFIG="$HOME/.config/nvim"
@@ -114,7 +116,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="--ansi"
 
 # ---------------------------------- Vagrant --------------------------------- #
-export VAGRANT_DEFAULT_PROVIDER=vmware_desktop
+export VAGRANT_DEFAULT_PROVIDER=parallels
 export VAGRANT_INSTALL_LOCAL_PLUGINS=true
 export VAGRANT_DISABLE_STRICT_DEPENDENCY_ENFORCEMENT=1
 
@@ -178,3 +180,6 @@ export NVM_DIR="$HOME/.nvm"
 # ---------------------------------- direnv ---------------------------------- #
 export NODE_VERSIONS="$HOME/.nvm/versions/node"
 export NODE_VERSION_PREFIX="v"
+
+# ----------------------------------- Yarn ----------------------------------- #
+# export YARN_ENABLE_GLOBAL_CACHE=true

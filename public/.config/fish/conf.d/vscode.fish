@@ -1,1 +1,1 @@
-set -x VSCODE_BIN /usr/local/bin/code
+set -gx VSCODE_BIN /opt/homebrew/bin/code

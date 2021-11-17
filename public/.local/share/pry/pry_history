@@ -1,0 +1,36 @@
+p = Posts::Post.first
+cd p
+ls
+p.to_json
+p.as_json
+p.to_json
+p.as_json
+p.to_h
+json = p.to_h
+json
+p = Posts::Post.last
+p.to_h
+json = p.to_h
+open('traveller.json') do |t|
+  JSON.fast_generate(json, t)
+end
+open('traveller.json', 'w+') do |t|
+  JSON.fast_generate(json, t)
+end
+p = Posts::Post.first
+p = Posts::Post.last
+json_obj = p.to_h
+j_obj = JSON.generate(json_obj)
+j_obj
+open('traveller.json', 'w+') do |tj|
+  tj.write(j_obj)
+end
+p = Posts::Post.first
+content_hash = p.to_h
+open('get-high.json', 'w+') do |ghj|
+  gh.write(JSON.generate(content_hash))
+end
+content_hash = p.to_h
+open('get-high.json', 'w+') do |ghj|
+  ghj.write(JSON.generate(content_hash))
+end

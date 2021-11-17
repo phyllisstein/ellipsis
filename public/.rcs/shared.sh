@@ -6,29 +6,27 @@ alias zmv='noglob zmv'
 alias zcp='noglob zmv -C'
 alias zln='noglob zmv -Ls'
 
+autoload -U bashcompinit
+bashcompinit
+
 [[ -f "$HOME/.asdf/asdf.sh" ]] && source "$HOME/.asdf/asdf.sh"
 
 [[ -f "$HOME/.asdf/rust/beta/env" ]] && source "$HOME/.asdf/rust/beta/env"
 
-# if hash conda 2>/dev/null; then
-#   # >>> conda initialize >>>
-#   # !! Contents within this block are managed by 'conda init' !!
-#   __install_path="$(asdf where python)"
-#   __conda_setup="$("${__install_path}/bin/conda" 'shell.zsh' 'hook' 2>/dev/null)"
-#   if [ $? -eq 0 ]; then
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/opt/homebrew/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
 #     eval "$__conda_setup"
-#   else
-#     if [ -f "${__install_path}/etc/profile.d/conda.sh" ]; then
-#       . "${__install_path}/etc/profile.d/conda.sh"
+# else
+#     if [ -f "/opt/homebrew/anaconda3/etc/profile.d/conda.sh" ]; then
+#         . "/opt/homebrew/anaconda3/etc/profile.d/conda.sh"
 #     else
-#       export PATH="$PATH:${__install_path}/bin"
+#         export PATH="/opt/homebrew/anaconda3/bin:$PATH"
 #     fi
-#   fi
-#   unset __conda_setup
-#   # <<< conda initialize <<<
-
-#   conda activate global
 # fi
+# unset __conda_setup
+# <<< conda initialize <<<
 
 # -------------------------- Breakaway Config Files -------------------------- #
 test -f "$HOME/.rcs/${ELLIPSIS_PLATFORM}.sh" && source "$HOME/.rcs/${ELLIPSIS_PLATFORM}.sh"
@@ -73,7 +71,3 @@ eval "$(perl -I$HOME/.perl5/lib/perl5 -Mlocal::lib=$HOME/.perl5)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-#### FIG ENV VARIABLES ####
-[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
-#### END FIG ENV VARIABLES ####
