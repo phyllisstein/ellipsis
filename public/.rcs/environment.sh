@@ -33,9 +33,11 @@ export VISUAL="$EDITOR"
 
 # --------------------------------- Homebrew --------------------------------- #
 # export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-export HOMEBREW_MAKE_JOBS=2
+# export HOMEBREW_MAKE_JOBS=2
 export HOMEBREW_NO_ANALYTICS=true
 export HOMEBREW_FORCE_BREWED_GIT=1
+export HOMEBREW_NO_ENV_HINTS=1
+export HOMEBREW_INSTALL_CLEANUP=1
 
 # ----------------------------------- Java ----------------------------------- #
 # export JAVA_HOME="$GRAAL_JAVA_HOME"
