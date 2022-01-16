@@ -174,7 +174,7 @@ alias giX='git rm -rf --cached'
 
 # Log (l)
 alias gl='git log --topo-order'
-# alias gls='git log --topo-order --stat'
+alias gls='git log --topo-order --stat'
 alias gld='git log --topo-order --stat --patch --full-diff'
 alias glo='git log --topo-order'
 alias glg='git log --topo-order --graph'

@@ -1,4 +1,4 @@
-function c
+function c --wraps=code
   if test (count $argv) -eq 0
     $VSCODE_BIN --new-window (pwd)
     return
