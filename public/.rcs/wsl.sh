@@ -13,10 +13,6 @@ fi
 # ----------------------------- ZSH Documentation ---------------------------- #
 autoload run-help
 
-# ---------------------------------- mkcert ---------------------------------- #
-export CAROOT="/mnt/c/Users/Daniel P. Shannon/Dropbox/Settings/SSL"
-export NODE_EXTRA_CA_CERTS="$CAROOT/rootCA.pem"
-
 # ------------------------------------ X11 ----------------------------------- #
 wsl_ip_line=$(ipconfig.exe | grep "WSL" -n | awk -F ":" '{print $1+4}')
 export DISPLAY=$(ipconfig.exe | awk -v a=$wsl_ip_line '{if (NR==a) print $NF":0.0"}' | tr -d "\r")

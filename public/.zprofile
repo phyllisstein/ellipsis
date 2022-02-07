@@ -10,6 +10,9 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+autoload -U bashcompinit
+bashcompinit
+
 #
 # Browser
 #
@@ -41,6 +44,14 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 elif [[ "$(uname -s)" == "Linux" && "$(uname -r)" =~ "microsoft" ]]; then
   export ELLIPSIS_PLATFORM="wsl"
+fi
+
+if [[ "$ELLIPSIS_PLATFORM" == "macos" && -e "$HOME/Dropbox" ]]; then
+  export DROPBOX_PATH="$HOME/Dropbox"
+elif [[ "$ELLIPSIS_PLATFORM" == "macos" && -e "$HOME/Library/CloudStorage/Dropbox" ]]; then
+  export DROPBOX_PATH="$HOME/Library/CloudStorage/Dropbox"
+elif [[ "$ELLIPSIS_PLATFORM" == "wsl" && -e "/mnt/c/Dropbox" ]]; then
+  export DROPBOX_PATH="/mnt/c/Dropbox"
 fi
 
 if [[ "$ELLIPSIS_PLATFORM" == "wsl" ]]; then

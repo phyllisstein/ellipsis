@@ -6,12 +6,8 @@ alias zmv='noglob zmv'
 alias zcp='noglob zmv -C'
 alias zln='noglob zmv -Ls'
 
-autoload -U bashcompinit
-bashcompinit
-
 [[ -f "$HOME/.asdf/asdf.sh" ]] && source "$HOME/.asdf/asdf.sh"
-
-[[ -f "$HOME/.asdf/rust/beta/env" ]] && source "$HOME/.asdf/rust/beta/env"
+[[ -f "$HOMEBREW_PREFIX/opt/asdf/libexec/asdf.zsh" ]] && source "$HOMEBREW_PREFIX/opt/asdf/libexec/asdf.zsh"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

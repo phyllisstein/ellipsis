@@ -69,9 +69,6 @@ export AWS_PROFILE=personal
 # ------------------------------------ hub ----------------------------------- #
 export GITHUB_USERNAME="phyllisstein"
 
-# ----------------------------------- asdf ----------------------------------- #
-export PATH="$HOME/.asdf/shims:$PATH"
-
 # ------------------------------ Pandoc Filters ------------------------------ #
 export PATH="$PATH:$HOME/.pandoc/filters"
 
@@ -127,11 +124,11 @@ export PP_MACROS_PATH="$HOME/.local/share/pandoc/goodies/pp/macros"
 export PATH="$HOME/.local/bin:$PATH"
 
 # ------------------------------- Font Scripts ------------------------------- #
-if [[ "$ELLIPSIS_PLATFORM" == "macos" ]]; then
-  export PATH="$PATH:$HOME/Dropbox/Documents/Fonts"
-elif [[ "$ELLIPSIS_PLATFORM" == "wsl" ]]; then
-  export PATH="$PATH:/c/Dropbox/Documents/Fonts"
-fi
+export PATH="$PATH:$DROPBOX_PATH/Documents/Fonts"
+
+# ---------------------------------- mkcert ---------------------------------- #
+export CAROOT="$DROPBOX_PATH/Settings/SSL"
+export NODE_EXTRA_CA_CERTS="$CAROOT/rootCA.pem"
 
 # ------------------------------ Kubernetes Krew ----------------------------- #
 export PATH="$PATH:${KREW_ROOT:-$HOME/.krew}/bin"
