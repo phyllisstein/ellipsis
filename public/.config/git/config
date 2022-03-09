@@ -10,7 +10,7 @@
 	ui = true
 [user]
 	name = Daniel P. Shannon
-	email = daniel@fleet.i.ng
+	email = daniel@try.works
 [mergetool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustexitcode = true
