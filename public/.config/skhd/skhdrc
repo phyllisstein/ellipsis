@@ -97,10 +97,10 @@ shift + ctrl - j : yabai -m window --warp south
 shift + ctrl - k : yabai -m window --warp north
 
 # resize window
-ctrl - h : yabai -m window --resize left:-20:0
-ctrl - l : yabai -m window --resize right:20:0
-ctrl - j : yabai -m window --resize bottom:0:20
-ctrl - k : yabai -m window --resize top:0:-20
+# ctrl - h : yabai -m window --resize left:-20:0
+# ctrl - l : yabai -m window --resize right:20:0
+# ctrl - j : yabai -m window --resize bottom:0:20
+# ctrl - k : yabai -m window --resize top:0:-20
 
 # move window to space
 ctrl - pageup : yabai -m window --space prev
@@ -154,7 +154,7 @@ shift + ctrl + alt - h : yabai -m space --swap prev
 shift + ctrl + alt - l : yabai -m space --swap next
 
 # fast focus desktop
-# ctrl - x : yabai -m space --focus recent
+ctrl - x : yabai -m space --focus recent
 ctrl - 1 : yabai -m space --focus 1
 ctrl - 2 : yabai -m space --focus 2
 ctrl - 3 : yabai -m space --focus 3
@@ -171,12 +171,14 @@ ctrl - 9 : yabai -m space --focus 9
 # shift + ctrl - 2 : yabai -m window --space  2; yabai -m space --focus 2
 
 # focus monitor
-# ctrl + alt - z  : yabai -m display --focus prev
-# ctrl + alt - 3  : yabai -m display --focus 3
+ctrl + alt - z  : yabai -m display --focus prev
+ctrl + alt - 1  : yabai -m display --focus 1
+ctrl + alt - 2  : yabai -m display --focus 2
 
 # send window to monitor and follow focus
-# ctrl + cmd - c  : yabai -m window --display next; yabai -m display --focus next
-# ctrl + cmd - 1  : yabai -m window --display 1; yabai -m display --focus 1
+ctrl + cmd - c  : yabai -m window --display next; yabai -m display --focus next
+ctrl + cmd - 1  : yabai -m window --display 1; yabai -m display --focus 1
+ctrl + cmd - 2  : yabai -m window --display 2; yabai -m display --focus 2
 
 # move floating window
 # shift + ctrl - a : yabai -m window --move rel:-20:0
@@ -201,8 +203,14 @@ ctrl - 9 : yabai -m space --focus 9
 # alt - e : yabai -m window --toggle split
 
 # float / unfloat window and center on screen
-alt - t : yabai -m window --toggle float;\
-          yabai -m window --grid 4:4:1:1:2:2
+alt - t : frontmost_width="$(yabai -m query --windows --space | jq 'map(select(."has-focus" == true))[0] | .frame.w')" \
+          && frontmost_height="$(yabai -m query --windows --space | jq 'map(select(."has-focus" == true))[0] | .frame.h')" \
+          && display_width="$(yabai -m query --displays --display | jq '.frame.w')" \
+          && display_height="$(yabai -m query --displays --display | jq '.frame.h')" \
+          && x_offset="$(( (display_width - frontmost_width) / 2 ))" \
+          && y_offset="$(( (display_height - frontmost_height) / 4 ))" \
+          && yabai -m window --toggle float \
+          && yabai -m window --move "abs:$x_offset:$y_offset"
 
 # toggle sticky(+float), topmost, picture-in-picture
 # alt - p : yabai -m window --toggle sticky;\

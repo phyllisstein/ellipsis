@@ -33,7 +33,7 @@ yabai -m config active_window_border_color   0xff775759
 yabai -m config normal_window_border_color   0xff555555
 yabai -m config insert_feedback_color        0xffd75f5f
 yabai -m config split_ratio                  0.5
-yabai -m config auto_balance                 off
+yabai -m config auto_balance                 on
 yabai -m config mouse_modifier               fn
 yabai -m config mouse_action1                move
 yabai -m config mouse_action2                resize
@@ -41,16 +41,17 @@ yabai -m config mouse_drop_action            swap
 
 # general space settings
 yabai -m config layout                       bsp
-yabai -m config top_padding                  0 # 12
-yabai -m config bottom_padding               0 # 12
-yabai -m config left_padding                 0 # 12
-yabai -m config right_padding                0 # 12
-yabai -m config window_gap                   0 #  6
+yabai -m config top_padding                   12
+yabai -m config bottom_padding                12
+yabai -m config left_padding                  12
+yabai -m config right_padding                 12
+yabai -m config window_gap                     6
 
 # app specific settings
 yabai -m rule --add app=1Password manage=off mouse_follows_focus=off
-yabai -m rule --add app="Archive" manage=off mouse_follows_focus=off
 yabai -m rule --add app="^Adobe" manage=off mouse_follows_focus=off
+yabai -m rule --add app="^Anker" manage=off mouse_follows_focus=off
+yabai -m rule --add app="Archive" manage=off mouse_follows_focus=off
 yabai -m rule --add app=Bartender manage=off mouse_follows_focus=off
 yabai -m rule --add app=BetterTouchTool manage=off mouse_follows_focus=off
 yabai -m rule --add app=CatoClient manage=off mouse_follows_focus=off
@@ -75,6 +76,8 @@ yabai -m rule --add app=Notes manage=off mouse_follows_focus=off
 # yabai -m rule --add app=Obsidian sticky=on layer=above
 yabai -m rule --add app="^Parallels" manage=off mouse_follows_focus=off
 yabai -m rule --add app=Pastebot manage=off mouse_follows_focus=off
+yabai -m rule --add app=Preview manage=off mouse_follows_focus=off
+yabai -m rule --add app=".*qemu.*" manage=off mouse_follows_focus=off
 yabai -m rule --add app=QuickTime manage=off mouse_follows_focus=off
 yabai -m rule --add app=Raycast manage=off mouse_follows_focus=off
 yabai -m rule --add app=ScreenFlow manage=off mouse_follows_focus=off
@@ -87,8 +90,10 @@ yabai -m rule --add app=Things sticky=on mouse_follows_focus=off
 yabai -m rule --add app=Tuple manage=off mouse_follows_focus=off
 yabai -m rule --add app=TV manage=off mouse_follows_focus=off
 yabai -m rule --add app=VLC manage=off mouse_follows_focus=off
+yabai -m rule --add app="^VMware" manage=off mouse_follows_focus=off
 yabai -m rule --add app=WebCatalog manage=off mouse_follows_focus=off
 yabai -m rule --add app=zoom.us manage=off mouse_follows_focus=off
+yabai -m rule --add app=xScope manage=off mouse_follows_focus=off
 
 yabai -m rule --add title=Preferences manage=off mouse_follows_focus=off
 yabai -m rule --add title="Copy" app=Finder manage=off
