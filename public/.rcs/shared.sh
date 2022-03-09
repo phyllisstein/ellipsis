@@ -57,7 +57,7 @@ fi
 
 # [[ -f "${HOMEBREW_PREFIX}/bin/virtualenvwrapper_lazy.sh" ]] && source "${HOMEBREW_PREFIX}/bin/virtualenvwrapper_lazy.sh"
 
-eval "$(direnv hook zsh)"
+eval "$(asdf exec direnv hook zsh)"
 
 eval "$(keychain --ignore-missing --quiet --eval ~/.ssh/personal_ed25519 ~/.ssh/personal_rsa ~/.ssh/ignota_engineering 2>/dev/null)"
 
