@@ -84,5 +84,5 @@ fi
 
 
 #### FIG ENV VARIABLES ####
-[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
+[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh &> /dev/null
 #### END FIG ENV VARIABLES ####

@@ -14,9 +14,6 @@ export GRAAL_JAVA_HOME="/Library/Java/JavaVirtualMachines/$GRAAL_VERSION/Content
 export GRAAL_PATH="/Library/Java/JavaVirtualMachines/$GRAAL_VERSION/Contents/Home/bin"
 # export JAVA_HOME="$(/usr/libexec/java_home)"
 
-# ----------------------------------- iTerm ---------------------------------- #
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 # ------------------------------ macOS CLI Trash ----------------------------- #
 alias tm='trash'
 

@@ -24,3 +24,6 @@ else if test \( "$ELLIPSIS_PLATFORM" = "macos" \) -a \( -e "$HOME/Library/CloudS
 else if test "$ELLIPSIS_PLATFORM" = "wsl"
   set -gx DROPBOX_PATH "/mnt/c/Dropbox"
 end
+
+test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+
