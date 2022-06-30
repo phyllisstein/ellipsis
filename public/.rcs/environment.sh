@@ -42,7 +42,8 @@ export HOMEBREW_INSTALL_CLEANUP=1
 # ----------------------------------- Java ----------------------------------- #
 # export JAVA_HOME="$GRAAL_JAVA_HOME"
 # export PATH="$GRAAL_PATH:$PATH"
-export JAVA_HOME="$HOME/.asdf/installs/java/zulu-11.50.19"
+# export JAVA_HOME="$HOME/.asdf/installs/java/zulu-11.50.19"
+export JAVA_HOME="$(/usr/libexec/java_home)"
 
 # ---------------------------------- Python ---------------------------------- #
 export WORKON_HOME="$HOME/.local/share/virtualenvs"
@@ -177,8 +178,8 @@ export PATH="$PATH:/opt/vagrant-vmware-desktop/bin"
 export NVM_DIR="$HOME/.nvm"
 
 # ---------------------------------- direnv ---------------------------------- #
-export NODE_VERSIONS="$HOME/.asdf/installs/nodejs"
-export NODE_VERSION_PREFIX=""
+export NODE_VERSIONS="$HOME/.nvm/versions/node"
+export NODE_VERSION_PREFIX="v"
 
 # ----------------------------------- Yarn ----------------------------------- #
 # export YARN_ENABLE_GLOBAL_CACHE=true

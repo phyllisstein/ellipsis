@@ -127,8 +127,9 @@ json() {
 
 # -- Touch a file, creating all intermediary directories. ----------------------
 shove() {
-  mkdir -p "$(dirname "$@")"
-  touch "$@"
+  for f in "$@"; do
+    mkdir -p "$(dirname "$f")" && touch "$f"
+  done
 }
 
 # -- Clobber the ole node_modules. ---------------------------------------------
@@ -226,9 +227,18 @@ kubectl() {
 
 # -- Ignore me. ----------------------------------------------------------------
 gi() {
-  curl -sLw "\n" "https://www.toptal.com/developers/gitignore/api/list" \
-    | sed -E 's|,|\n|g' \
-    | fzf -m \
-    | tr '\n' ',' \
-    | xargs -I{} curl -sLw "\n" "https://www.toptal.com/developers/gitignore/api/{}"
+  curl -sLw "\n" "https://www.toptal.com/developers/gitignore/api/list" |
+    sed -E 's|,|\n|g' |
+    fzf -m |
+    tr '\n' ',' |
+    xargs -I{} curl -sLw "\n" "https://www.toptal.com/developers/gitignore/api/{}"
+}
+
+# -- Toggle the hell site.  ----------------------------------------------------
+detweet() {
+  if grep twitter /etc/hosts &>/dev/null; then
+    sudo /opt/homebrew/bin/gsed --regexp-extended --in-place -e 's/.*twitter.com.*//;s/^[[:space:]]*$//' /etc/hosts &>/dev/null
+  else
+    echo "127.0.0.1 twitter.com" | sudo /opt/homebrew/bin/gtee -a /etc/hosts &>/dev/null
+  fi
 }

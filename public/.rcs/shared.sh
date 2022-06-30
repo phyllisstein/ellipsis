@@ -6,9 +6,6 @@ alias zmv='noglob zmv'
 alias zcp='noglob zmv -C'
 alias zln='noglob zmv -Ls'
 
-[[ -f "$HOME/.asdf/asdf.sh" ]] && source "$HOME/.asdf/asdf.sh"
-[[ -f "$HOMEBREW_PREFIX/opt/asdf/libexec/asdf.zsh" ]] && source "$HOMEBREW_PREFIX/opt/asdf/libexec/asdf.zsh"
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 # __conda_setup="$('/opt/homebrew/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -50,14 +47,14 @@ fi
 
 [ -f "${HOMEBREW_PREFIX}/etc/profile.d/autojump.sh" ] && . "${HOMEBREW_PREFIX}/etc/profile.d/autojump.sh"
 
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 [[ -f "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
 
 # [[ -f "${HOMEBREW_PREFIX}/bin/virtualenvwrapper_lazy.sh" ]] && source "${HOMEBREW_PREFIX}/bin/virtualenvwrapper_lazy.sh"
 
-eval "$(asdf exec direnv hook zsh)"
+ eval "$(direnv hook zsh)"
 
 eval "$(keychain --ignore-missing --quiet --eval ~/.ssh/personal_ed25519 ~/.ssh/personal_rsa ~/.ssh/ignota_engineering 2>/dev/null)"
 
