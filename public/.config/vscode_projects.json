@@ -1,0 +1,76 @@
+{
+  "groups": [
+    {
+      "name": "Ignota",
+      "projects": [
+        {
+          "name": "Commonplace",
+          "description": "Federated content protocol.",
+          "icon": "versions",
+          "path": "~/Code/Ignota/commonplace/Commonplace.code-workspace"
+        }
+      ]
+    },
+    {
+      "name": "EPX",
+      "projects": [
+        {
+          "name": "Eater Maps",
+          "description": "EPX standalone MapStack app.",
+          "icon": "location",
+          "path": "~/Code/EPX/epx-standalone-mapstack/EPX Standalone MapStack.code-workspace"
+        }
+      ]
+    },
+    {
+      "name": "Personal",
+      "projects": [
+        {
+          "name": "Menagerie",
+          "path": "~/Code/Personal/menagerie",
+          "icon": "beaker",
+          "description": "Just gorgeous little things."
+        },
+        {
+          "name": "Composition",
+          "path": "~/Code/Personal/composition",
+          "icon": "pencil",
+          "description": "Words, words, words—I'm so sick of words."
+        }
+      ]
+    },
+    {
+      "name": "Vox",
+      "projects": [
+        {
+          "name": "SBN Stack",
+          "path": "~/Code/Vox/SBN Stack.code-workspace",
+          "icon": "ruby",
+          "description": "SB Nation Rails app."
+        }
+      ]
+    },
+    {
+      "name": "Clay",
+      "projects": [
+        {
+          "name": "NYM Sites",
+          "path": "~/Code/NY/sites",
+          "icon": "globe",
+          "description": "New York Media sites' sites."
+        }
+      ]
+    },
+    {
+      "name": "AUOHP",
+      "projects": [
+        {
+          "name": "AUOHP Web",
+          "path": "~/Code/AUOHP/web",
+          "icon": "file-symlink-file",
+          "descrpiption": "AUOHP captioning suite."
+        }
+      ]
+    }
+  ]
+}
