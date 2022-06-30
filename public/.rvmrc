@@ -26,6 +26,10 @@ export rvm_configure_env=(
   # CC=clang
   # CPP=clang
   # CXX=clang
+  CFLAGS='-Wno-error=implicit-function-declaration'
+  CCFLAGS='-Wno-error=implicit-function-declaration'
+  CXXFLAGS='-Wno-error=implicit-function-declaration'
+  RUBY_CFLAGS='-Wno-error=implicit-function-declaration'
   # CFLAGS='-fno-builtin-malloc -fno-builtin-calloc -fno-builtin-realloc -fno-builtin-free -march=native -mtune=native -Ofast'
   # CCFLAGS='-fno-builtin-malloc -fno-builtin-calloc -fno-builtin-realloc -fno-builtin-free -march=native -mtune=native -Ofast'
   # CXXFLAGS='-fno-builtin-malloc -fno-builtin-calloc -fno-builtin-realloc -fno-builtin-free -march=native -mtune=native -Ofast'

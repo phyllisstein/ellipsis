@@ -27,6 +27,7 @@
 #   literal      = 'single letter or built-in keyword'
 #
 #   keycode      = 'apple keyboard kVK_<Key> values (0x3C)'
+#                   (Handy reference: https://chromium.googlesource.com/chromium/src/+/lkgr/ui/events/keycodes/keyboard_code_conversion_mac.mm)
 #
 #   proc_map_lst = * <proc_map>
 #
@@ -111,7 +112,7 @@ ctrl - end : yabai -m window --space next && yabai -m space --focus next
 # balance size of windows
 # alt + shift - 0x18  : yabai -m window --resize top_right:50:50
 # alt - 0x1B : yabai -m window --resize top_right:-50:-50
-# alt - 0x18 : yabai -m space --balance
+ctrl + alt - return : yabai -m space --balance
 
 # make floating window fill screen
 # shift + alt - up     : yabai -m window --grid 1:1:0:0:1:1
@@ -124,7 +125,7 @@ ctrl - end : yabai -m window --space next && yabai -m space --focus next
 #                     && index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" \
 #                     && yabai -m space --focus "$index"
 
-shift + ctrl - n :  current="$(yabai -m query --spaces --display | jq 'map(select(."has-focus" == true))[0].index')" \
+shift + ctrl - n : current="$(yabai -m query --spaces --display | jq 'map(select(."has-focus" == true))[0].index')" \
                     && yabai -m space --create \
                     && index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" \
                     && yabai -m space "$index" --move "$((current + 1))" \
@@ -133,8 +134,7 @@ shift + ctrl - n :  current="$(yabai -m query --spaces --display | jq 'map(selec
 # destroy desktop
 shift + ctrl - w : previous="$(yabai -m query --spaces --display | jq 'map(select(."has-focus" == true))[0].index - 1')" \
                     && yabai -m space --destroy \
-                    && yabai -m window --space "$previous" \
-                    && yabai -m space --focus "$previous"
+                    && yabai -m window --space "$previous"; yabai -m space --focus "$previous"
 # shift + ctrl - w : yabai -m space --destroy
 
 # create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
@@ -154,7 +154,7 @@ shift + ctrl + alt - h : yabai -m space --swap prev
 shift + ctrl + alt - l : yabai -m space --swap next
 
 # fast focus desktop
-ctrl - x : yabai -m space --focus recent
+ctrl - 0x18 : yabai -m space --focus recent
 ctrl - 1 : yabai -m space --focus 1
 ctrl - 2 : yabai -m space --focus 2
 ctrl - 3 : yabai -m space --focus 3
@@ -171,14 +171,21 @@ ctrl - 9 : yabai -m space --focus 9
 # shift + ctrl - 2 : yabai -m window --space  2; yabai -m space --focus 2
 
 # focus monitor
-ctrl + alt - z  : yabai -m display --focus prev
-ctrl + alt - 1  : yabai -m display --focus 1
-ctrl + alt - 2  : yabai -m display --focus 2
+fn - 1 : yabai -m display --focus 2
+fn - 2 : yabai -m display --focus 1
+# ctrl + alt - 1  : yabai -m display --focus 1
+# ctrl + alt - 2  : yabai -m diplay --focus 2
 
 # send window to monitor and follow focus
-ctrl + cmd - c  : yabai -m window --display next; yabai -m display --focus next
-ctrl + cmd - 1  : yabai -m window --display 1; yabai -m display --focus 1
-ctrl + cmd - 2  : yabai -m window --display 2; yabai -m display --focus 2
+fn + ctrl - 1  : yabai -m window --display 2; yabai -m display --focus 2
+fn + ctrl - 2  : yabai -m window --display 1; yabai -m display --focus 1
+# ctrl + cmd - 1  : yabai -m window --display 1; yabai -m display --focus 1
+# ctrl + cmd - 2  : yabai -m window --display 2; yabai -m display --focus 2
+
+# send window to monitor
+# alt - 0x32  : yabai -m window --display recent # alt - `
+# ctrl + cmd - 1  : yabai -m window --display 1
+# ctrl + cmd - 2  : yabai -m window --display 2
 
 # move floating window
 # shift + ctrl - a : yabai -m window --move rel:-20:0
@@ -202,13 +209,26 @@ ctrl + cmd - 2  : yabai -m window --display 2; yabai -m display --focus 2
 # toggle window split type
 # alt - e : yabai -m window --toggle split
 
+# center window on screen
+ctrl + alt - tab : current_display="$(yabai -m query --displays --display | jq '.index')" \
+                      && frontmost_width="$(yabai -m query --windows --space | jq 'map(select(."has-focus" == true))[0] | .frame.w')" \
+                      && frontmost_height="$(yabai -m query --windows --space | jq 'map(select(."has-focus" == true))[0] | .frame.h')" \
+                      && display_width="$(yabai -m query --displays --display | jq '.frame.w')" \
+                      && display_height="$(yabai -m query --displays --display | jq '.frame.h')" \
+                      && x_offset="$(( (display_width - frontmost_width) / 2 ))" \
+                      && y_offset="$(( (display_height - frontmost_height) / 4 ))" \
+                      && yabai -m window --move "abs:$x_offset:$y_offset"
+
 # float / unfloat window and center on screen
-alt - t : frontmost_width="$(yabai -m query --windows --space | jq 'map(select(."has-focus" == true))[0] | .frame.w')" \
+ctrl - t : current_display="$(yabai -m query --displays --display | jq '.index')" \
+          && frontmost_width="$(yabai -m query --windows --space | jq 'map(select(."has-focus" == true))[0] | .frame.w')" \
           && frontmost_height="$(yabai -m query --windows --space | jq 'map(select(."has-focus" == true))[0] | .frame.h')" \
           && display_width="$(yabai -m query --displays --display | jq '.frame.w')" \
           && display_height="$(yabai -m query --displays --display | jq '.frame.h')" \
-          && x_offset="$(( (display_width - frontmost_width) / 2 ))" \
-          && y_offset="$(( (display_height - frontmost_height) / 4 ))" \
+          && display_left="$(yabai -m query --displays --display | jq '.frame.x')" \
+          && display_top="$(yabai -m query --displays --display | jq '.frame.y')" \
+          && x_offset="$(( (display_width - frontmost_width + display_left) / 2 ))" \
+          && y_offset="$(( (display_height - frontmost_height + display_top) / 4 ))" \
           && yabai -m window --toggle float \
           && yabai -m window --move "abs:$x_offset:$y_offset"
 
@@ -218,3 +238,8 @@ alt - t : frontmost_width="$(yabai -m query --windows --space | jq 'map(select(.
 #           yabai -m window --toggle pip
 
 # shift + ctrl + alt - esc : launchctl kickstart
+
+# rotate
+f15 : yabai -m space --rotate 270
+f13 : yabai -m space --rotate 90
+f14 : yabai -m space --layout bsp

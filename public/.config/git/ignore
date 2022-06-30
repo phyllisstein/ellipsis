@@ -16,3 +16,4 @@
 *.code-workspace
 **/.vscode/*
 *gitFinderDeleted
+*.iml
