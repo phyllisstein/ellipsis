@@ -16,8 +16,8 @@ export LANG=en_US.UTF-8
 export PROMPT_EOL_MARK=''
 
 # ---------------------------------- VSCode ---------------------------------- #
-export EDITOR="code --wait --reuse-window"
-# export EDITOR="code-insiders --wait --reuse-window"
+export EDITOR="code --wait"
+# export EDITOR="code-insiders --wait"
 export GIT_EDITOR="$EDITOR"
 export VISUAL="$EDITOR"
 
@@ -129,7 +129,7 @@ export PATH="$PATH:$DROPBOX_PATH/Documents/Fonts"
 
 # ---------------------------------- mkcert ---------------------------------- #
 export CAROOT="$DROPBOX_PATH/Settings/SSL"
-export NODE_EXTRA_CA_CERTS="$CAROOT/rootCA.pem"
+# export NODE_EXTRA_CA_CERTS="$CAROOT/rootCA.pem"
 
 # ------------------------------ Kubernetes Krew ----------------------------- #
 export PATH="$PATH:${KREW_ROOT:-$HOME/.krew}/bin"

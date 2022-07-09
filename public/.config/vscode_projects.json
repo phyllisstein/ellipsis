@@ -19,6 +19,12 @@
           "description": "EPX standalone MapStack app.",
           "icon": "location",
           "path": "~/Code/EPX/epx-standalone-mapstack/EPX Standalone MapStack.code-workspace"
+        },
+        {
+          "name": "A Capella",
+          "description": "EPX monorepo",
+          "icon": "music",
+          "path": "~/Code/EPX/acapella/Acapella.code-workspace"
         }
       ]
     },
@@ -36,6 +42,12 @@
           "path": "~/Code/Personal/composition",
           "icon": "pencil",
           "description": "Words, words, words—I'm so sick of words."
+        },
+        {
+          "name": "Ellipsis",
+          "path": "~/.ellipsis",
+          "icon": "gear",
+          "description": "You can do the thing!"
         }
       ]
     },
