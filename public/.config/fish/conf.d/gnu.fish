@@ -1,14 +1,14 @@
 if brew list | grep gnu &> /dev/null
   set -gx PATH \
-    /usr/local/opt/coreutils/libexec/gnubin \
-    /usr/local/opt/findutils/libexec/gnubin \
-    /usr/local/opt/gawk/bin \
-    /usr/local/opt/gnu-indent/libexec/gnubin \
-    /usr/local/opt/gnu-sed/libexec/gnubin \
-    /usr/local/opt/gnu-tar/libexec/gnubin \
-    /usr/local/opt/gnu-which/libexec/gnubin \
-    /usr/local/opt/grep/libexec/gnubin \
-    /usr/local/opt/gsed/libexec/gnubin \
-    /usr/local/opt/make/libexec/gnubin \
+    /opt/homebrew/opt/coreutils/libexec/gnubin \
+    /opt/homebrew/opt/findutils/libexec/gnubin \
+    /opt/homebrew/opt/gawk/bin \
+    /opt/homebrew/opt/gnu-indent/libexec/gnubin \
+    /opt/homebrew/opt/gnu-sed/libexec/gnubin \
+    /opt/homebrew/opt/gnu-tar/libexec/gnubin \
+    /opt/homebrew/opt/gnu-which/libexec/gnubin \
+    /opt/homebrew/opt/grep/libexec/gnubin \
+    /opt/homebrew/opt/gsed/libexec/gnubin \
+    /opt/homebrew/opt/make/libexec/gnubin \
     $PATH
 end
