@@ -17,8 +17,8 @@ sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
 # global settings
-yabai -m config mouse_follows_focus on
-yabai -m config focus_follows_mouse autoraise
+yabai -m config mouse_follows_focus off
+yabai -m config focus_follows_mouse off
 
 # default: the display in which the window is created (?)
 # focused: the display that has focus when the window is created
@@ -38,7 +38,7 @@ yabai -m config active_window_border_color 0xff775759
 yabai -m config normal_window_border_color 0xff555555
 yabai -m config insert_feedback_color 0xffd75f5f
 yabai -m config split_ratio 0.5
-yabai -m config auto_balance on
+yabai -m config auto_balance off
 yabai -m config mouse_modifier fn
 yabai -m config mouse_action1 resize
 yabai -m config mouse_action2 move
@@ -64,7 +64,7 @@ yabai -m rule --add app=CleanMyMac manage=off
 yabai -m rule --add app=CleanShot manage=off
 yabai -m rule --add app=Cocktail manage=off
 yabai -m rule --add app="Creative Cloud" manage=off
-yabai -m rule --add app=Dash manage=off
+# yabai -m rule --add app=Dash manage=off
 yabai -m rule --add app=Due manage=off mouse_follows_focus=off
 yabai -m rule --add app=Dropbox manage=off mouse_follows_focus=off
 yabai -m rule --add app=Droplr manage=off mouse_follows_focus=off
@@ -98,6 +98,7 @@ yabai -m rule --add app=SnippetsLab manage=off mouse_follows_focus=off
 yabai -m rule --add app=SoundSource manage=off mouse_follows_focus=off
 yabai -m rule --add app=Speediness manage=off mouse_follows_focus=off
 yabai -m rule --add app="System Preferences" manage=off
+yabai -m rule --add app="System Settings" manage=off
 yabai -m rule --add app=TextExpander manage=off
 yabai -m rule --add app=Things manage=off
 yabai -m rule --add app=Transmission manage=off
@@ -126,5 +127,6 @@ yabai -m rule --add app="Vox Slack" manage=off sticky=on
 yabai -m rule --add app=".*Jira.*" manage=off
 yabai -m rule --add app="MeisterTask" manage=off
 yabai -m rule --add app="Roam" manage=off
+yabai -m rule --add app="Font Awesome" manage=off
 
 yabai -m rule --add app=Music manage=off sticky=on
