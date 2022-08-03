@@ -9,15 +9,15 @@ export HIST_IGNORE_DUPS=true
 export HISTSIZE=32768
 export HISTFILESIZE="$HISTSIZE"
 export HISTCONTROL=ignoreboth
-export HISTIGNORE="*ydl*:*youtube-dl*"
+export HISTIGNORE="*ydl*:*youtube-dl*:*yt-dlc*"
 export SAVEHIST=32768
 export SHARE_HISTORY=false
 export LANG=en_US.UTF-8
 export PROMPT_EOL_MARK=''
 
 # ---------------------------------- VSCode ---------------------------------- #
-export EDITOR="code --wait"
-# export EDITOR="code-insiders --wait"
+# export EDITOR="code --wait"
+export EDITOR="code-insiders --wait"
 export GIT_EDITOR="$EDITOR"
 export VISUAL="$EDITOR"
 

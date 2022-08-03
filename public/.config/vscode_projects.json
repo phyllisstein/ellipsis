@@ -5,7 +5,6 @@
       "projects": [
         {
           "name": "Commonplace",
-          "description": "Federated content protocol.",
           "icon": "versions",
           "path": "~/Code/Ignota/commonplace/Commonplace.code-workspace"
         }
@@ -16,15 +15,13 @@
       "projects": [
         {
           "name": "Eater Maps",
-          "description": "EPX standalone MapStack app.",
           "icon": "location",
           "path": "~/Code/EPX/epx-standalone-mapstack/EPX Standalone MapStack.code-workspace"
         },
         {
-          "name": "A Capella",
-          "description": "EPX monorepo",
-          "icon": "music",
-          "path": "~/Code/EPX/acapella/Acapella.code-workspace"
+          "name": "A Cappella",
+          "icon": "mute",
+          "path": "~/Code/EPX/acappella/Acappella.code-workspace"
         }
       ]
     },
@@ -34,20 +31,27 @@
         {
           "name": "Menagerie",
           "path": "~/Code/Personal/menagerie",
-          "icon": "beaker",
-          "description": "Just gorgeous little things."
+          "icon": "beaker"
         },
         {
           "name": "Composition",
           "path": "~/Code/Personal/composition",
-          "icon": "pencil",
-          "description": "Words, words, words—I'm so sick of words."
+          "icon": "pencil"
         },
         {
           "name": "Ellipsis",
           "path": "~/.ellipsis",
-          "icon": "gear",
-          "description": "You can do the thing!"
+          "icon": "settings"
+        },
+        {
+          "name": "Three.js Journey",
+          "path": "~/Code/Learning/threejs-journey",
+          "icon": "symbol-misc"
+        },
+        {
+          "name": "Pandoc Assets",
+          "path": "~/Code/Personal/pandoc-assets",
+          "icon": "file-code"
         }
       ]
     },
@@ -57,8 +61,17 @@
         {
           "name": "SBN Stack",
           "path": "~/Code/Vox/SBN Stack.code-workspace",
-          "icon": "ruby",
-          "description": "SB Nation Rails app."
+          "icon": "ruby"
+        },
+        {
+          "name": "JS Guild",
+          "projects": [
+            {
+              "name": "Graph Modeling",
+              "path": "~/Code/Learning/product-js-graph-data",
+              "icon": "source-control"
+            }
+          ]
         }
       ]
     },
@@ -68,19 +81,12 @@
         {
           "name": "NYM Sites",
           "path": "~/Code/NY/sites",
-          "icon": "globe",
-          "description": "New York Media sites' sites."
-        }
-      ]
-    },
-    {
-      "name": "AUOHP",
-      "projects": [
+          "icon": "globe"
+        },
         {
-          "name": "AUOHP Web",
-          "path": "~/Code/AUOHP/web",
-          "icon": "file-symlink-file",
-          "descrpiption": "AUOHP captioning suite."
+          "name": "Clay CLI",
+          "path": "~/Code/Clay/Clay CLI Webpack.code-workspace",
+          "icon": "gather"
         }
       ]
     }
