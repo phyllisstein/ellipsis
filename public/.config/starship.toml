@@ -1,37 +1,20 @@
-# [conda]
-# disabled = true
+"$schema" = 'https://starship.rs/config-schema.json'
 
-# [git_status]
-# disabled = true
-# conflicted = "🏳 "
-# ahead = "💨 "
-# behind = "😰 "
-# diverged = "😵 "
-# untracked = "🤷‍ "
-# stashed = "📦 "
-# modified = "📝 "
-# staged.value = "🔰 "
-# staged_count.enabled = true
-# staged_count.style = "green"
-# renamed = "👅 "
-# deleted = "🗑 "
-# show_sync_count = true
-# prefix = ""
-# suffix = " "
+add_newline = true
 
-# [time]
+[time]
 disabled = false
-format = "%l:%M:%S%P"
+time_format = "%l:%M%P"
 use_12hr = true
-utc_time_offset = -5
+utc_time_offset = "local"
 
 # dracula theme
 [aws]
 style = "bold #ffb86c"
 
 [character]
-error_symbol = "[λ](bold #ff5555)"
-success_symbol = "[λ](bold #f8f8f2)"
+error_symbol = "[❯](bold #ff5555)"
+success_symbol = "[❯](bold #f8f8f2)"
 
 [cmd_duration]
 style = "bold #f1fa8c"
