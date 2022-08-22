@@ -82,6 +82,7 @@ yabai -m rule --add app=Installer manage=off
 yabai -m rule --add app="^iStat" manage=off mouse_follows_focus=off
 yabai -m rule --add app="JetBrains Toolbox" manage=off mouse_follows_focus=off
 yabai -m rule --add app=KeyboardCleanTool manage=off
+# yabai -m rule --add app=Neo4j manage=off
 yabai -m rule --add app="Norton 360" manage=off
 yabai -m rule --add app=Notes manage=off
 # yabai -m rule --add app=Obsidian sticky=on layer=above
@@ -101,6 +102,7 @@ yabai -m rule --add app="System Preferences" manage=off
 yabai -m rule --add app="System Settings" manage=off
 yabai -m rule --add app=TextExpander manage=off
 yabai -m rule --add app=Things manage=off
+yabai -m rule --add app=Topaz manage=off
 yabai -m rule --add app=Transmission manage=off
 yabai -m rule --add app=Tuple manage=off mouse_follows_focus=off
 yabai -m rule --add app=TV manage=off
