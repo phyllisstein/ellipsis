@@ -1,1 +1,1 @@
-eval (starship init fish)
+# eval (starship init fish)
