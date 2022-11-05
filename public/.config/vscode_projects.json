@@ -52,6 +52,16 @@
           "name": "Pandoc Assets",
           "path": "~/Code/Personal/pandoc-assets",
           "icon": "file-code"
+        },
+        {
+          "name": "VSCode Settings",
+          "path": "~/.ellipsis/.config/vscode_projects.json",
+          "icon": "debug-configure"
+        },
+        {
+          "name": "Next.js Starter",
+          "path": "~/Code/Personal/nextjs-typescript-starter",
+          "icon": "lightbulb"
         }
       ]
     },
