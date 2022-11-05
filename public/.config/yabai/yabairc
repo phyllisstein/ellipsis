@@ -38,7 +38,7 @@ yabai -m config active_window_border_color 0xff775759
 yabai -m config normal_window_border_color 0xff555555
 yabai -m config insert_feedback_color 0xffd75f5f
 yabai -m config split_ratio 0.5
-yabai -m config auto_balance off
+yabai -m config auto_balance on
 yabai -m config mouse_modifier fn
 yabai -m config mouse_action1 resize
 yabai -m config mouse_action2 move
@@ -60,17 +60,20 @@ yabai -m rule --add app="Archive" manage=off
 yabai -m rule --add app=Bartender manage=off mouse_follows_focus=off
 yabai -m rule --add app=BetterTouchTool manage=off
 yabai -m rule --add app=CatoClient manage=off
+yabai -m rule --add app=Cinemagraph manage=off
 yabai -m rule --add app=CleanMyMac manage=off
 yabai -m rule --add app=CleanShot manage=off
 yabai -m rule --add app=Cocktail manage=off
 yabai -m rule --add app="Creative Cloud" manage=off
 # yabai -m rule --add app=Dash manage=off
-yabai -m rule --add app=Due manage=off mouse_follows_focus=off
+yabai -m rule --add app=Docker manage=off
 yabai -m rule --add app=Dropbox manage=off mouse_follows_focus=off
 yabai -m rule --add app=Droplr manage=off mouse_follows_focus=off
+yabai -m rule --add app=Due manage=off mouse_follows_focus=off
 yabai -m rule --add app=Epic manage=off mouse_follows_focus=off
 yabai -m rule --add app=FaceTime manage=off
 yabai -m rule --add app=Fantastical manage=off mouse_follows_focus=off
+yabai -m rule --add app=Finder mouse_follows_focus=off
 yabai -m rule --add app=Focus manage=off mouse_follows_focus=off
 yabai -m rule --add app="Font Book" manage=off
 yabai -m rule --add app=GitFinder manage=off mouse_follows_focus=off
@@ -82,7 +85,7 @@ yabai -m rule --add app=Installer manage=off
 yabai -m rule --add app="^iStat" manage=off mouse_follows_focus=off
 yabai -m rule --add app="JetBrains Toolbox" manage=off mouse_follows_focus=off
 yabai -m rule --add app=KeyboardCleanTool manage=off
-# yabai -m rule --add app=Neo4j manage=off
+yabai -m rule --add app=Neo4j manage=off
 yabai -m rule --add app="Norton 360" manage=off
 yabai -m rule --add app=Notes manage=off
 # yabai -m rule --add app=Obsidian sticky=on layer=above
@@ -119,10 +122,10 @@ yabai -m rule --add app="^Finder$" manage=off title="Trash" mouse_follows_focus=
 yabai -m rule --add app="^Finder$" title="Info$" manage=off mouse_follows_focus=off
 
 # yabai -m rule --add app="IDEA" manage=off
-yabai -m rule --add app="IDEA" title=Preferences manage=off mouse_follows_focus=off
-yabai -m rule --add app="IDEA" title=Welcome manage=off mouse_follows_focus=off
-yabai -m rule --add app="IDEA" title=Rename manage=off mouse_follows_focus=off
-yabai -m rule --add app="IDEA" title=Move manage=off mouse_follows_focus=off
+# yabai -m rule --add app="IDEA" title=Preferences manage=off mouse_follows_focus=off
+# yabai -m rule --add app="IDEA" title=Welcome manage=off mouse_follows_focus=off
+# yabai -m rule --add app="IDEA" title=Rename manage=off mouse_follows_focus=off
+# yabai -m rule --add app="IDEA" title=Move manage=off mouse_follows_focus=off
 
 yabai -m rule --add app=WebCatalog manage=off
 yabai -m rule --add app="Vox Slack" manage=off sticky=on
