@@ -1,1 +1,1 @@
-source $HOME/.kubectl-aliases/.kubectl_aliases
+# source $HOME/.kubectl-aliases/.kubectl_aliases

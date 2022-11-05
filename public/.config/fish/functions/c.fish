@@ -12,5 +12,5 @@ function c --wraps=code
     return
   end
 
-  $VSCODE_BIN --reuse-window $params $path
+  $VSCODE_BIN $params $path
 end

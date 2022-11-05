@@ -28,3 +28,9 @@ end
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
 set -g async_prompt_functions _pure_prompt_git
+
+string match -q "$TERM_PROGRAM" "vscode" and . ($VSCODE_BIN --locate-shell-integration-path fish)
+
+if status --is-interactive
+  keychain --ignore-missing --quiet --eval -Q ~/.ssh/id_ed25519 ~/.ssh/id_rsa | source
+end

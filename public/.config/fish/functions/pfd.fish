@@ -7,6 +7,6 @@ function pfd
       set currentDir to desktop as alias
     end if
   end tell
-  log POSIX path of currentDir
+  return POSIX path of currentDir
   ' | osascript
 end
