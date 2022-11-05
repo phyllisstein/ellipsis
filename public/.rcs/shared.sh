@@ -33,7 +33,7 @@ done
 
 [[ -f "${HOMEBREW_PREFIX}/opt/git-extras/share/git-extras/git-extras-completion.zsh" ]] && source "${HOMEBREW_PREFIX}/opt/git-extras/share/git-extras/git-extras-completion.zsh"
 
-[[ -f "${HOME}/.kubectl-aliases/.kubectl_aliases" ]] && source "${HOME}/.kubectl-aliases/.kubectl_aliases"
+# [[ -f "${HOME}/.kubectl-aliases/.kubectl_aliases" ]] && source "${HOME}/.kubectl-aliases/.kubectl_aliases"
 
 if hash kubectl &>/dev/null; then
   source <($HOMEBREW_PREFIX/bin/kubectl completion zsh)
@@ -56,7 +56,7 @@ fi
 
  eval "$(direnv hook zsh)"
 
-eval "$(keychain --ignore-missing --quiet --eval ~/.ssh/personal_ed25519 ~/.ssh/personal_rsa ~/.ssh/ignota_engineering 2>/dev/null)"
+eval "$(keychain --ignore-missing --quiet --eval ~/.ssh/id_ed25519 ~/.ssh/id_rsa 2>/dev/null)"
 
 eval "$(perl -I$HOME/.perl5/lib/perl5 -Mlocal::lib=$HOME/.perl5)"
 
@@ -66,5 +66,10 @@ eval "$(perl -I$HOME/.perl5/lib/perl5 -Mlocal::lib=$HOME/.perl5)"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # --------------------------- asdf Version Manager --------------------------- #
-[[ -s "$HOME/.asdf/asdf.sh" ]] && source "$HOME/.asdf/asdf.sh"
-[[ -s "$HOME/.asdf/completions/asdf.bash" ]] && fpath=(${HOME}/.asdf/completions $fpath)
+if [[ -s "$HOME/.asdf/asdf.sh" ]]; then
+  source "$HOME/.asdf/asdf.sh"
+  fpath=(${HOME}/.asdf/completions $fpath)
+elif [[ -s "$HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh" ]]; then
+  source "$HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh"
+  fpath=(${HOMEBREW_PREFIX}/opt/asdf/etc/bash_completion.d $fpath)
+fi

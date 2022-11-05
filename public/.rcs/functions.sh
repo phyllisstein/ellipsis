@@ -242,3 +242,34 @@ detweet() {
     echo "127.0.0.1 twitter.com" | sudo /opt/homebrew/bin/gtee -a /etc/hosts &>/dev/null
   fi
 }
+
+# -- Run special Pandoc incantation --------------------------------------------
+pppandoc() {
+  typeset -a args
+  local input=""
+
+  for i in "${(@)*}"; do
+    if [[ "$i" =~ "^-" ]]; then
+      args+=($i)
+    else
+      input="$i"
+    fi
+  done
+
+  if [[ -z input ]]; then
+    echo "No input file specified."
+    return 1
+  fi
+
+  local target_html="${input%%.(md|markdown|mdown)}.html"
+  local input_dirname="$(dirname "$input")"
+  export PP_MACROS_PATH=${PP_MACROS_PATH:-"$HOME/.local/share/pandoc/goodies/pp/macros"}
+
+  exec /Users/daniel/.local/bin/pp $input \
+    | /opt/homebrew/bin/pandoc  \
+        --template=grip.html \
+        --from=markdown+emoji+yaml_metadata_block+bracketed_spans+startnum+task_lists+example_lists+superscript+subscript \
+        --to=html5 \
+        --filter=/Users/daniel/Code/Personal/pandoc-assets/filters/pygmentize.py \
+        --output="${input_dirname}/${target_html}"
+}
