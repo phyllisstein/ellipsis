@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/opt/homebrew/bin/zsh
 
 # the scripting-addition must be loaded manually if
 # you are running yabai on macOS Big Sur. Uncomment
@@ -15,9 +15,10 @@
 # sudo codesign -fs yabai-cert /opt/homebrew/bin/yabai
 sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+# launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist
 
 # global settings
-yabai -m config mouse_follows_focus off
+yabai -m config mouse_follows_focus on
 yabai -m config focus_follows_mouse off
 
 # default: the display in which the window is created (?)
@@ -62,9 +63,10 @@ yabai -m rule --add app=BetterTouchTool manage=off
 yabai -m rule --add app=CatoClient manage=off
 yabai -m rule --add app=Cinemagraph manage=off
 yabai -m rule --add app=CleanMyMac manage=off
-yabai -m rule --add app=CleanShot manage=off
+yabai -m rule --add app=CleanShot manage=off mouse_follows_focus=off
 yabai -m rule --add app=Cocktail manage=off
 yabai -m rule --add app="Creative Cloud" manage=off
+yabai -m rule --add app=DaisyDisk manage=off
 # yabai -m rule --add app=Dash manage=off
 yabai -m rule --add app=Docker manage=off
 yabai -m rule --add app=Dropbox manage=off mouse_follows_focus=off
@@ -96,7 +98,7 @@ yabai -m rule --add app="Put.IO Adder" manage=off mouse_follows_focus=off
 yabai -m rule --add app=".*qemu.*" manage=off
 yabai -m rule --add app=QuickTime manage=off
 yabai -m rule --add app=Raycast manage=off mouse_follows_focus=off
-yabai -m rule --add app=ScreenFlow manage=off
+yabai -m rule --add app=ScreenFlow manage=off mouse_follows_focus=off
 yabai -m rule --add app=Sip manage=off
 yabai -m rule --add app=SnippetsLab manage=off mouse_follows_focus=off
 yabai -m rule --add app=SoundSource manage=off mouse_follows_focus=off
@@ -121,7 +123,7 @@ yabai -m rule --add app="^Finder$" manage=off title="Copy" mouse_follows_focus=o
 yabai -m rule --add app="^Finder$" manage=off title="Trash" mouse_follows_focus=off
 yabai -m rule --add app="^Finder$" title="Info$" manage=off mouse_follows_focus=off
 
-# yabai -m rule --add app="IDEA" manage=off
+yabai -m rule --add app="IDEA" manage=off
 # yabai -m rule --add app="IDEA" title=Preferences manage=off mouse_follows_focus=off
 # yabai -m rule --add app="IDEA" title=Welcome manage=off mouse_follows_focus=off
 # yabai -m rule --add app="IDEA" title=Rename manage=off mouse_follows_focus=off
@@ -135,3 +137,4 @@ yabai -m rule --add app="Roam" manage=off
 yabai -m rule --add app="Font Awesome" manage=off
 
 yabai -m rule --add app=Music manage=off sticky=on
+yabai -m rule --add app=Reminders manage=off sticky=on
