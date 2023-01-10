@@ -127,8 +127,9 @@ focus < cmd - return : yabai -m window --toggle float; skhd -k "ctrl - space"
 
 # Change the moitor using numbers corresponding to each or cycle through them
 # using tab and shift - tab.
-focus < 1 : yabai -m display --focus 1
-focus < 2 : yabai -m display --focus 2
+focus < 1 : yabai -m display --focus "$(yabai -m query --displays | jq 'sort_by(.frame.x)[0].index')"
+focus < 2 : yabai -m display --focus "$(yabai -m query --displays | jq 'sort_by(.frame.x)[1].index')"
+focus < 3 : yabai -m display --focus "$(yabai -m query --displays | jq 'sort_by(.frame.x)[2].index')"
 focus < tab : yabai -m display --focus next
 focus < shift - tab : yabai -m display --focus prev
 
@@ -161,8 +162,15 @@ warp, warpnf < h : yabai -m window --warp west
 warp, warpnf < return : yabai -m window --warp largest
 
 # Warp window to monitor and follow.
-warp < 1 : yabai -m window --display 1; yabai -m display --focus 1
-warp < 2 : yabai -m window --display 2; yabai -m display --focus 2
+warp < 1 : display_idx="$(yabai -m query --displays | jq 'sort_by(.frame.x)[0].index')"; \
+              yabai -m window --display "$display_idx"; \
+              yabai -m display --focus "$display_idx"
+warp < 2 : display_idx="$(yabai -m query --displays | jq 'sort_by(.frame.x)[1].index')"; \
+              yabai -m window --display "$display_idx"; \
+              yabai -m display --focus "$display_idx"
+warp < 3 : display_idx="$(yabai -m query --displays | jq 'sort_by(.frame.x)[2].index')"; \
+              yabai -m window --display "$display_idx"; \
+              yabai -m display --focus "$display_idx"
 warp < tab : yabai -m window --display next; yabai -m display --focus next
 warp < shift - tab : yabai -m window --display prev; yabai -m display --focus prev
 
@@ -179,8 +187,9 @@ warp < cmd - 9 : yabai -m window --space 9; yabai -m space --focus 9
 warp < cmd - 0 : yabai -m window --space 10; yabai -m space --focus 10
 
 # Warp to monitor but do not follow.
-warpnf < 1 : yabai -m window --display 1
-warpnf < 2 : yabai -m window --display 2
+warpnf < 1 : yabai -m window --display "$(yabai -m query --displays | jq 'sort_by(.frame.x)[0].index')"
+warpnf < 2 : yabai -m window --display "$(yabai -m query --displays | jq 'sort_by(.frame.x)[1].index')"
+warpnf < 3 : yabai -m window --display "$(yabai -m query --displays | jq 'sort_by(.frame.x)[2].index')"
 warpnf < tab : yabai -m window --display next
 warpnf < shift - tab : yabai -m window --display prev
 
