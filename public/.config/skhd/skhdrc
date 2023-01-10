@@ -78,12 +78,12 @@
 # With a little help from:
 #   <https://github.com/nikhgupta/dotfiles/blob/osx/config/skhd/skhdrc>
 
-:: default : yabai -m config normal_window_opacity 1.0; yabai -m config window_opacity off
-:: focus @ : yabai -m config normal_window_opacity 0.9; yabai -m config window_opacity on
-:: swap @ : yabai -m config normal_window_opacity 0.9; yabai -m config window_opacity on
-:: warp @ : yabai -m config normal_window_opacity 0.9; yabai -m config window_opacity on
-:: warpnf @ : yabai -m config normal_window_opacity 0.9; yabai -m config window_opacity on
-:: resize @ : yabai -m config normal_window_opacity 0.9; yabai -m config window_opacity on
+:: default : yabai -m config normal_window_opacity 1.0; yabai -m config active_window_opacity 1.0; yabai -m config window_opacity off
+:: focus @ : yabai -m config normal_window_opacity 0.9; yabai -m config active_window_opacity 1.0; yabai -m config window_opacity on
+:: swap @ : yabai -m config normal_window_opacity 0.9; yabai -m config active_window_opacity 1.0; yabai -m config window_opacity on
+:: warp @ : yabai -m config normal_window_opacity 0.9; yabai -m config active_window_opacity 1.0; yabai -m config window_opacity on
+:: warpnf @ : yabai -m config normal_window_opacity 0.9; yabai -m config active_window_opacity 1.0; yabai -m config window_opacity on
+:: resize @ : yabai -m config normal_window_opacity 0.9; yabai -m config active_window_opacity 1.0; yabai -m config window_opacity on
 
 # Ctrl+space is the global hotkey to toggle modal mode. Always starts in focus
 # mode. Escape quits modal mode.
