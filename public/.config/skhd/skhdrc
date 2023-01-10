@@ -73,11 +73,13 @@
 #
 #               an EOL character signifies the end of the bind.
 
-# Modal config. Inspired by:
-#   <https://gist.github.com/pkazmier/213d9dce6b1ea313eaf0a17b017c2b08>
-# With a little help from:
-#   <https://github.com/nikhgupta/dotfiles/blob/osx/config/skhd/skhdrc>
+################################################################################
+################################# Modal Config #################################
+################################################################################
+# Inspired by: <https://gist.github.com/pkazmier/213d9dce6b1ea313eaf0a17b017c2b08>
+# With a little help from: <https://github.com/nikhgupta/dotfiles/blob/osx/config/skhd/skhdrc>
 
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Define Modes ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 :: default : yabai -m config normal_window_opacity 1.0; yabai -m config active_window_opacity 1.0; yabai -m config window_opacity off
 :: focus @ : yabai -m config normal_window_opacity 0.8; yabai -m config active_window_opacity 1.0; yabai -m config window_opacity on
 :: swap @ : yabai -m config normal_window_opacity 0.8; yabai -m config active_window_opacity 1.0; yabai -m config window_opacity on
@@ -87,9 +89,7 @@
 
 
 
-# ============================================================================ #
-# =============================== Default Mode =============================== #
-# ============================================================================ #
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Default Mode ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 # The default mode yields control back to your normal apps. The only shortcut
 # available in default mode (that is, the only global shortcut) is `ctrl -
 # space`. Pressing `ctrl-space` toggles the modal interface, starting with focus
@@ -98,10 +98,7 @@ default < ctrl - space ; focus
 
 
 
-# ============================================================================ #
-# ================================ Global Mode =============================== #
-# ============================================================================ #
-
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Global Mode ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 # These escape hatches back to normal mode in any of the configured modes. `ctrl
 # - space`, `escape`, and `q` will always return you to the default mode, in
 # which skhd is not listening for further keystrokes.
@@ -130,9 +127,7 @@ focus, swap, warp, warpnf, resize < alt - e : yabai -m space --balance x-axis
 
 
 
-# ============================================================================ #
-# ================================ Focus Mode ================================ #
-# ============================================================================ #
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Focus Mode ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 # Focus mode moves "active" state between windows and displays. This mode is the
 # default, and activates as soon as you press `ctrl - space`. You can also
 # activate focus mode by pressing the `f` key within another mode.
@@ -180,9 +175,7 @@ focus < cmd - tab : yabai -m space --focus next
 focus < shift + cmd - tab : yabai -m space --focus prev
 
 
-# ============================================================================ #
-# ================================= Swap Mode ================================ #
-# ============================================================================ #
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Swap Mode ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 # Swap the active window in for another partition, and swap that partition's
 # window into the active window's partition. Swap mode can be activated by
 # pressing `s` in any other mode.
@@ -192,9 +185,7 @@ swap < j : yabai -m window --swap south
 swap < h : yabai -m window --swap west
 swap < l : yabai -m window --swap east
 
-# ============================================================================ #
-# ================================= Warp Mode ================================ #
-# ============================================================================ #
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Warp Mode ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 # Instead of swapping windows, insert the active window into another screen
 # partition. Warp mode can be activated by pressing `w` in any other mode. A
 # special form of warp mode, `warpnf`, can be activated by pressing `shift - w`.
