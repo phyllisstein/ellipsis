@@ -1,5 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zprofile.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zprofile.pre.zsh"
 #
 # Executes commands at login pre-zshrc.
 #
@@ -43,11 +41,11 @@ elif [[ "$(uname -s)" == "Linux" && "$(uname -r)" =~ "microsoft" ]]; then
   export ELLIPSIS_PLATFORM="wsl"
 fi
 
-if [[ "$ELLIPSIS_PLATFORM" == "macos" && -e "$HOME/Dropbox" ]]; then
+if [[ "$ELLIPSIS_PLATFORM" == "macos" && -d "$HOME/Dropbox" ]]; then
   export DROPBOX_PATH="$HOME/Dropbox"
-elif [[ "$ELLIPSIS_PLATFORM" == "macos" && -e "$HOME/Library/CloudStorage/Dropbox" ]]; then
+elif [[ "$ELLIPSIS_PLATFORM" == "macos" && -d "$HOME/Library/CloudStorage/Dropbox" ]]; then
   export DROPBOX_PATH="$HOME/Library/CloudStorage/Dropbox"
-elif [[ "$ELLIPSIS_PLATFORM" == "wsl" && -e "/mnt/c/Dropbox" ]]; then
+elif [[ "$ELLIPSIS_PLATFORM" == "wsl" && -d "/mnt/c/Dropbox" ]]; then
   export DROPBOX_PATH="/mnt/c/Dropbox"
 fi
 
@@ -78,6 +76,3 @@ export LESS='-g -i -M -R -S -w -z-4'
 if (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
-
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zprofile.post.zsh" ]] && builtin source "$HOME/.fig/shell/zprofile.post.zsh"

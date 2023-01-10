@@ -107,7 +107,7 @@ plugins=(
   jsontools
   node
   npm
-  osx
+  macos
   pip
   python
   ruby
