@@ -73,7 +73,7 @@
 #
 #               an EOL character signifies the end of the bind.
 
-# Modal mode. Inspired by:
+# Modal config. Inspired by:
 #   <https://gist.github.com/pkazmier/213d9dce6b1ea313eaf0a17b017c2b08>
 # With a little help from:
 #   <https://github.com/nikhgupta/dotfiles/blob/osx/config/skhd/skhdrc>
@@ -85,20 +85,41 @@
 :: warpnf @ : yabai -m config normal_window_opacity 0.8; yabai -m config active_window_opacity 1.0; yabai -m config window_opacity on
 :: resize @ : yabai -m config normal_window_opacity 0.8; yabai -m config active_window_opacity 1.0; yabai -m config window_opacity on
 
-# Ctrl+space is the global hotkey to toggle modal mode. Always starts in focus
-# mode. Escape quits modal mode.
+
+
+# ============================================================================ #
+# =============================== Default Mode =============================== #
+# ============================================================================ #
+# The default mode yields control back to your normal apps. The only shortcut
+# available in default mode (that is, the only global shortcut) is `ctrl -
+# space`. Pressing `ctrl-space` toggles the modal interface, starting with focus
+# mode.
 default < ctrl - space ; focus
+
+
+
+# ============================================================================ #
+# ================================ Global Mode =============================== #
+# ============================================================================ #
+
+# These escape hatches back to normal mode in any of the configured modes. `ctrl
+# - space`, `escape`, and `q` will always return you to the default mode, in
+# which skhd is not listening for further keystrokes.
 focus, swap, warp, warpnf, resize < ctrl - space ; default
 focus, swap, warp, warpnf, resize < escape ; default
+focus, swap, warp, warpnf, resize < q ; default
 
-# Once in modal mode, switch modes with a single keystroke.
+# These keystrokes are available in any mode for quickly switching to another
+# mode. For instance, pressing `f` in swap mode will activate focus mode.
 focus, swap, warp, warpnf, resize < f ; focus
 focus, swap, warp, warpnf, resize < s ; swap
 focus, swap, warp, warpnf, resize < r ; resize
 focus, swap, warp, warpnf, resize < w ; warp
 focus, swap, warp, warpnf, resize < shift - w ; warpnf
 
-# Available in all modes.
+# These common operations are also available in any mode: pressing `space` will
+# always rotate your windows 90° clockwise, without dropping you out of the
+# current mode.
 focus, swap, warp, warpnf, resize < space : yabai -m space --rotate 90
 focus, swap, warp, warpnf, resize < shift - space : yabai -m space --rotate 270
 focus, swap, warp, warpnf, resize < x : yabai -m space --mirror x-axis
@@ -106,7 +127,15 @@ focus, swap, warp, warpnf, resize < y : yabai -m space --mirror y-axis
 focus, swap, warp, warpnf, resize < e : yabai -m space --balance
 focus, swap, warp, warpnf, resize < shift - e : yabai -m space --balance y-axis
 focus, swap, warp, warpnf, resize < alt - e : yabai -m space --balance x-axis
-focus, swap, warp, warpnf, resize < q ; default
+
+
+
+# ============================================================================ #
+# ================================ Focus Mode ================================ #
+# ============================================================================ #
+# Focus mode moves "active" state between windows and displays. This mode is the
+# default, and activates as soon as you press `ctrl - space`. You can also
+# activate focus mode by pressing the `f` key within another mode.
 
 # Change focus using standard vi directional keys. Enter changes foucs to the
 # biggest window.
@@ -126,14 +155,17 @@ focus < cmd - l : yabai -m window --insert east; skhd -k "ctrl - space"
 focus < cmd - return : yabai -m window --toggle float; skhd -k "ctrl - space"
 
 # Change the moitor using numbers corresponding to each or cycle through them
-# using tab and shift - tab.
+# using tab and shift - tab. If you have multiple displays attached to your
+# computer, keybindings move from leftmost (1) to rightmost (3) display, as
+# arranged, not based on primary/secondary designation.
 focus < 1 : yabai -m display --focus "$(yabai -m query --displays | jq 'sort_by(.frame.x)[0].index')"
 focus < 2 : yabai -m display --focus "$(yabai -m query --displays | jq 'sort_by(.frame.x)[1].index')"
 focus < 3 : yabai -m display --focus "$(yabai -m query --displays | jq 'sort_by(.frame.x)[2].index')"
 focus < tab : yabai -m display --focus next
 focus < shift - tab : yabai -m display --focus prev
 
-# Prefix with cmd to change the space focus
+# Hold command when inputting a number to move focus between Mission Control
+# spaces.
 focus < cmd - 1 : yabai -m space --focus 1
 focus < cmd - 2 : yabai -m space --focus 2
 focus < cmd - 3 : yabai -m space --focus 3
@@ -147,14 +179,28 @@ focus < cmd - 0 : yabai -m space --focus 10
 focus < cmd - tab : yabai -m space --focus next
 focus < shift + cmd - tab : yabai -m space --focus prev
 
-# Swap windows using standard vi directional keys
+
+# ============================================================================ #
+# ================================= Swap Mode ================================ #
+# ============================================================================ #
+# Swap the active window in for another partition, and swap that partition's
+# window into the active window's partition. Swap mode can be activated by
+# pressing `s` in any other mode.
+
 swap < k : yabai -m window --swap north
 swap < j : yabai -m window --swap south
 swap < h : yabai -m window --swap west
 swap < l : yabai -m window --swap east
 
-# Warp windows using standard vi directional keys. Same bindings for warp and
-# warpnf.
+# ============================================================================ #
+# ================================= Warp Mode ================================ #
+# ============================================================================ #
+# Instead of swapping windows, insert the active window into another screen
+# partition. Warp mode can be activated by pressing `w` in any other mode. A
+# special form of warp mode, `warpnf`, can be activated by pressing `shift - w`.
+# `warpnf` applies to display and desktop warp operations. It warps the window
+# without moving focus to its destination.
+
 warp, warpnf < k : yabai -m window --warp north
 warp, warpnf < j : yabai -m window --warp south
 warp, warpnf < l : yabai -m window --warp east
