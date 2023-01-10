@@ -17,9 +17,9 @@ else if test \( (uname -s) = "Linux" \) -a \( string match --ignore-case "micros
   set -gx ELLIPSIS_PLATFORM "wsl"
 end
 
-if test \( "$ELLIPSIS_PLATFORM" = "macos" \) -a \( -e "$HOME/Dropbox" \)
+if test \( "$ELLIPSIS_PLATFORM" = "macos" \) -a \( -d "$HOME/Dropbox" \)
   set -gx DROPBOX_PATH "$HOME/Dropbox"
-else if test \( "$ELLIPSIS_PLATFORM" = "macos" \) -a \( -e "$HOME/Library/CloudStorage/Dropbox" \)
+else if test \( "$ELLIPSIS_PLATFORM" = "macos" \) -a \( -d "$HOME/Library/CloudStorage/Dropbox" \)
   set -gx DROPBOX_PATH "$HOME/Library/CloudStorage/Dropbox"
 else if test "$ELLIPSIS_PLATFORM" = "wsl"
   set -gx DROPBOX_PATH "/mnt/c/Dropbox"
@@ -32,5 +32,7 @@ set -g async_prompt_functions _pure_prompt_git
 string match -q "$TERM_PROGRAM" "vscode" and . ($VSCODE_BIN --locate-shell-integration-path fish)
 
 if status --is-interactive
-  keychain --ignore-missing --quiet --eval -Q ~/.ssh/id_ed25519 ~/.ssh/id_rsa | source
+  keychain --ignore-missing --quiet --eval -Q ~/.ssh/personal_ed25519 ~/.ssh/personal_rsa | source
 end
+
+source /Users/daniel/.docker/init-fish.sh || true # Added by Docker Desktop
