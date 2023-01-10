@@ -20,12 +20,12 @@ yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 yabai -m config                               \
   mouse_follows_focus          on             \
   focus_follows_mouse          off            \
-  window_origin_display        cursor         \
+  window_origin_display        default        \
   window_placement             second_child   \
   window_topmost               off            \
   window_shadow                on             \
-  window_animation_duration    0.05           \
-  window_opacity_duration      0.5            \
+  window_animation_duration    0.0            \
+  window_opacity_duration      0.2            \
   active_window_opacity        1.0            \
   normal_window_opacity        0.90           \
   window_opacity               off            \
@@ -40,11 +40,11 @@ yabai -m config                               \
   split_ratio                  0.50           \
   split_type                   auto           \
   auto_balance                 off            \
-  top_padding                  12             \
-  bottom_padding               12             \
-  left_padding                 12             \
-  right_padding                12             \
-  window_gap                   06             \
+  top_padding                  0              \
+  bottom_padding               0              \
+  left_padding                 0              \
+  right_padding                0              \
+  window_gap                   0              \
   layout                       bsp            \
   mouse_modifier               fn             \
   mouse_action1                move           \
@@ -58,11 +58,11 @@ yabai -m rule --add app="^Adobe" manage=off
 yabai -m rule --add app="Archive" manage=off
 yabai -m rule --add app=Bartender manage=off mouse_follows_focus=off
 yabai -m rule --add app=BetterTouchTool manage=off
-yabai -m rule --add app=CatoClient manage=off
 yabai -m rule --add app=Cinemagraph manage=off
 yabai -m rule --add app=CleanMyMac manage=off
 yabai -m rule --add app=CleanShot manage=off mouse_follows_focus=off
 yabai -m rule --add app=Cocktail manage=off
+yabai -m rule --add app=ColorSlurp manage=off mouse_follows_focus=off
 yabai -m rule --add app="Creative Cloud" manage=off
 yabai -m rule --add app=DaisyDisk manage=off
 # yabai -m rule --add app=Dash manage=off
@@ -84,12 +84,13 @@ yabai -m rule --add app=Infuse manage=off
 yabai -m rule --add app=Installer manage=off
 yabai -m rule --add app="^iStat" manage=off mouse_follows_focus=off
 yabai -m rule --add app="JetBrains Toolbox" manage=off mouse_follows_focus=off
+yabai -m rule --add app=Kaleidoscope manage=off
 yabai -m rule --add app=KeyboardCleanTool manage=off
+yabai -m rule --add app=MeetInOne manage=off
 yabai -m rule --add app=Neo4j manage=off
 yabai -m rule --add app="Norton 360" manage=off
 yabai -m rule --add app=Notes manage=off
 # yabai -m rule --add app=Obsidian sticky=on layer=above
-yabai -m rule --add app="^Parallels" manage=off
 yabai -m rule --add app=Pastebot manage=off
 yabai -m rule --add app=Preview manage=off
 yabai -m rule --add app="Put.IO Adder" manage=off mouse_follows_focus=off
@@ -97,6 +98,7 @@ yabai -m rule --add app=".*qemu.*" manage=off
 yabai -m rule --add app=QuickTime manage=off
 yabai -m rule --add app=Raycast manage=off mouse_follows_focus=off
 yabai -m rule --add app=ScreenFlow manage=off mouse_follows_focus=off
+yabai -m rule --add app=SetApp manage=off
 yabai -m rule --add app=Sip manage=off
 yabai -m rule --add app=SnippetsLab manage=off mouse_follows_focus=off
 yabai -m rule --add app=SoundSource manage=off mouse_follows_focus=off
@@ -109,6 +111,7 @@ yabai -m rule --add app=Topaz manage=off
 yabai -m rule --add app=Transmission manage=off
 yabai -m rule --add app=Tuple manage=off mouse_follows_focus=off
 yabai -m rule --add app=TV manage=off
+yabai -m rule --add app=Tweetbot manage=off
 yabai -m rule --add app=Unclutter manage=off mouse_follows_focus=off
 yabai -m rule --add app=VLC manage=off
 yabai -m rule --add app="^VMware" manage=off
@@ -120,6 +123,16 @@ yabai -m rule --add title=Preferences manage=off
 yabai -m rule --add app="^Finder$" manage=off title="Copy" mouse_follows_focus=off
 yabai -m rule --add app="^Finder$" manage=off title="Trash" mouse_follows_focus=off
 yabai -m rule --add app="^Finder$" title="Info$" manage=off mouse_follows_focus=off
+
+yabai -m rule --add app="Aqua" manage=off
+yabai -m rule --add app="DataGrip" manage=off
+yabai -m rule --add app="IDEA" manage=off
+yabai -m rule --add app="Gateway" manage=off
+yabai -m rule --add app="Fleet" manage=off
+
+yabai -m rule --add app=Parallels manage=off focus_follows_mouse=off
+yabai -m rule --add app="Windows 11" manage=off focus_follows_mouse=off
+yabai -m rule --add app="Ubuntu 20.4" manage=off focus_follows_mouse=off
 
 yabai -m rule --add app="IDEA" manage=off
 # yabai -m rule --add app="IDEA" title=Preferences manage=off mouse_follows_focus=off
@@ -136,3 +149,4 @@ yabai -m rule --add app="Font Awesome" manage=off
 
 yabai -m rule --add app=Music manage=off sticky=on
 yabai -m rule --add app=Reminders manage=off sticky=on
+yabai -m rule --add app=CatoClient manage=off sticky=on

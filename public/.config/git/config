@@ -38,6 +38,7 @@
 	denyCurrentBranch = refuse
 [alias]
 	first = rev-list --max-parents=0 HEAD
+	inaugural = rev-list --max-parents=0 HEAD
 
 	# See https://stackoverflow.com/a/1459264.
 	repeal-init = reset --soft HEAD@{1}
@@ -74,6 +75,8 @@
 	detachedHead = false
 [credential]
 	helper = manager-core
+	helper =
+	helper = /usr/local/share/gcm-core/git-credential-manager
 [rerere]
 	enabled = true
 [filter "lfs"]
