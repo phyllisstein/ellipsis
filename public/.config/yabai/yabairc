@@ -30,8 +30,8 @@ yabai -m config                               \
   normal_window_opacity        0.90           \
   window_opacity               off            \
   insert_feedback_color        0xffd75f5f   \
-  active_window_border_color   0xff775759   \
-  normal_window_border_color   0xff555555   \
+  active_window_border_color   0xaa44CA49   \
+  normal_window_border_color   0xaa009E98   \
   window_border_width          0              \
   window_border_radius         12             \
   window_border_blur           off            \
@@ -130,9 +130,9 @@ yabai -m rule --add app="IDEA" manage=off
 yabai -m rule --add app="Gateway" manage=off
 yabai -m rule --add app="Fleet" manage=off
 
-yabai -m rule --add app=Parallels manage=off focus_follows_mouse=off
-yabai -m rule --add app="Windows 11" manage=off focus_follows_mouse=off
-yabai -m rule --add app="Ubuntu 20.4" manage=off focus_follows_mouse=off
+yabai -m rule --add app=Parallels manage=off mouse_follows_focus=off
+yabai -m rule --add app="Windows" manage=off mouse_follows_focus=off
+yabai -m rule --add app="Ubuntu" manage=off mouse_follows_focus=off
 
 yabai -m rule --add app="IDEA" manage=off
 # yabai -m rule --add app="IDEA" title=Preferences manage=off mouse_follows_focus=off

@@ -94,14 +94,14 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Define Modes ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 # Everything after the colon is a command skhd executes on entering that mode.
 # In any mode but default mode, yabai shows borders around windows. They are
-# removed on switching back to default mode. (A border width of 5 goes well with
-# a yabai window_gap of 6.)
+# removed on switching back to default mode. (A border width of 3 neatly fits a
+# yabai window_gap of 6.)
 :: default : yabai -m config window_border_width 0; yabai -m config window_border off
-:: focus @ : yabai -m config window_border_width 5; yabai -m config window_border on
-:: swap @ : yabai -m config window_border_width 5; yabai -m config window_border on
-:: warp @ : yabai -m config window_border_width 5; yabai -m config window_border on
-:: warpnf @ : yabai -m config window_border_width 5; yabai -m config window_border on
-:: resize @ : yabai -m config window_border_width 5; yabai -m config window_border on
+:: focus @ : yabai -m config window_border_width 3; yabai -m config window_border on
+:: swap @ : yabai -m config window_border_width 3; yabai -m config window_border on
+:: warp @ : yabai -m config window_border_width 3; yabai -m config window_border on
+:: warpnf @ : yabai -m config window_border_width 3; yabai -m config window_border on
+:: resize @ : yabai -m config window_border_width 3; yabai -m config window_border on
 
 
 
