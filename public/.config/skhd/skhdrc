@@ -79,6 +79,18 @@
 # Inspired by: <https://gist.github.com/pkazmier/213d9dce6b1ea313eaf0a17b017c2b08>
 # With a little help from: <https://github.com/nikhgupta/dotfiles/blob/osx/config/skhd/skhdrc>
 
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Example ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
+# 1. Press `ctrl-space` to enter focus mode.
+# 2. Press `2` to move focus to the second display from the left.
+# 3. Press `h` to focus the window to the left of the currently focused window.
+# 4. Press `s` to switch into swap mode.
+# 5. Press `j` to swap the current focused window with the window below.
+# 6. Press `return` to exit the active mode and return to default.
+
+
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Define Modes ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 # Everything after the colon is a command skhd executes on entering that mode.
 # In any mode but default mode, yabai shows borders around windows. They are
@@ -104,11 +116,12 @@ default < ctrl - space ; focus
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Global Mode ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 # These escape hatches back to normal mode in any of the configured modes. `ctrl
-# - space`, `escape`, and `q` will always return you to the default mode, in
+# - space`, `escape`, `q`, and `return` will always jump directly to default mode, in
 # which skhd is not listening for further keystrokes.
 focus, swap, warp, warpnf, resize < ctrl - space ; default
 focus, swap, warp, warpnf, resize < escape ; default
 focus, swap, warp, warpnf, resize < q ; default
+focus, swap, warp, warpnf, resize < return ; default
 
 # These keystrokes are available in any mode for quickly switching to another
 # mode. For instance, pressing `f` in swap mode will activate focus mode.
@@ -142,7 +155,6 @@ focus < k : yabai -m window --focus north
 focus < j : yabai -m window --focus south
 focus < h : yabai -m window --focus west
 focus < l : yabai -m window --focus east
-focus < return : yabai -m window --focus largest
 
 # Change the next insertion point using standard vi directional keys. As these
 # operations are intended for the next window that is opened, exit focus mode
@@ -151,7 +163,6 @@ focus < cmd - k : yabai -m window --insert north; skhd -k "ctrl - space"
 focus < cmd - j : yabai -m window --insert south; skhd -k "ctrl - space"
 focus < cmd - h : yabai -m window --insert west; skhd -k "ctrl - space"
 focus < cmd - l : yabai -m window --insert east; skhd -k "ctrl - space"
-focus < cmd - return : yabai -m window --toggle float; skhd -k "ctrl - space"
 
 # Change the moitor using numbers corresponding to each or cycle through them
 # using tab and shift - tab. If you have multiple displays attached to your
@@ -200,7 +211,6 @@ warp, warpnf < k : yabai -m window --warp north
 warp, warpnf < j : yabai -m window --warp south
 warp, warpnf < l : yabai -m window --warp east
 warp, warpnf < h : yabai -m window --warp west
-warp, warpnf < return : yabai -m window --warp largest
 
 # Warp window to monitor and follow.
 warp < 1 : display_idx="$(yabai -m query --displays | jq 'sort_by(.frame.x)[0].index')"; \
