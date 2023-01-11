@@ -110,7 +110,7 @@
 # available in default mode (that is, the only global shortcut) is `ctrl -
 # space`. Pressing `ctrl-space` toggles the modal interface, starting with focus
 # mode.
-default < ctrl - space ; focus
+default < ctrl + alt - space ; focus
 
 
 
@@ -118,7 +118,7 @@ default < ctrl - space ; focus
 # These escape hatches back to normal mode in any of the configured modes. `ctrl
 # - space`, `escape`, `q`, and `return` will always jump directly to default mode, in
 # which skhd is not listening for further keystrokes.
-focus, swap, warp, warpnf, resize < ctrl - space ; default
+focus, swap, warp, warpnf, resize < ctrl + alt - space ; default
 focus, swap, warp, warpnf, resize < escape ; default
 focus, swap, warp, warpnf, resize < q ; default
 focus, swap, warp, warpnf, resize < return ; default
@@ -146,7 +146,7 @@ focus, swap, warp, warpnf, resize < alt - e : yabai -m space --balance x-axis
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Focus Mode ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 # Focus mode moves "active" state between windows and displays. This mode is the
-# default, and activates as soon as you press `ctrl - space`. You can also
+# default, and activates as soon as you press `ctrl + alt - space`. You can also
 # activate focus mode by pressing the `f` key within another mode.
 
 # Change focus using standard vi directional keys. Enter changes foucs to the
@@ -159,10 +159,10 @@ focus < l : yabai -m window --focus east
 # Change the next insertion point using standard vi directional keys. As these
 # operations are intended for the next window that is opened, exit focus mode
 # immediately.
-focus < cmd - k : yabai -m window --insert north; skhd -k "ctrl - space"
-focus < cmd - j : yabai -m window --insert south; skhd -k "ctrl - space"
-focus < cmd - h : yabai -m window --insert west; skhd -k "ctrl - space"
-focus < cmd - l : yabai -m window --insert east; skhd -k "ctrl - space"
+focus < cmd - k : yabai -m window --insert north; skhd -k "ctrl + alt - space"
+focus < cmd - j : yabai -m window --insert south; skhd -k "ctrl + alt - space"
+focus < cmd - h : yabai -m window --insert west; skhd -k "ctrl + alt - space"
+focus < cmd - l : yabai -m window --insert east; skhd -k "ctrl + alt - space"
 
 # Change the moitor using numbers corresponding to each or cycle through them
 # using tab and shift - tab. If you have multiple displays attached to your
