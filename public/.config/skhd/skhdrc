@@ -80,12 +80,16 @@
 # With a little help from: <https://github.com/nikhgupta/dotfiles/blob/osx/config/skhd/skhdrc>
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Define Modes ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
-:: default : yabai -m config normal_window_opacity 1.0; yabai -m config active_window_opacity 1.0; yabai -m config window_opacity off
-:: focus @ : yabai -m config normal_window_opacity 0.8; yabai -m config active_window_opacity 1.0; yabai -m config window_opacity on
-:: swap @ : yabai -m config normal_window_opacity 0.8; yabai -m config active_window_opacity 1.0; yabai -m config window_opacity on
-:: warp @ : yabai -m config normal_window_opacity 0.8; yabai -m config active_window_opacity 1.0; yabai -m config window_opacity on
-:: warpnf @ : yabai -m config normal_window_opacity 0.8; yabai -m config active_window_opacity 1.0; yabai -m config window_opacity on
-:: resize @ : yabai -m config normal_window_opacity 0.8; yabai -m config active_window_opacity 1.0; yabai -m config window_opacity on
+# Everything after the colon is a command skhd executes on entering that mode.
+# In any mode but default mode, yabai shows borders around windows. They are
+# removed on switching back to default mode. (A border width of 5 goes well with
+# a yabai window_gap of 6.)
+:: default : yabai -m config window_border_width 0; yabai -m config window_border off
+:: focus @ : yabai -m config window_border_width 5; yabai -m config window_border on
+:: swap @ : yabai -m config window_border_width 5; yabai -m config window_border on
+:: warp @ : yabai -m config window_border_width 5; yabai -m config window_border on
+:: warpnf @ : yabai -m config window_border_width 5; yabai -m config window_border on
+:: resize @ : yabai -m config window_border_width 5; yabai -m config window_border on
 
 
 
