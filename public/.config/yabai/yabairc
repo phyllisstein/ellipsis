@@ -103,6 +103,7 @@ yabai -m rule --add app=Sip manage=off
 yabai -m rule --add app=SnippetsLab manage=off mouse_follows_focus=off
 yabai -m rule --add app=SoundSource manage=off mouse_follows_focus=off
 yabai -m rule --add app=Speediness manage=off mouse_follows_focus=off
+yabai -m rule --add app=Steam manage=off mouse_follows_focus=off
 yabai -m rule --add app="System Preferences" manage=off
 yabai -m rule --add app="System Settings" manage=off
 yabai -m rule --add app=TextExpander manage=off
@@ -117,6 +118,7 @@ yabai -m rule --add app=VLC manage=off
 yabai -m rule --add app="^VMware" manage=off
 yabai -m rule --add app=Yoink manage=off mouse_follows_focus=off
 yabai -m rule --add app=zoom.us manage=off
+yabai -m rule --add app=XIV manage=off mouse_follows_focus=off
 yabai -m rule --add app=xScope manage=off mouse_follows_focus=off
 
 yabai -m rule --add title=Preferences manage=off
