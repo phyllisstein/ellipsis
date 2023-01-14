@@ -96,12 +96,30 @@
 # In any mode but default mode, yabai shows borders around windows. They are
 # removed on switching back to default mode. (A border width of 3 neatly fits a
 # yabai window_gap of 6.)
-:: default : yabai -m config window_border_width 0; yabai -m config window_border off
-:: focus @ : yabai -m config window_border_width 3; yabai -m config window_border on
-:: swap @ : yabai -m config window_border_width 3; yabai -m config window_border on
-:: warp @ : yabai -m config window_border_width 3; yabai -m config window_border on
-:: warpnf @ : yabai -m config window_border_width 3; yabai -m config window_border on
-:: resize @ : yabai -m config window_border_width 3; yabai -m config window_border on
+:: default : yabai -m config active_window_opacity 1.0 \
+                         normal_window_opacity 1.0 \
+                         window_opacity off
+
+:: focus @ : yabai -m config active_window_opacity 1.0 \
+                              normal_window_opacity 0.9 \
+                              window_opacity on
+
+:: swap @ : yabai -m config active_window_opacity 1.0 \
+                              normal_window_opacity 0.9 \
+                              window_opacity on
+
+:: warp @ : yabai -m config active_window_opacity 1.0 \
+                              normal_window_opacity 0.9 \
+                              window_opacity on
+
+:: warpnf @ : yabai -m config active_window_opacity 1.0 \
+                              normal_window_opacity 0.9 \
+                              window_opacity on
+
+:: resize @ : yabai -m config active_window_opacity 1.0 \
+                              normal_window_opacity 0.9 \
+                              window_opacity on
+
 
 
 
