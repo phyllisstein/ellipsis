@@ -101,23 +101,23 @@
                          window_opacity off
 
 :: focus @ : yabai -m config active_window_opacity 1.0 \
-                              normal_window_opacity 0.9 \
+                              normal_window_opacity 0.8 \
                               window_opacity on
 
 :: swap @ : yabai -m config active_window_opacity 1.0 \
-                              normal_window_opacity 0.9 \
+                              normal_window_opacity 0.8 \
                               window_opacity on
 
 :: warp @ : yabai -m config active_window_opacity 1.0 \
-                              normal_window_opacity 0.9 \
+                              normal_window_opacity 0.8 \
                               window_opacity on
 
 :: warpnf @ : yabai -m config active_window_opacity 1.0 \
-                              normal_window_opacity 0.9 \
+                              normal_window_opacity 0.8 \
                               window_opacity on
 
 :: resize @ : yabai -m config active_window_opacity 1.0 \
-                              normal_window_opacity 0.9 \
+                              normal_window_opacity 0.8 \
                               window_opacity on
 
 
