@@ -159,6 +159,7 @@ focus, swap, warp, warpnf, resize < y : yabai -m space --mirror y-axis
 focus, swap, warp, warpnf, resize < e : yabai -m space --balance
 focus, swap, warp, warpnf, resize < shift - e : yabai -m space --balance y-axis
 focus, swap, warp, warpnf, resize < alt - e : yabai -m space --balance x-axis
+focus, swap, warp, warpnf, resize < 0x2F : yabai -m space --layout bsp # `.` on US keyboard
 
 
 
