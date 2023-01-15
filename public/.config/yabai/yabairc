@@ -116,6 +116,7 @@ yabai -m rule --add app=Tweetbot manage=off
 yabai -m rule --add app=Unclutter manage=off mouse_follows_focus=off
 yabai -m rule --add app=VLC manage=off
 yabai -m rule --add app="^VMware" manage=off
+yabai -m rule --add app=wine manage=off mouse_follows_focus=off
 yabai -m rule --add app=Yoink manage=off mouse_follows_focus=off
 yabai -m rule --add app=zoom.us manage=off
 yabai -m rule --add app=XIV manage=off mouse_follows_focus=off
