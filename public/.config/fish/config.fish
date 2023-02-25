@@ -25,14 +25,23 @@ else if test "$ELLIPSIS_PLATFORM" = "wsl"
   set -gx DROPBOX_PATH "/mnt/c/Dropbox"
 end
 
+set -gx CAROOT "$DROPBOX_PATH/Settings/SSL"
+set -gx NODE_EXTRA_CERTS "$CAROOT/rootCA.pem"
+
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
 set -g async_prompt_functions _pure_prompt_git
 
-string match -q "$TERM_PROGRAM" "vscode" and . ($VSCODE_BIN --locate-shell-integration-path fish)
+string match -q "$TERM_PROGRAM" "vscode" and . (code --locate-shell-integration-path fish)
 
 if status --is-interactive
   keychain --ignore-missing --quiet --eval -Q ~/.ssh/personal_ed25519 ~/.ssh/personal_rsa | source
 end
 
-source /Users/daniel/.docker/init-fish.sh || true # Added by Docker Desktop
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+if test -f /Users/daniel/miniconda3/bin/conda
+    eval /Users/daniel/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+end
+# <<< conda initialize <<<
+
