@@ -108,6 +108,8 @@
 
 :: resize @ : yabai -m config window_border on
 
+:: create @ : yabai -m config window_border on
+
 
 
 
@@ -124,30 +126,32 @@ default < ctrl - space ; focus
 # These escape hatches back to normal mode in any of the configured modes. `ctrl
 # - space`, `escape`, `q`, and `return` will always jump directly to default mode, in
 # which skhd is not listening for further keystrokes.
-focus, swap, warp, warpnf, resize < ctrl - space ; default
-focus, swap, warp, warpnf, resize < escape ; default
-focus, swap, warp, warpnf, resize < q ; default
-focus, swap, warp, warpnf, resize < return ; default
+focus, swap, warp, warpnf, resize, create < ctrl - space ; default
+focus, swap, warp, warpnf, resize, create < escape ; default
+focus, swap, warp, warpnf, resize, create < q ; default
+focus, swap, warp, warpnf, resize, create < return ; default
 
 # These keystrokes are available in any mode for quickly switching to another
 # mode. For instance, pressing `f` in swap mode will activate focus mode.
-focus, swap, warp, warpnf, resize < f ; focus
-focus, swap, warp, warpnf, resize < s ; swap
-focus, swap, warp, warpnf, resize < r ; resize
-focus, swap, warp, warpnf, resize < w ; warp
-focus, swap, warp, warpnf, resize < shift - w ; warpnf
+focus, swap, warp, warpnf, resize, create < f ; focus
+focus, swap, warp, warpnf, resize, create < s ; swap
+focus, swap, warp, warpnf, resize, create < r ; resize
+focus, swap, warp, warpnf, resize, create < w ; warp
+focus, swap, warp, warpnf, resize, create < shift - w ; warpnf
+focus, swap, warp, warpnf, resize, create < c ; create
 
 # These common operations are also available in any mode: pressing `space` will
 # always rotate your windows 90° clockwise, without dropping you out of the
 # current mode.
-focus, swap, warp, warpnf, resize < space : yabai -m space --rotate 90
-focus, swap, warp, warpnf, resize < shift - space : yabai -m space --rotate 270
-focus, swap, warp, warpnf, resize < x : yabai -m space --mirror x-axis
-focus, swap, warp, warpnf, resize < y : yabai -m space --mirror y-axis
-focus, swap, warp, warpnf, resize < e : yabai -m space --balance
-focus, swap, warp, warpnf, resize < shift - e : yabai -m space --balance y-axis
-focus, swap, warp, warpnf, resize < alt - e : yabai -m space --balance x-axis
-focus, swap, warp, warpnf, resize < 0x2F : yabai -m space --layout bsp # `.` on US keyboard
+focus, swap, warp, warpnf, resize, create < space : yabai -m space --rotate 90
+focus, swap, warp, warpnf, resize, create < shift - space : yabai -m space --rotate 270
+focus, swap, warp, warpnf, resize, create < x : yabai -m space --mirror x-axis
+focus, swap, warp, warpnf, resize, create < y : yabai -m space --mirror y-axis
+focus, swap, warp, warpnf, resize, create < e : yabai -m space --balance
+focus, swap, warp, warpnf, resize, create < shift - e : yabai -m space --balance y-axis
+focus, swap, warp, warpnf, resize, create < alt - e : yabai -m space --balance x-axis
+focus, swap, warp, warpnf, resize, create < shift - 0x2F : yabai -m space --layout bsp                    # `.` on US keyboard
+focus, swap, warp, warpnf, resize, create <  0x2F : yabai -m space --layout bsp; yabai -m space --balance # `.` on US keyboard
 
 
 
@@ -207,6 +211,12 @@ swap < j : yabai -m window --swap south
 swap < h : yabai -m window --swap west
 swap < l : yabai -m window --swap east
 
+# Swap space with the next space in the direction specified.
+swap < cmd - h : yabai -m space --swap "$(yabai -m query --displays --display | jq '.spaces[0]')"
+swap < cmd - j : yabai -m space --swap prev
+swap < cmd - k : yabai -m space --swap next
+swap < cmd - l : yabai -m space --swap "$(yabai -m query --displays --display | jq '.spaces[-1]')"
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Warp Mode ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 # Instead of swapping windows, insert the active window into another screen
 # partition. Warp mode can be activated by pressing `w` in any other mode. A
@@ -262,3 +272,7 @@ warpnf < cmd - 7 : yabai -m window --space 7
 warpnf < cmd - 8 : yabai -m window --space 8
 warpnf < cmd - 9 : yabai -m window --space 9
 warpnf < cmd - 0 : yabai -m window --space 10
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Creation Mode ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
+# Create a new window or space. Creation mode can be activated by pressing `c`.
