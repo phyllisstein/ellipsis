@@ -25,6 +25,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
-
-source /Users/daniel/.docker/init-zsh.sh || true # Added by Docker Desktop
