@@ -5,8 +5,8 @@
 # lightest-ornaments, sparse, many icons, concise, instant_prompt=off.
 # Type `p10k configure` to generate another config.
 #
-# Config for Powerlevel10k with powerline prompt style with colorful background.
-# Type `p10k configure` to generate your own config based on it.
+# Config for Powerlevel10k with classic powerline prompt style. Type `p10k configure` to generate
+# your own config based on it.
 #
 # Tip: Looking for a nice color? Here's a one-liner to print colormap.
 #
@@ -28,15 +28,13 @@
 
   # Zsh >= 5.1 is required.
   [[ $ZSH_VERSION == (5.<1->*|<6->.*) ]] || return
+  [[ $ZSH_VERSION == (5.<1->*|<6->.*) ]] || return
 
   # The list of segments shown on the left. Fill it with the most important segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
-    # =========================[ Line #1 ]=========================
     os_icon                 # os identifier
     dir                     # current directory
     vcs                     # git status
-    # =========================[ Line #2 ]=========================
-    newline                 # \n
     # prompt_char           # prompt symbol
   )
 
@@ -45,7 +43,6 @@
   # automatically hidden when the input line reaches it. Right prompt above the
   # last prompt line gets hidden if it would overlap with left prompt.
   typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
-    # =========================[ Line #1 ]=========================
     status                  # exit code of the last command
     command_execution_time  # duration of the last command
     background_jobs         # presence of background jobs
@@ -59,12 +56,15 @@
     nvm                     # node.js version from nvm (https://github.com/nvm-sh/nvm)
     nodeenv                 # node.js environment (https://github.com/ekalinin/nodeenv)
     # node_version          # node.js version
+    # node_version          # node.js version
     # go_version            # go version (https://golang.org)
+    # rust_version          # rustc version (https://www.rust-lang.org)
     # rust_version          # rustc version (https://www.rust-lang.org)
     # dotnet_version        # .NET version (https://dotnet.microsoft.com)
     # php_version           # php version (https://www.php.net/)
     # laravel_version       # laravel php framework version (https://laravel.com/)
     # java_version          # java version (https://www.java.com/)
+    # package               # name@version from package.json (https://docs.npmjs.com/files/package.json)
     # package               # name@version from package.json (https://docs.npmjs.com/files/package.json)
     rbenv                   # ruby version from rbenv (https://github.com/rbenv/rbenv)
     rvm                     # ruby version from rvm (https://rvm.io)
@@ -73,11 +73,14 @@
     jenv                    # java version from jenv (https://github.com/jenv/jenv)
     plenv                   # perl version from plenv (https://github.com/tokuhirom/plenv)
     perlbrew                # perl version from perlbrew (https://github.com/gugod/App-perlbrew)
+    perlbrew                # perl version from perlbrew (https://github.com/gugod/App-perlbrew)
     phpenv                  # php version from phpenv (https://github.com/phpenv/phpenv)
+    scalaenv                # scala version from scalaenv (https://github.com/scalaenv/scalaenv)
     scalaenv                # scala version from scalaenv (https://github.com/scalaenv/scalaenv)
     haskell_stack           # haskell version from stack (https://haskellstack.org/)
     kubecontext             # current kubernetes context (https://kubernetes.io/)
     terraform               # terraform workspace (https://www.terraform.io)
+    # terraform_version     # terraform version (https://www.terraform.io)
     # terraform_version     # terraform version (https://www.terraform.io)
     aws                     # aws profile (https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)
     aws_eb_env              # aws elastic beanstalk environment (https://aws.amazon.com/elasticbeanstalk/)
@@ -85,17 +88,22 @@
     gcloud                  # google cloud cli account and project (https://cloud.google.com/)
     google_app_cred         # google application credentials (https://cloud.google.com/docs/authentication/production)
     toolbox                 # toolbox name (https://github.com/containers/toolbox)
+    toolbox                 # toolbox name (https://github.com/containers/toolbox)
     context                 # user@hostname
     nordvpn                 # nordvpn connection status, linux only (https://nordvpn.com/)
     ranger                  # ranger shell (https://github.com/ranger/ranger)
     nnn                     # nnn shell (https://github.com/jarun/nnn)
     lf                      # lf shell (https://github.com/gokcehan/lf)
     xplr                    # xplr shell (https://github.com/sayanarijit/xplr)
+    lf                      # lf shell (https://github.com/gokcehan/lf)
+    xplr                    # xplr shell (https://github.com/sayanarijit/xplr)
     vim_shell               # vim shell indicator (:sh)
     midnight_commander      # midnight commander shell (https://midnight-commander.org/)
     nix_shell               # nix shell (https://nixos.org/nixos/nix-pills/developing-with-nix-shell.html)
     chezmoi_shell           # chezmoi shell (https://www.chezmoi.io/)
+    chezmoi_shell           # chezmoi shell (https://www.chezmoi.io/)
     vi_mode                 # vi mode (you don't need this if you've enabled prompt_char)
+    # vpn_ip                # virtual private network indicator
     # vpn_ip                # virtual private network indicator
     # load                  # CPU load
     # disk_usage            # disk usage
@@ -105,9 +113,11 @@
     timewarrior             # timewarrior tracking status (https://timewarrior.net/)
     taskwarrior             # taskwarrior task count (https://taskwarrior.org/)
     # cpu_arch              # CPU architecture
+    todo                    # todo items (https://github.com/todotxt/todo.txt-cli)
+    timewarrior             # timewarrior tracking status (https://timewarrior.net/)
+    taskwarrior             # taskwarrior task count (https://taskwarrior.org/)
+    # cpu_arch              # CPU architecture
     # time                  # current time
-    # =========================[ Line #2 ]=========================
-    newline
     # ip                    # ip address and bandwidth usage for a specified network interface
     # public_ip             # public IP address
     # proxy                 # system-wide http/https/ftp proxy
@@ -120,7 +130,7 @@
   typeset -g POWERLEVEL9K_MODE=nerdfont-complete
   # When set to `moderate`, some icons will have an extra space after them. This is meant to avoid
   # icon overlap when using non-monospace fonts. When set to `none`, spaces are not added.
-  typeset -g POWERLEVEL9K_ICON_PADDING=moderate
+  typeset -g POWERLEVEL9K_ICON_PADDING=none
 
   # When set to true, icons appear before content on both sides of the prompt. When set
   # to false, icons go after content. If empty or not set, icons go before content in the left
@@ -165,14 +175,20 @@
     typeset -g POWERLEVEL9K_EMPTY_LINE_RIGHT_PROMPT_FIRST_SEGMENT_START_SYMBOL='%{%}'
   fi
 
+  # Default background color.
+  typeset -g POWERLEVEL9K_BACKGROUND=236
+
   # Separator between same-color segments on the left.
-  typeset -g POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='\uE0B1'
+  typeset -g POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='%244F\uE0B1'
   # Separator between same-color segments on the right.
-  typeset -g POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR='\uE0B3'
+  typeset -g POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR='%244F\uE0B3'
   # Separator between different-color segments on the left.
   typeset -g POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\uE0B0'
   # Separator between different-color segments on the right.
   typeset -g POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR='\uE0B2'
+  # To remove a separator between two segments, add "_joined" to the second segment name.
+  # For example: POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(os_icon context_joined)
+
   # To remove a separator between two segments, add "_joined" to the second segment name.
   # For example: POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(os_icon context_joined)
 
@@ -189,8 +205,7 @@
 
   #################################[ os_icon: os identifier ]##################################
   # OS identifier color.
-  typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=232
-  typeset -g POWERLEVEL9K_OS_ICON_BACKGROUND=7
+  typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=255
   # Custom icon.
   # typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='⭐'
 
@@ -218,20 +233,18 @@
   typeset -g POWERLEVEL9K_PROMPT_CHAR_LEFT_{LEFT,RIGHT}_WHITESPACE=
 
   ##################################[ dir: current directory ]##################################
-  # Current directory background color.
-  typeset -g POWERLEVEL9K_DIR_BACKGROUND=4
-  # Default current directory foreground color.
-  typeset -g POWERLEVEL9K_DIR_FOREGROUND=254
+  # Default current directory color.
+  typeset -g POWERLEVEL9K_DIR_FOREGROUND=31
   # If directory is too long, shorten some of its segments to the shortest possible unique
   # prefix. The shortened directory can be tab-completed to the original.
   typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
   # Replace removed segment suffixes with this symbol.
   typeset -g POWERLEVEL9K_SHORTEN_DELIMITER=
   # Color of the shortened directory segments.
-  typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND=250
+  typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND=103
   # Color of the anchor directory segments. Anchor segments are never shortened. The first
   # segment is always an anchor.
-  typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=255
+  typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=39
   # Display anchor directory segments in bold.
   typeset -g POWERLEVEL9K_DIR_ANCHOR_BOLD=true
   # Don't shorten directories that contain any of these files. They are anchors.
@@ -270,6 +283,11 @@
   # This moves the truncation point to the right (positive offset) or to the left (negative offset)
   # relative to the marker. Plain "first" and "last" are equivalent to "first:0" and "last:0"
   # respectively.
+  #
+  # Optionally, "first" and "last" can be followed by ":<offset>" where <offset> is an integer.
+  # This moves the truncation point to the right (positive offset) or to the left (negative offset)
+  # relative to the marker. Plain "first" and "last" are equivalent to "first:0" and "last:0"
+  # respectively.
   typeset -g POWERLEVEL9K_DIR_TRUNCATE_BEFORE_MARKER=false
   # Don't shorten this many last directory segments. They are anchors.
   typeset -g POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
@@ -294,7 +312,12 @@
   # Enable special styling for non-writable and non-existent directories. See POWERLEVEL9K_LOCK_ICON
   # and POWERLEVEL9K_DIR_CLASSES below.
   typeset -g POWERLEVEL9K_DIR_SHOW_WRITABLE=v3
+  # Enable special styling for non-writable and non-existent directories. See POWERLEVEL9K_LOCK_ICON
+  # and POWERLEVEL9K_DIR_CLASSES below.
+  typeset -g POWERLEVEL9K_DIR_SHOW_WRITABLE=v3
 
+  # The default icon shown next to non-writable and non-existent directories when
+  # POWERLEVEL9K_DIR_SHOW_WRITABLE is set to v3.
   # The default icon shown next to non-writable and non-existent directories when
   # POWERLEVEL9K_DIR_SHOW_WRITABLE is set to v3.
   # typeset -g POWERLEVEL9K_LOCK_ICON='⭐'
@@ -311,6 +334,8 @@
   #
   # If POWERLEVEL9K_DIR_SHOW_WRITABLE is set to v3, non-writable and non-existent directories
   # acquire class suffix _NOT_WRITABLE and NON_EXISTENT respectively.
+  # If POWERLEVEL9K_DIR_SHOW_WRITABLE is set to v3, non-writable and non-existent directories
+  # acquire class suffix _NOT_WRITABLE and NON_EXISTENT respectively.
   #
   # For example, given these settings:
   #
@@ -322,16 +347,19 @@
   # Whenever the current directory is ~/work or a subdirectory of ~/work, it gets styled with one
   # of the following classes depending on its writability and existence: WORK, WORK_NOT_WRITABLE or
   # WORK_NON_EXISTENT.
+  # Whenever the current directory is ~/work or a subdirectory of ~/work, it gets styled with one
+  # of the following classes depending on its writability and existence: WORK, WORK_NOT_WRITABLE or
+  # WORK_NON_EXISTENT.
   #
+  # Simply assigning classes to directories doesn't have any visible effects. It merely gives you an
   # Simply assigning classes to directories doesn't have any visible effects. It merely gives you an
   # option to define custom colors and icons for different directory classes.
   #
   #   # Styling for WORK.
   #   typeset -g POWERLEVEL9K_DIR_WORK_VISUAL_IDENTIFIER_EXPANSION='⭐'
-  #   typeset -g POWERLEVEL9K_DIR_WORK_BACKGROUND=4
-  #   typeset -g POWERLEVEL9K_DIR_WORK_FOREGROUND=254
-  #   typeset -g POWERLEVEL9K_DIR_WORK_SHORTENED_FOREGROUND=250
-  #   typeset -g POWERLEVEL9K_DIR_WORK_ANCHOR_FOREGROUND=255
+  #   typeset -g POWERLEVEL9K_DIR_WORK_FOREGROUND=31
+  #   typeset -g POWERLEVEL9K_DIR_WORK_SHORTENED_FOREGROUND=103
+  #   typeset -g POWERLEVEL9K_DIR_WORK_ANCHOR_FOREGROUND=39
   #
   #   # Styling for WORK_NOT_WRITABLE.
   #   typeset -g POWERLEVEL9K_DIR_WORK_NOT_WRITABLE_VISUAL_IDENTIFIER_EXPANSION='⭐'
@@ -354,7 +382,7 @@
   # typeset -g POWERLEVEL9K_DIR_CLASSES=()
 
   # Custom prefix.
-  # typeset -g POWERLEVEL9K_DIR_PREFIX='in '
+  # typeset -g POWERLEVEL9K_DIR_PREFIX='%246Fin '
 
   #####################################[ vcs: git status ]######################################
   # Version control background colors.
@@ -374,6 +402,7 @@
   # Formatter for Git status.
   #
   # Example output: master wip ⇣42⇡42 *42 merge ~42 +42 !42 ?42.
+  # Example output: master wip ⇣42⇡42 *42 merge ~42 +42 !42 ?42.
   #
   # You can edit the function to customize how Git status looks.
   #
@@ -386,19 +415,36 @@
       # If P9K_CONTENT is not empty, use it. It's either "loading" or from vcs_info (not from
       # gitstatus plugin). VCS_STATUS_* parameters are not available in this case.
       typeset -g my_git_format=$P9K_CONTENT
+      typeset -g my_git_format=$P9K_CONTENT
       return
     fi
 
-    # Styling for different parts of Git status.
-    local       meta='%7F' # white foreground
-    local      clean='%0F' # black foreground
-    local   modified='%0F' # black foreground
-    local  untracked='%0F' # black foreground
-    local conflicted='%1F' # red foreground
+    if (( $1 )); then
+      # Styling for up-to-date Git status.
+      local       meta='%246F'  # grey foreground
+      local      clean='%76F'   # green foreground
+      local   modified='%178F'  # yellow foreground
+      local  untracked='%39F'   # blue foreground
+      local conflicted='%196F'  # red foreground
+    else
+      # Styling for incomplete and stale Git status.
+      local       meta='%244F'  # grey foreground
+      local      clean='%244F'  # grey foreground
+      local   modified='%244F'  # grey foreground
+      local  untracked='%244F'  # grey foreground
+      local conflicted='%244F'  # grey foreground
+    fi
 
     local res
 
+
     if [[ -n $VCS_STATUS_LOCAL_BRANCH ]]; then
+      local branch=${(V)VCS_STATUS_LOCAL_BRANCH}
+      # If local branch name is at most 32 characters long, show it in full.
+      # Otherwise show the first 12 … the last 12.
+      # Tip: To always show local branch name in full without truncation, delete the next line.
+      (( $#branch > 32 )) && branch[13,-13]="…"  # <-- this line
+      res+="${clean}${(g::)POWERLEVEL9K_VCS_BRANCH_ICON}${branch//\%/%%}"
       local branch=${(V)VCS_STATUS_LOCAL_BRANCH}
       # If local branch name is at most 32 characters long, show it in full.
       # Otherwise show the first 12 … the last 12.
@@ -419,7 +465,23 @@
       (( $#tag > 32 )) && tag[13,-13]="…"  # <-- this line
       res+="${meta}#${clean}${tag//\%/%%}"
     fi
+    if [[ -n $VCS_STATUS_TAG
+          # Show tag only if not on a branch.
+          # Tip: To always show tag, delete the next line.
+          && -z $VCS_STATUS_LOCAL_BRANCH  # <-- this line
+        ]]; then
+      local tag=${(V)VCS_STATUS_TAG}
+      # If tag name is at most 32 characters long, show it in full.
+      # Otherwise show the first 12 … the last 12.
+      # Tip: To always show tag name in full without truncation, delete the next line.
+      (( $#tag > 32 )) && tag[13,-13]="…"  # <-- this line
+      res+="${meta}#${clean}${tag//\%/%%}"
+    fi
 
+    # Display the current Git commit if there is no branch and no tag.
+    # Tip: To always display the current Git commit, delete the next line.
+    [[ -z $VCS_STATUS_LOCAL_BRANCH && -z $VCS_STATUS_TAG ]] &&  # <-- this line
+      res+="${meta}@${clean}${VCS_STATUS_COMMIT[1,8]}"
     # Display the current Git commit if there is no branch and no tag.
     # Tip: To always display the current Git commit, delete the next line.
     [[ -z $VCS_STATUS_LOCAL_BRANCH && -z $VCS_STATUS_TAG ]] &&  # <-- this line
@@ -427,6 +489,12 @@
 
     # Show tracking branch name if it differs from local branch.
     if [[ -n ${VCS_STATUS_REMOTE_BRANCH:#$VCS_STATUS_LOCAL_BRANCH} ]]; then
+      res+="${meta}:${clean}${(V)VCS_STATUS_REMOTE_BRANCH//\%/%%}"
+    fi
+
+    # Display "wip" if the latest commit's summary contains "wip" or "WIP".
+    if [[ $VCS_STATUS_COMMIT_SUMMARY == (|*[^[:alnum:]])(wip|WIP)(|[^[:alnum:]]*) ]]; then
+      res+=" ${modified}wip"
       res+="${meta}:${clean}${(V)VCS_STATUS_REMOTE_BRANCH//\%/%%}"
     fi
 
@@ -469,6 +537,7 @@
     typeset -g my_git_format=$res
   }
   functions -M my_git_formatter 2>/dev/null
+  functions -M my_git_formatter 2>/dev/null
 
   # Don't count the number of unstaged, untracked and conflicted files in Git repositories with
   # more than this many files in the index. Negative value means infinity.
@@ -486,11 +555,16 @@
 
   # Disable the default Git status formatting.
   typeset -g POWERLEVEL9K_VCS_DISABLE_GITSTATUS_FORMATTING=true
+  typeset -g POWERLEVEL9K_VCS_DISABLE_GITSTATUS_FORMATTING=true
   # Install our own Git status formatter.
-  typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='${$((my_git_formatter()))+${my_git_format}}'
+  typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='${$((my_git_formatter(1)))+${my_git_format}}'
+  typeset -g POWERLEVEL9K_VCS_LOADING_CONTENT_EXPANSION='${$((my_git_formatter(0)))+${my_git_format}}'
   # Enable counters for staged, unstaged, etc.
   typeset -g POWERLEVEL9K_VCS_{STAGED,UNSTAGED,UNTRACKED,CONFLICTED,COMMITS_AHEAD,COMMITS_BEHIND}_MAX_NUM=-1
 
+  # Icon color.
+  typeset -g POWERLEVEL9K_VCS_VISUAL_IDENTIFIER_COLOR=76
+  typeset -g POWERLEVEL9K_VCS_LOADING_VISUAL_IDENTIFIER_COLOR=244
   # Custom icon.
   # typeset -g POWERLEVEL9K_VCS_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # Custom prefix.
@@ -501,6 +575,12 @@
   # isn't in an svn or hg repository.
   typeset -g POWERLEVEL9K_VCS_BACKENDS=(git)
 
+  # These settings are used for repositories other than Git or when gitstatusd fails and
+  # Powerlevel10k has to fall back to using vcs_info.
+  typeset -g POWERLEVEL9K_VCS_CLEAN_FOREGROUND=76
+  typeset -g POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND=76
+  typeset -g POWERLEVEL9K_VCS_MODIFIED_FOREGROUND=178
+
   ##########################[ status: exit code of the last command ]###########################
   # Enable OK_PIPE, ERROR_PIPE and ERROR_SIGNAL status states to allow us to enable, disable and
   # style them independently from the regular OK and ERROR state.
@@ -509,6 +589,7 @@
   # Status on success. No content, just an icon. No need to show it if prompt_char is enabled as
   # it will signify success by turning green.
   typeset -g POWERLEVEL9K_STATUS_OK=true
+  typeset -g POWERLEVEL9K_STATUS_OK_FOREGROUND=70
   typeset -g POWERLEVEL9K_STATUS_OK_VISUAL_IDENTIFIER_EXPANSION='✔'
   typeset -g POWERLEVEL9K_STATUS_OK_FOREGROUND=2
   typeset -g POWERLEVEL9K_STATUS_OK_BACKGROUND=0
@@ -516,6 +597,7 @@
   # Status when some part of a pipe command fails but the overall exit status is zero. It may look
   # like this: 1|0.
   typeset -g POWERLEVEL9K_STATUS_OK_PIPE=true
+  typeset -g POWERLEVEL9K_STATUS_OK_PIPE_FOREGROUND=70
   typeset -g POWERLEVEL9K_STATUS_OK_PIPE_VISUAL_IDENTIFIER_EXPANSION='✔'
   typeset -g POWERLEVEL9K_STATUS_OK_PIPE_FOREGROUND=2
   typeset -g POWERLEVEL9K_STATUS_OK_PIPE_BACKGROUND=0
@@ -523,12 +605,14 @@
   # Status when it's just an error code (e.g., '1'). No need to show it if prompt_char is enabled as
   # it will signify error by turning red.
   typeset -g POWERLEVEL9K_STATUS_ERROR=true
+  typeset -g POWERLEVEL9K_STATUS_ERROR_FOREGROUND=160
   typeset -g POWERLEVEL9K_STATUS_ERROR_VISUAL_IDENTIFIER_EXPANSION='✘'
   typeset -g POWERLEVEL9K_STATUS_ERROR_FOREGROUND=3
   typeset -g POWERLEVEL9K_STATUS_ERROR_BACKGROUND=1
 
   # Status when the last command was terminated by a signal.
   typeset -g POWERLEVEL9K_STATUS_ERROR_SIGNAL=true
+  typeset -g POWERLEVEL9K_STATUS_ERROR_SIGNAL_FOREGROUND=160
   # Use terse signal names: "INT" instead of "SIGINT(2)".
   typeset -g POWERLEVEL9K_STATUS_VERBOSE_SIGNAME=false
   typeset -g POWERLEVEL9K_STATUS_ERROR_SIGNAL_VISUAL_IDENTIFIER_EXPANSION='✘'
@@ -538,6 +622,7 @@
   # Status when some part of a pipe command fails and the overall exit status is also non-zero.
   # It may look like this: 1|0.
   typeset -g POWERLEVEL9K_STATUS_ERROR_PIPE=true
+  typeset -g POWERLEVEL9K_STATUS_ERROR_PIPE_FOREGROUND=160
   typeset -g POWERLEVEL9K_STATUS_ERROR_PIPE_VISUAL_IDENTIFIER_EXPANSION='✘'
   typeset -g POWERLEVEL9K_STATUS_ERROR_PIPE_FOREGROUND=3
   typeset -g POWERLEVEL9K_STATUS_ERROR_PIPE_BACKGROUND=1
@@ -550,6 +635,8 @@
   typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=3
   # Show this many fractional digits. Zero means round to seconds.
   typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION=0
+  # Execution time color.
+  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND=248
   # Duration format: 1d 2h 3m 4s.
   typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FORMAT='d h m s'
   # Custom icon.
@@ -563,6 +650,8 @@
   typeset -g POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND=0
   # Don't show the number of background jobs.
   typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VERBOSE=false
+  # Background jobs color.
+  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND=37
   # Custom icon.
   # typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
@@ -575,10 +664,8 @@
 
   ###############[ asdf: asdf version manager (https://github.com/asdf-vm/asdf) ]###############
   # Default asdf color. Only used to display tools for which there is no color override (see below).
-  # Tip:  Override these parameters for ${TOOL} with POWERLEVEL9K_ASDF_${TOOL}_FOREGROUND and
-  # POWERLEVEL9K_ASDF_${TOOL}_BACKGROUND.
-  typeset -g POWERLEVEL9K_ASDF_FOREGROUND=0
-  typeset -g POWERLEVEL9K_ASDF_BACKGROUND=7
+  # Tip:  Override this parameter for ${TOOL} with POWERLEVEL9K_ASDF_${TOOL}_FOREGROUND.
+  typeset -g POWERLEVEL9K_ASDF_FOREGROUND=66
 
   # There are four parameters that can be used to hide asdf tools. Each parameter describes
   # conditions under which a tool gets hidden. Parameters can hide tools but not unhide them. If at
@@ -624,6 +711,7 @@
 
   # If set to non-empty value, hide tools unless there is a file matching the specified file pattern
   # in the current directory, or its parent directory, or its grandparent directory, and so on.
+  # in the current directory, or its parent directory, or its grandparent directory, and so on.
   #
   # Note: If this parameter is set to empty value, it won't hide tools.
   # Note: SHOW_ON_UPGLOB isn't specific to asdf. It works with all prompt segments.
@@ -636,98 +724,82 @@
   typeset -g POWERLEVEL9K_ASDF_SHOW_ON_UPGLOB=
 
   # Ruby version from asdf.
-  typeset -g POWERLEVEL9K_ASDF_RUBY_FOREGROUND=0
-  typeset -g POWERLEVEL9K_ASDF_RUBY_BACKGROUND=1
+  typeset -g POWERLEVEL9K_ASDF_RUBY_FOREGROUND=168
   # typeset -g POWERLEVEL9K_ASDF_RUBY_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # typeset -g POWERLEVEL9K_ASDF_RUBY_SHOW_ON_UPGLOB='*.foo|*.bar'
 
   # Python version from asdf.
-  typeset -g POWERLEVEL9K_ASDF_PYTHON_FOREGROUND=0
-  typeset -g POWERLEVEL9K_ASDF_PYTHON_BACKGROUND=4
+  typeset -g POWERLEVEL9K_ASDF_PYTHON_FOREGROUND=37
   # typeset -g POWERLEVEL9K_ASDF_PYTHON_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # typeset -g POWERLEVEL9K_ASDF_PYTHON_SHOW_ON_UPGLOB='*.foo|*.bar'
 
   # Go version from asdf.
-  typeset -g POWERLEVEL9K_ASDF_GOLANG_FOREGROUND=0
-  typeset -g POWERLEVEL9K_ASDF_GOLANG_BACKGROUND=4
+  typeset -g POWERLEVEL9K_ASDF_GOLANG_FOREGROUND=37
   # typeset -g POWERLEVEL9K_ASDF_GOLANG_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # typeset -g POWERLEVEL9K_ASDF_GOLANG_SHOW_ON_UPGLOB='*.foo|*.bar'
 
   # Node.js version from asdf.
-  typeset -g POWERLEVEL9K_ASDF_NODEJS_FOREGROUND=0
-  typeset -g POWERLEVEL9K_ASDF_NODEJS_BACKGROUND=2
+  typeset -g POWERLEVEL9K_ASDF_NODEJS_FOREGROUND=70
   # typeset -g POWERLEVEL9K_ASDF_NODEJS_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # typeset -g POWERLEVEL9K_ASDF_NODEJS_SHOW_ON_UPGLOB='*.foo|*.bar'
 
   # Rust version from asdf.
-  typeset -g POWERLEVEL9K_ASDF_RUST_FOREGROUND=0
-  typeset -g POWERLEVEL9K_ASDF_RUST_BACKGROUND=208
+  typeset -g POWERLEVEL9K_ASDF_RUST_FOREGROUND=37
   # typeset -g POWERLEVEL9K_ASDF_RUST_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # typeset -g POWERLEVEL9K_ASDF_RUST_SHOW_ON_UPGLOB='*.foo|*.bar'
 
   # .NET Core version from asdf.
-  typeset -g POWERLEVEL9K_ASDF_DOTNET_CORE_FOREGROUND=0
-  typeset -g POWERLEVEL9K_ASDF_DOTNET_CORE_BACKGROUND=5
+  typeset -g POWERLEVEL9K_ASDF_DOTNET_CORE_FOREGROUND=134
   # typeset -g POWERLEVEL9K_ASDF_DOTNET_CORE_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # typeset -g POWERLEVEL9K_ASDF_DOTNET_CORE_SHOW_ON_UPGLOB='*.foo|*.bar'
 
   # Flutter version from asdf.
-  typeset -g POWERLEVEL9K_ASDF_FLUTTER_FOREGROUND=0
-  typeset -g POWERLEVEL9K_ASDF_FLUTTER_BACKGROUND=4
+  typeset -g POWERLEVEL9K_ASDF_FLUTTER_FOREGROUND=38
   # typeset -g POWERLEVEL9K_ASDF_FLUTTER_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # typeset -g POWERLEVEL9K_ASDF_FLUTTER_SHOW_ON_UPGLOB='*.foo|*.bar'
 
   # Lua version from asdf.
-  typeset -g POWERLEVEL9K_ASDF_LUA_FOREGROUND=0
-  typeset -g POWERLEVEL9K_ASDF_LUA_BACKGROUND=4
+  typeset -g POWERLEVEL9K_ASDF_LUA_FOREGROUND=32
   # typeset -g POWERLEVEL9K_ASDF_LUA_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # typeset -g POWERLEVEL9K_ASDF_LUA_SHOW_ON_UPGLOB='*.foo|*.bar'
 
   # Java version from asdf.
-  typeset -g POWERLEVEL9K_ASDF_JAVA_FOREGROUND=1
-  typeset -g POWERLEVEL9K_ASDF_JAVA_BACKGROUND=7
+  typeset -g POWERLEVEL9K_ASDF_JAVA_FOREGROUND=32
   # typeset -g POWERLEVEL9K_ASDF_JAVA_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # typeset -g POWERLEVEL9K_ASDF_JAVA_SHOW_ON_UPGLOB='*.foo|*.bar'
 
   # Perl version from asdf.
-  typeset -g POWERLEVEL9K_ASDF_PERL_FOREGROUND=0
-  typeset -g POWERLEVEL9K_ASDF_PERL_BACKGROUND=4
+  typeset -g POWERLEVEL9K_ASDF_PERL_FOREGROUND=67
   # typeset -g POWERLEVEL9K_ASDF_PERL_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # typeset -g POWERLEVEL9K_ASDF_PERL_SHOW_ON_UPGLOB='*.foo|*.bar'
 
   # Erlang version from asdf.
-  typeset -g POWERLEVEL9K_ASDF_ERLANG_FOREGROUND=0
-  typeset -g POWERLEVEL9K_ASDF_ERLANG_BACKGROUND=1
+  typeset -g POWERLEVEL9K_ASDF_ERLANG_FOREGROUND=125
   # typeset -g POWERLEVEL9K_ASDF_ERLANG_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # typeset -g POWERLEVEL9K_ASDF_ERLANG_SHOW_ON_UPGLOB='*.foo|*.bar'
 
   # Elixir version from asdf.
-  typeset -g POWERLEVEL9K_ASDF_ELIXIR_FOREGROUND=0
-  typeset -g POWERLEVEL9K_ASDF_ELIXIR_BACKGROUND=5
+  typeset -g POWERLEVEL9K_ASDF_ELIXIR_FOREGROUND=129
   # typeset -g POWERLEVEL9K_ASDF_ELIXIR_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # typeset -g POWERLEVEL9K_ASDF_ELIXIR_SHOW_ON_UPGLOB='*.foo|*.bar'
 
   # Postgres version from asdf.
-  typeset -g POWERLEVEL9K_ASDF_POSTGRES_FOREGROUND=0
-  typeset -g POWERLEVEL9K_ASDF_POSTGRES_BACKGROUND=6
+  typeset -g POWERLEVEL9K_ASDF_POSTGRES_FOREGROUND=31
   # typeset -g POWERLEVEL9K_ASDF_POSTGRES_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # typeset -g POWERLEVEL9K_ASDF_POSTGRES_SHOW_ON_UPGLOB='*.foo|*.bar'
 
   # PHP version from asdf.
-  typeset -g POWERLEVEL9K_ASDF_PHP_FOREGROUND=0
-  typeset -g POWERLEVEL9K_ASDF_PHP_BACKGROUND=5
+  typeset -g POWERLEVEL9K_ASDF_PHP_FOREGROUND=99
   # typeset -g POWERLEVEL9K_ASDF_PHP_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # typeset -g POWERLEVEL9K_ASDF_PHP_SHOW_ON_UPGLOB='*.foo|*.bar'
 
   # Haskell version from asdf.
-  typeset -g POWERLEVEL9K_ASDF_HASKELL_FOREGROUND=0
-  typeset -g POWERLEVEL9K_ASDF_HASKELL_BACKGROUND=3
+  typeset -g POWERLEVEL9K_ASDF_HASKELL_FOREGROUND=172
   # typeset -g POWERLEVEL9K_ASDF_HASKELL_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # typeset -g POWERLEVEL9K_ASDF_HASKELL_SHOW_ON_UPGLOB='*.foo|*.bar'
 
   # Julia version from asdf.
-  typeset -g POWERLEVEL9K_ASDF_JULIA_FOREGROUND=0
-  typeset -g POWERLEVEL9K_ASDF_JULIA_BACKGROUND=2
+  typeset -g POWERLEVEL9K_ASDF_JULIA_FOREGROUND=70
   # typeset -g POWERLEVEL9K_ASDF_JULIA_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # typeset -g POWERLEVEL9K_ASDF_JULIA_SHOW_ON_UPGLOB='*.foo|*.bar'
 
@@ -821,20 +893,21 @@
   # typeset -g POWERLEVEL9K_DISK_USAGE_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   ###########[ vi_mode: vi mode (you don't need this if you've enabled prompt_char) ]###########
-  # Foreground color.
-  typeset -g POWERLEVEL9K_VI_MODE_FOREGROUND=0
   # Text and color for normal (a.k.a. command) vi mode.
   typeset -g POWERLEVEL9K_VI_COMMAND_MODE_STRING=NORMAL
-  typeset -g POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND=2
+  typeset -g POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND=106
   # Text and color for visual vi mode.
   typeset -g POWERLEVEL9K_VI_VISUAL_MODE_STRING=VISUAL
-  typeset -g POWERLEVEL9K_VI_MODE_VISUAL_BACKGROUND=4
+  typeset -g POWERLEVEL9K_VI_MODE_VISUAL_FOREGROUND=68
   # Text and color for overtype (a.k.a. overwrite and replace) vi mode.
   typeset -g POWERLEVEL9K_VI_OVERWRITE_MODE_STRING=OVERTYPE
-  typeset -g POWERLEVEL9K_VI_MODE_OVERWRITE_BACKGROUND=3
+  typeset -g POWERLEVEL9K_VI_MODE_OVERWRITE_FOREGROUND=172
   # Text and color for insert vi mode.
   typeset -g POWERLEVEL9K_VI_INSERT_MODE_STRING=
-  typeset -g POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND=8
+  typeset -g POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND=66
+
+  # Custom icon.
+  # typeset -g POWERLEVEL9K_RANGER_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   ######################################[ ram: free RAM ]#######################################
   # RAM color.
@@ -939,17 +1012,14 @@
 
   ##################################[ context: user@hostname ]##################################
   # Context color when running with privileges.
-  typeset -g POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND=1
-  typeset -g POWERLEVEL9K_CONTEXT_ROOT_BACKGROUND=0
+  typeset -g POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND=178
   # Context color in SSH without privileges.
-  typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_FOREGROUND=3
-  typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_BACKGROUND=0
+  typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_FOREGROUND=180
   # Default context color (no privileges, no SSH).
-  typeset -g POWERLEVEL9K_CONTEXT_FOREGROUND=3
-  typeset -g POWERLEVEL9K_CONTEXT_BACKGROUND=0
+  typeset -g POWERLEVEL9K_CONTEXT_FOREGROUND=180
 
-  # Context format when running with privileges: user@hostname.
-  typeset -g POWERLEVEL9K_CONTEXT_ROOT_TEMPLATE='%n@%m'
+  # Context format when running with privileges: bold user@hostname.
+  typeset -g POWERLEVEL9K_CONTEXT_ROOT_TEMPLATE='%B%n@%m'
   # Context format when in SSH without privileges: user@hostname.
   typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_TEMPLATE='%n@%m'
   # Default context format (no privileges, no SSH): user@hostname.
@@ -970,6 +1040,8 @@
   typeset -g POWERLEVEL9K_VIRTUALENV_BACKGROUND=4
   # Don't show Python version next to the virtual environment name.
   typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_PYTHON_VERSION=false
+  # If set to "false", won't show virtualenv if pyenv is already shown.
+  # If set to "if-different", won't show virtualenv if it's the same as pyenv.
   # If set to "false", won't show virtualenv if pyenv is already shown.
   # If set to "if-different", won't show virtualenv if it's the same as pyenv.
   typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_WITH_PYENV=false
@@ -1031,6 +1103,10 @@
   #
   # The default format has the following logic:
   #
+  # 1. Display just "$P9K_CONTENT" if it's equal to "$P9K_PYENV_PYTHON_VERSION" or
+  #    starts with "$P9K_PYENV_PYTHON_VERSION/".
+  # 2. Otherwise display "$P9K_CONTENT $P9K_PYENV_PYTHON_VERSION".
+  typeset -g POWERLEVEL9K_PYENV_CONTENT_EXPANSION='${P9K_CONTENT}${${P9K_CONTENT:#$P9K_PYENV_PYTHON_VERSION(|/*)}:+ $P9K_PYENV_PYTHON_VERSION}'
   # 1. Display just "$P9K_CONTENT" if it's equal to "$P9K_PYENV_PYTHON_VERSION" or
   #    starts with "$P9K_PYENV_PYTHON_VERSION/".
   # 2. Otherwise display "$P9K_CONTENT $P9K_PYENV_PYTHON_VERSION".
@@ -1128,8 +1204,7 @@
 
   #####################[ php_version: php version (https://www.php.net/) ]######################
   # PHP version color.
-  typeset -g POWERLEVEL9K_PHP_VERSION_FOREGROUND=0
-  typeset -g POWERLEVEL9K_PHP_VERSION_BACKGROUND=5
+  typeset -g POWERLEVEL9K_PHP_VERSION_FOREGROUND=99
   # Show PHP version only when in a PHP project subdirectory.
   typeset -g POWERLEVEL9K_PHP_VERSION_PROJECT_ONLY=true
   # Custom icon.
@@ -1137,8 +1212,7 @@
 
   ##########[ laravel_version: laravel php framework version (https://laravel.com/) ]###########
   # Laravel version color.
-  typeset -g POWERLEVEL9K_LARAVEL_VERSION_FOREGROUND=1
-  typeset -g POWERLEVEL9K_LARAVEL_VERSION_BACKGROUND=7
+  typeset -g POWERLEVEL9K_LARAVEL_VERSION_FOREGROUND=161
   # Custom icon.
   # typeset -g POWERLEVEL9K_LARAVEL_VERSION_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
@@ -1158,8 +1232,7 @@
 
   ####################[ java_version: java version (https://www.java.com/) ]####################
   # Java version color.
-  typeset -g POWERLEVEL9K_JAVA_VERSION_FOREGROUND=1
-  typeset -g POWERLEVEL9K_JAVA_VERSION_BACKGROUND=7
+  typeset -g POWERLEVEL9K_JAVA_VERSION_FOREGROUND=32
   # Show java version only when in a java project subdirectory.
   typeset -g POWERLEVEL9K_JAVA_VERSION_PROJECT_ONLY=true
   # Show brief version.
@@ -1178,9 +1251,21 @@
   # - P9K_PACKAGE_VERSION  The value of `version` field in package.json.
   #
   # typeset -g POWERLEVEL9K_PACKAGE_CONTENT_EXPANSION='${P9K_PACKAGE_NAME//\%/%%}@${P9K_PACKAGE_VERSION//\%/%%}'
-
   # Custom icon.
   # typeset -g POWERLEVEL9K_PACKAGE_VISUAL_IDENTIFIER_EXPANSION='⭐'
+
+  #############[ rbenv: ruby version from rbenv (https://github.com/rbenv/rbenv) ]##############
+  # Rbenv color.
+  typeset -g POWERLEVEL9K_RBENV_FOREGROUND=168
+  # Hide ruby version if it doesn't come from one of these sources.
+  typeset -g POWERLEVEL9K_RBENV_SOURCES=(shell local global)
+  # If set to false, hide ruby version if it's the same as global:
+  # $(rbenv version-name) == $(rbenv global).
+  typeset -g POWERLEVEL9K_RBENV_PROMPT_ALWAYS_SHOW=false
+  # If set to false, hide ruby version if it's equal to "system".
+  typeset -g POWERLEVEL9K_RBENV_SHOW_SYSTEM=true
+  # Custom icon.
+  # typeset -g POWERLEVEL9K_RBENV_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   #######################[ rvm: ruby version from rvm (https://rvm.io) ]########################
   # Rvm color.
@@ -1252,6 +1337,16 @@
   # Custom icon.
   # typeset -g POWERLEVEL9K_PERLBREW_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
+  ###########[ perlbrew: perl version from perlbrew (https://github.com/gugod/App-perlbrew) ]############
+  # Perlbrew color.
+  typeset -g POWERLEVEL9K_PERLBREW_FOREGROUND=67
+  # Show perlbrew version only when in a perl project subdirectory.
+  typeset -g POWERLEVEL9K_PERLBREW_PROJECT_ONLY=true
+  # Don't show "perl-" at the front.
+  typeset -g POWERLEVEL9K_PERLBREW_SHOW_PREFIX=false
+  # Custom icon.
+  # typeset -g POWERLEVEL9K_PERLBREW_VISUAL_IDENTIFIER_EXPANSION='⭐'
+
   ############[ phpenv: php version from phpenv (https://github.com/phpenv/phpenv) ]############
   # PHP color.
   typeset -g POWERLEVEL9K_PHPENV_FOREGROUND=0
@@ -1261,7 +1356,7 @@
   # If set to false, hide php version if it's the same as global:
   # $(phpenv version-name) == $(phpenv global).
   typeset -g POWERLEVEL9K_PHPENV_PROMPT_ALWAYS_SHOW=false
-  # If set to false, hide PHP version if it's equal to "system".
+  # If set to false, hide php version if it's equal to "system".
   typeset -g POWERLEVEL9K_PHPENV_SHOW_SYSTEM=true
   # Custom icon.
   # typeset -g POWERLEVEL9K_PHPENV_VISUAL_IDENTIFIER_EXPANSION='⭐'
@@ -1319,16 +1414,14 @@
   #
   # You can define different colors, icons and content expansions for different classes:
   #
-  #   typeset -g POWERLEVEL9K_TERRAFORM_TEST_FOREGROUND=2
-  #   typeset -g POWERLEVEL9K_TERRAFORM_TEST_BACKGROUND=0
+  #   typeset -g POWERLEVEL9K_TERRAFORM_TEST_FOREGROUND=28
   #   typeset -g POWERLEVEL9K_TERRAFORM_TEST_VISUAL_IDENTIFIER_EXPANSION='⭐'
   #   typeset -g POWERLEVEL9K_TERRAFORM_TEST_CONTENT_EXPANSION='> ${P9K_CONTENT} <'
   typeset -g POWERLEVEL9K_TERRAFORM_CLASSES=(
       # '*prod*'  PROD    # These values are examples that are unlikely
       # '*test*'  TEST    # to match your needs. Customize them as needed.
       '*'         OTHER)
-  typeset -g POWERLEVEL9K_TERRAFORM_OTHER_FOREGROUND=4
-  typeset -g POWERLEVEL9K_TERRAFORM_OTHER_BACKGROUND=0
+  typeset -g POWERLEVEL9K_TERRAFORM_OTHER_FOREGROUND=38
   # typeset -g POWERLEVEL9K_TERRAFORM_OTHER_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   #############[ terraform_version: terraform version (https://www.terraform.io) ]##############
@@ -1343,7 +1436,9 @@
 
   #############[ kubecontext: current kubernetes context (https://kubernetes.io/) ]#############
   # Show kubecontext only when the command you are typing invokes one of these tools.
+  # Show kubecontext only when the command you are typing invokes one of these tools.
   # Tip: Remove the next line to always show kubecontext.
+  typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm|kubens|kubectx|oc|istioctl|kogito|k9s|helmfile|flux|fluxctl|stern|kubeseal|skaffold|kubent|kubecolor|cmctl|sparkctl'
   typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm|kubens|kubectx|oc|istioctl|kogito|k9s|helmfile|flux|fluxctl|stern|kubeseal|skaffold|kubent|kubecolor|cmctl|sparkctl'
 
   # Kubernetes context classes for the purpose of using different colors, icons and expansions with
@@ -1369,16 +1464,14 @@
   #
   # You can define different colors, icons and content expansions for different classes:
   #
-  #   typeset -g POWERLEVEL9K_KUBECONTEXT_TEST_FOREGROUND=0
-  #   typeset -g POWERLEVEL9K_KUBECONTEXT_TEST_BACKGROUND=2
+  #   typeset -g POWERLEVEL9K_KUBECONTEXT_TEST_FOREGROUND=28
   #   typeset -g POWERLEVEL9K_KUBECONTEXT_TEST_VISUAL_IDENTIFIER_EXPANSION='⭐'
   #   typeset -g POWERLEVEL9K_KUBECONTEXT_TEST_CONTENT_EXPANSION='> ${P9K_CONTENT} <'
   typeset -g POWERLEVEL9K_KUBECONTEXT_CLASSES=(
       # '*prod*'  PROD    # These values are examples that are unlikely
       # '*test*'  TEST    # to match your needs. Customize them as needed.
       '*'       DEFAULT)
-  typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_FOREGROUND=7
-  typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_BACKGROUND=5
+  typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_FOREGROUND=134
   # typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   # Use POWERLEVEL9K_KUBECONTEXT_CONTENT_EXPANSION to specify the content displayed by kubecontext
@@ -1432,7 +1525,9 @@
 
   #[ aws: aws profile (https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html) ]#
   # Show aws only when the command you are typing invokes one of these tools.
+  # Show aws only when the command you are typing invokes one of these tools.
   # Tip: Remove the next line to always show aws.
+  typeset -g POWERLEVEL9K_AWS_SHOW_ON_COMMAND='aws|awless|terraform|pulumi|terragrunt'
   typeset -g POWERLEVEL9K_AWS_SHOW_ON_COMMAND='aws|awless|terraform|pulumi|terragrunt'
 
   # POWERLEVEL9K_AWS_CLASSES is an array with even number of elements. The first element
@@ -1472,6 +1567,12 @@
   # - P9K_AWS_REGION   The region associated with the current AWS profile.
   typeset -g POWERLEVEL9K_AWS_CONTENT_EXPANSION='${P9K_AWS_PROFILE//\%/%%}${P9K_AWS_REGION:+ ${P9K_AWS_REGION//\%/%%}}'
 
+  # AWS segment format. The following parameters are available within the expansion.
+  #
+  # - P9K_AWS_PROFILE  The name of the current AWS profile.
+  # - P9K_AWS_REGION   The region associated with the current AWS profile.
+  typeset -g POWERLEVEL9K_AWS_CONTENT_EXPANSION='${P9K_AWS_PROFILE//\%/%%}${P9K_AWS_REGION:+ ${P9K_AWS_REGION//\%/%%}}'
+
   #[ aws_eb_env: aws elastic beanstalk environment (https://aws.amazon.com/elasticbeanstalk/) ]#
   # AWS Elastic Beanstalk environment color.
   typeset -g POWERLEVEL9K_AWS_EB_ENV_FOREGROUND=2
@@ -1481,7 +1582,9 @@
 
   ##########[ azure: azure account name (https://docs.microsoft.com/en-us/cli/azure) ]##########
   # Show azure only when the command you are typing invokes one of these tools.
+  # Show azure only when the command you are typing invokes one of these tools.
   # Tip: Remove the next line to always show azure.
+  typeset -g POWERLEVEL9K_AZURE_SHOW_ON_COMMAND='az|terraform|pulumi|terragrunt'
   typeset -g POWERLEVEL9K_AZURE_SHOW_ON_COMMAND='az|terraform|pulumi|terragrunt'
   # Azure account name color.
   typeset -g POWERLEVEL9K_AZURE_FOREGROUND=7
@@ -1490,6 +1593,7 @@
   # typeset -g POWERLEVEL9K_AZURE_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   ##########[ gcloud: google cloud account and project (https://cloud.google.com/) ]###########
+  # Show gcloud only when the command you are typing invokes one of these tools.
   # Show gcloud only when the command you are typing invokes one of these tools.
   # Tip: Remove the next line to always show gcloud.
   typeset -g POWERLEVEL9K_GCLOUD_SHOW_ON_COMMAND='gcloud|gcs|gsutil'
@@ -1509,6 +1613,7 @@
   #   P9K_GCLOUD_PROJECT_ID    | gcloud config get-value project
   #   P9K_GCLOUD_PROJECT_NAME  | gcloud projects describe $P9K_GCLOUD_PROJECT_ID --format='value(name)'
   #
+  # Note: ${VARIABLE//\%/%%} expands to ${VARIABLE} with all occurrences of '%' replaced with '%%'.
   # Note: ${VARIABLE//\%/%%} expands to ${VARIABLE} with all occurrences of '%' replaced with '%%'.
   #
   # Obtaining project name requires sending a request to Google servers. This can take a long time
@@ -1533,7 +1638,9 @@
 
   #[ google_app_cred: google application credentials (https://cloud.google.com/docs/authentication/production) ]#
   # Show google_app_cred only when the command you are typing invokes one of these tools.
+  # Show google_app_cred only when the command you are typing invokes one of these tools.
   # Tip: Remove the next line to always show google_app_cred.
+  typeset -g POWERLEVEL9K_GOOGLE_APP_CRED_SHOW_ON_COMMAND='terraform|pulumi|terragrunt'
   typeset -g POWERLEVEL9K_GOOGLE_APP_CRED_SHOW_ON_COMMAND='terraform|pulumi|terragrunt'
 
   # Google application credentials classes for the purpose of using different colors, icons and
@@ -1584,6 +1691,7 @@
   #   P9K_GOOGLE_APP_CRED_CLIENT_EMAIL | client_email
   #
   # Note: ${VARIABLE//\%/%%} expands to ${VARIABLE} with all occurrences of '%' replaced by '%%'.
+  # Note: ${VARIABLE//\%/%%} expands to ${VARIABLE} with all occurrences of '%' replaced by '%%'.
   typeset -g POWERLEVEL9K_GOOGLE_APP_CRED_DEFAULT_CONTENT_EXPANSION='${P9K_GOOGLE_APP_CRED_PROJECT_ID//\%/%%}'
 
   ##############[ toolbox: toolbox name (https://github.com/containers/toolbox) ]###############
@@ -1614,6 +1722,7 @@
   # Regular expression for the VPN network interface. Run `ifconfig` or `ip -4 a show` while on VPN
   # to see the name of the interface.
   typeset -g POWERLEVEL9K_VPN_IP_INTERFACE='(gpd|wg|(.*tun)|tailscale)[0-9]*|(zt.*)'
+  typeset -g POWERLEVEL9K_VPN_IP_INTERFACE='(gpd|wg|(.*tun)|tailscale)[0-9]*|(zt.*)'
   # If set to true, show one segment per matching network interface. If set to false, show only
   # one segment corresponding to the first matching network interface.
   # Tip: If you set it to true, you'll probably want to unset POWERLEVEL9K_VPN_IP_CONTENT_EXPANSION.
@@ -1623,8 +1732,7 @@
 
   ###########[ ip: ip address and bandwidth usage for a specified network interface ]###########
   # IP color.
-  typeset -g POWERLEVEL9K_IP_BACKGROUND=4
-  typeset -g POWERLEVEL9K_IP_FOREGROUND=0
+  typeset -g POWERLEVEL9K_IP_FOREGROUND=38
   # The following parameters are accessible within the expansion:
   #
   #   Parameter             | Meaning
@@ -1641,6 +1749,7 @@
   # Show information for the first network interface whose name matches this regular expression.
   # Run `ifconfig` or `ip -4 a show` to see the names of all network interfaces.
   typeset -g POWERLEVEL9K_IP_INTERFACE='[ew].*'
+  typeset -g POWERLEVEL9K_IP_INTERFACE='[ew].*'
   # Custom icon.
   # typeset -g POWERLEVEL9K_IP_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
@@ -1654,11 +1763,11 @@
   ################################[ battery: internal battery ]#################################
   # Show battery in red when it's below this level and not connected to power supply.
   typeset -g POWERLEVEL9K_BATTERY_LOW_THRESHOLD=20
-  typeset -g POWERLEVEL9K_BATTERY_LOW_FOREGROUND=1
+  typeset -g POWERLEVEL9K_BATTERY_LOW_FOREGROUND=160
   # Show battery in green when it's charging or fully charged.
-  typeset -g POWERLEVEL9K_BATTERY_{CHARGING,CHARGED}_FOREGROUND=2
+  typeset -g POWERLEVEL9K_BATTERY_{CHARGING,CHARGED}_FOREGROUND=70
   # Show battery in yellow when it's discharging.
-  typeset -g POWERLEVEL9K_BATTERY_DISCONNECTED_FOREGROUND=3
+  typeset -g POWERLEVEL9K_BATTERY_DISCONNECTED_FOREGROUND=178
   # Battery pictograms going from low to high level of charge.
   typeset -g POWERLEVEL9K_BATTERY_STAGES='\uf58d\uf579\uf57a\uf57b\uf57c\uf57d\uf57e\uf57f\uf580\uf581\uf578'
   # Don't show the remaining time to charge/discharge.
@@ -1675,7 +1784,7 @@
   # Use different colors and icons depending on signal strength ($P9K_WIFI_BARS).
   #
   #   # Wifi colors and icons for different signal strength levels (low to high).
-  #   typeset -g my_wifi_fg=(0 0 0 0 0)                                # <-- change these values
+  #   typeset -g my_wifi_fg=(68 68 68 68 68)                           # <-- change these values
   #   typeset -g my_wifi_icon=('WiFi' 'WiFi' 'WiFi' 'WiFi' 'WiFi')     # <-- change these values
   #
   #   typeset -g POWERLEVEL9K_WIFI_CONTENT_EXPANSION='%F{${my_wifi_fg[P9K_WIFI_BARS+1]}}$P9K_WIFI_LAST_TX_RATE Mbps'
@@ -1686,6 +1795,7 @@
   #   Parameter             | Meaning
   #   ----------------------+---------------
   #   P9K_WIFI_SSID         | service set identifier, a.k.a. network name
+  #   P9K_WIFI_LINK_AUTH    | authentication protocol such as "wpa2-psk" or "none"; empty if unknown
   #   P9K_WIFI_LINK_AUTH    | authentication protocol such as "wpa2-psk" or "none"; empty if unknown
   #   P9K_WIFI_LAST_TX_RATE | wireless transmit rate in megabits per second
   #   P9K_WIFI_RSSI         | signal strength in dBm, from -120 to 0
@@ -1709,12 +1819,11 @@
 
   # Example of a user-defined prompt segment. Function prompt_example will be called on every
   # prompt if `example` prompt segment is added to POWERLEVEL9K_LEFT_PROMPT_ELEMENTS or
-  # POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS. It displays an icon and yellow text on red background
-  # greeting the user.
+  # POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS. It displays an icon and orange text greeting the user.
   #
   # Type `p10k help segment` for documentation and a more sophisticated example.
   function prompt_example() {
-    p10k segment -b 1 -f 3 -i '⭐' -t 'hello, %n'
+    p10k segment -f 208 -i '⭐' -t 'hello, %n'
   }
 
   # User-defined prompt segments may optionally provide an instant_prompt_* function. Its job

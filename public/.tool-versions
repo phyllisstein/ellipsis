@@ -1,4 +1,4 @@
-java oracle-17.0.5
+java oracle-20.0.1
 scala 3.2.0
 sbt 1.7.1
 clojure 1.11.1.1224

@@ -42,8 +42,8 @@ export HOMEBREW_INSTALL_CLEANUP=1
 # ----------------------------------- Java ----------------------------------- #
 # export JAVA_HOME="$GRAAL_JAVA_HOME"
 # export PATH="$GRAAL_PATH:$PATH"
-# export JAVA_HOME="$HOME/.asdf/installs/java/zulu-11.50.19"
-export JAVA_HOME="$(/usr/libexec/java_home)"
+export JAVA_HOME="$HOME/.asdf/installs/java/oracle-20.0.1"
+# export JAVA_HOME="$(/usr/libexec/java_home)"
 
 # ---------------------------------- Python ---------------------------------- #
 export WORKON_HOME="$HOME/.local/share/virtualenvs"
