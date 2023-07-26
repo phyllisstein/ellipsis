@@ -7,13 +7,8 @@
 .envrc
 .metals
 .metaserver
-.nova
 .project
 .settings
 .sonarlint
-.tool-versions
 .wakatime-project
-*.code-workspace
-**/.vscode/*
 *gitFinderDeleted
-*.iml

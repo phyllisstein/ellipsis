@@ -96,29 +96,28 @@
 # In any mode but default mode, yabai shows borders around windows. They are
 # removed on switching back to default mode. (A border width of 3 neatly fits a
 # yabai window_gap of 6.)
-:: default : yabai -m config window_border off
+:: default : yabai -m config window_border off window_opacity off
 
-:: focus @ : yabai -m config window_border on
+:: focus @ : yabai -m config window_border on window_opacity on
 
-:: swap @ : yabai -m config window_border on
+:: swap @ : yabai -m config window_border on window_opacity on
 
-:: warp @ : yabai -m config window_border on
+:: warp @ : yabai -m config window_border on window_opacity on
 
-:: warpnf @ : yabai -m config window_border on
+:: warpnf @ : yabai -m config window_border on window_opacity on
 
-:: resize @ : yabai -m config window_border on
+:: resize @ : yabai -m config window_border on window_opacity on
 
-:: create @ : yabai -m config window_border on
+:: create @ : yabai -m config window_border on window_opacity on
 
 
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Default Mode ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 # The default mode yields control back to your normal apps. The only shortcut
-# available in default mode (that is, the only global shortcut) is `ctrl -
-# space`. Pressing `ctrl-space` toggles the modal interface, starting with focus
-# mode.
-default < ctrl - space ; focus
+# available in default mode (that is, the only global shortcut) is `alt - space`.
+# Pressing `alt - space` toggles the modal interface, starting with focus mode.
+default < alt - space ; focus
 
 
 
@@ -126,7 +125,7 @@ default < ctrl - space ; focus
 # These escape hatches back to normal mode in any of the configured modes. `ctrl
 # - space`, `escape`, `q`, and `return` will always jump directly to default mode, in
 # which skhd is not listening for further keystrokes.
-focus, swap, warp, warpnf, resize, create < ctrl - space ; default
+focus, swap, warp, warpnf, resize, create < alt - space ; default
 focus, swap, warp, warpnf, resize, create < escape ; default
 focus, swap, warp, warpnf, resize, create < q ; default
 focus, swap, warp, warpnf, resize, create < return ; default
@@ -157,7 +156,7 @@ focus, swap, warp, warpnf, resize, create <  0x2F : yabai -m space --layout bsp;
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Focus Mode ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 # Focus mode moves "active" state between windows and displays. This mode is the
-# default, and activates as soon as you press `ctrl - space`. You can also
+# default, and activates as soon as you press `alt - space`. You can also
 # activate focus mode by pressing the `f` key within another mode.
 
 # Change focus using standard vi directional keys. Enter changes foucs to the
@@ -170,10 +169,10 @@ focus < l : yabai -m window --focus east
 # Change the next insertion point using standard vi directional keys. As these
 # operations are intended for the next window that is opened, exit focus mode
 # immediately.
-focus < cmd - k : yabai -m window --insert north; skhd -k "ctrl - space"
-focus < cmd - j : yabai -m window --insert south; skhd -k "ctrl - space"
-focus < cmd - h : yabai -m window --insert west; skhd -k "ctrl - space"
-focus < cmd - l : yabai -m window --insert east; skhd -k "ctrl - space"
+focus < cmd - k : yabai -m window --insert north; skhd -k "alt - space"
+focus < cmd - j : yabai -m window --insert south; skhd -k "alt - space"
+focus < cmd - h : yabai -m window --insert west; skhd -k "alt - space"
+focus < cmd - l : yabai -m window --insert east; skhd -k "alt - space"
 
 # Change the moitor using numbers corresponding to each or cycle through them
 # using tab and shift - tab. If you have multiple displays attached to your

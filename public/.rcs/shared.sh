@@ -1,10 +1,10 @@
 #!/usr/bin/env zsh
 
-autoload -U regexp-replace
-autoload -U zmv
-alias zmv='noglob zmv'
-alias zcp='noglob zmv -C'
-alias zln='noglob zmv -Ls'
+# autoload -U regexp-replace
+# autoload -U zmv
+# alias zmv='noglob zmv'
+# alias zcp='noglob zmv -C'
+# alias zln='noglob zmv -Ls'
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -58,7 +58,7 @@ fi
 
 eval "$(keychain --ignore-missing --quiet --eval ~/.ssh/personal_ed25519 ~/.ssh/personal_rsa 2>/dev/null)"
 
-eval "$(perl -I$HOME/.perl5/lib/perl5 -Mlocal::lib=$HOME/.perl5)"
+# eval "$(perl -I$HOME/.perl5/lib/perl5 -Mlocal::lib=$HOME/.perl5)"
 
 # eval "$(starship init zsh)"
 

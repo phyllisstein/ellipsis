@@ -16,8 +16,8 @@ export LANG=en_US.UTF-8
 export PROMPT_EOL_MARK=''
 
 # ---------------------------------- VSCode ---------------------------------- #
-export EDITOR="code --wait"
-# export EDITOR="code-insiders --wait"
+# export EDITOR="code --wait"
+export EDITOR="code-insiders --wait"
 export GIT_EDITOR="$EDITOR"
 export VISUAL="$EDITOR"
 

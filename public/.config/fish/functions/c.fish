@@ -1,6 +1,6 @@
-function c --wraps=code
+function c
   if test (count $argv) -eq 0
-    $VSCODE_BIN --new-window (pwd)
+    code-insiders --new-window (pwd)
     return
   end
 
@@ -8,9 +8,9 @@ function c --wraps=code
   set params $argv[1..-2]
 
   if test -d $path; or test (count (string match --regex new-window "$argv")) -gt 0
-    $VSCODE_BIN --new-window $params $path
+    code-insiders --new-window $params $path
     return
   end
 
-  $VSCODE_BIN $params $path
+  code-insiders $params $path
 end
