@@ -32,7 +32,7 @@ test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shel
 
 set -g async_prompt_functions _pure_prompt_git
 
-string match -q "$TERM_PROGRAM" "vscode" and . (code --locate-shell-integration-path fish)
+# string match -r -q '^vscode$' "$TERM_PROGRAM" and source (code --locate-shell-integration-path fish)
 
 if status --is-interactive
   keychain --ignore-missing --quiet --eval -Q ~/.ssh/personal_ed25519 ~/.ssh/personal_rsa | source
@@ -44,4 +44,3 @@ if test -f /Users/daniel/miniconda3/bin/conda
     eval /Users/daniel/miniconda3/bin/conda "shell.fish" "hook" $argv | source
 end
 # <<< conda initialize <<<
-
