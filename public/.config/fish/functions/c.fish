@@ -1,6 +1,6 @@
 function c
   if test (count $argv) -eq 0
-    code-insiders --new-window (pwd)
+    code --new-window (pwd)
     return
   end
 
@@ -8,9 +8,9 @@ function c
   set params $argv[1..-2]
 
   if test -d $path; or test (count (string match --regex new-window "$argv")) -gt 0
-    code-insiders --new-window $params $path
+    code --new-window $params $path
     return
   end
 
-  code-insiders $params $path
+  code $params $path
 end

@@ -21,6 +21,8 @@
 # unset __conda_setup
 # <<< conda initialize <<<
 
+eval "$(zoxide init zsh)"
+
 # -------------------------- Breakaway Config Files -------------------------- #
 test -f "$HOME/.rcs/${ELLIPSIS_PLATFORM}.sh" && source "$HOME/.rcs/${ELLIPSIS_PLATFORM}.sh"
 
@@ -56,7 +58,7 @@ fi
 
  eval "$(direnv hook zsh)"
 
-eval "$(keychain --ignore-missing --quiet --eval ~/.ssh/personal_ed25519 ~/.ssh/personal_rsa 2>/dev/null)"
+eval "$(keychain --ignore-missing --quiet --eval ~/.ssh/personal_ed25519 ~/.ssh/id_rsa 2>/dev/null)"
 
 # eval "$(perl -I$HOME/.perl5/lib/perl5 -Mlocal::lib=$HOME/.perl5)"
 

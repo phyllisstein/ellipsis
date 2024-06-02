@@ -16,8 +16,8 @@ export LANG=en_US.UTF-8
 export PROMPT_EOL_MARK=''
 
 # ---------------------------------- VSCode ---------------------------------- #
-# export EDITOR="code --wait"
-export EDITOR="code-insiders --wait"
+export EDITOR="code --wait"
+# export EDITOR="code-insiders --wait"
 export GIT_EDITOR="$EDITOR"
 export VISUAL="$EDITOR"
 
@@ -81,8 +81,8 @@ export PATH="$PATH:$GOPATH/bin"
 # export PATH="${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnubin:${HOMEBREW_PREFIX}/opt/gnu-which/libexec/gnubin:${HOMEBREW_PREFIX}/opt/gsed/libexec/gnubin:${HOMEBREW_PREFIX}/opt/grep/libexec/gnubin:${HOMEBREW_PREFIX}/opt/gnu-indent/libexec/gnubin:${HOMEBREW_PREFIX}/opt/gnu-tar/libexec/gnubin:${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin:${HOMEBREW_PREFIX}/opt/make/libexec/gnubin:${HOMEBREW_PREFIX}/opt/findutils/libexec/gnubin:${HOMEBREW_PREFIX}/opt/gawk/bin:$PATH"
 
 # -------------------------- ios-webkit-debug-proxy -------------------------- #
-export SDK_DIR="/Applications/Xcode-beta.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/"
-export SIM_APP="/Applications/Xcode-beta.app/Contents/Developer/Applications/Simulator.app/Contents/MacOS/Simulator"
+export SDK_DIR="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/"
+export SIM_APP="/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app/Contents/MacOS/Simulator"
 
 # ---------------------------------- Docker ---------------------------------- #
 # export DOCKER_TLS_VERIFY="1"
@@ -125,11 +125,11 @@ export PP_MACROS_PATH="$HOME/.local/share/pandoc/goodies/pp/macros"
 export PATH="$HOME/.local/bin:$PATH"
 
 # ------------------------------- Font Scripts ------------------------------- #
-export PATH="$PATH:$DROPBOX_PATH/Documents/Fonts"
+export PATH="$PATH:$HOME/Documents/Fonts"
 
 # ---------------------------------- mkcert ---------------------------------- #
-export CAROOT="$DROPBOX_PATH/Settings/SSL"
-# export NODE_EXTRA_CA_CERTS="$CAROOT/rootCA.pem"
+export CAROOT="$HOME/Dropbox/Settings/SSL"
+export NODE_EXTRA_CA_CERTS="$CAROOT/rootCA.pem"
 
 # ------------------------------ Kubernetes Krew ----------------------------- #
 export PATH="$PATH:${KREW_ROOT:-$HOME/.krew}/bin"
@@ -178,8 +178,10 @@ export PATH="$PATH:/opt/vagrant-vmware-desktop/bin"
 export NVM_DIR="$HOME/.nvm"
 
 # ---------------------------------- direnv ---------------------------------- #
-export NODE_VERSIONS="$HOME/.asdf/installs/nodejs"
-export NODE_VERSION_PREFIX=""
+export NODE_VERSIONS="$HOME/.nvm/versions/node"
+export NODE_VERSION_PREFIX="v"
 
 # ----------------------------------- Yarn ----------------------------------- #
 # export YARN_ENABLE_GLOBAL_CACHE=true
+
+export PATH="$PATH:$HOME/.yarn/bin:$HOME/.local/bin"

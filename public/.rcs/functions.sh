@@ -186,7 +186,7 @@ h() {
 # -- Make a cert. --------------------------------------------------------------
 crt() {
   mkcert -ecdsa "${@}" "*.${@}" "localhost" "127.0.0.1" "::1"
-  fd '\+\d.*?\.pem$' . | rename --subst '-key.pem' '.key' --subst '.pem' '.crt' --expr 's/\+\d+\.(crt|key)\z/.$1/'
+  fd '\+\d.*?\.pem$' . | rename --force --subst '-key.pem' '.key' --subst '.pem' '.crt' --expr 's/\+\d+\.(crt|key)\z/.$1/'
 }
 
 # -- Quiet Yarn. ---------------------------------------------------------------
@@ -272,4 +272,26 @@ pppandoc() {
         --to=html5 \
         --filter=/Users/daniel/Code/Personal/pandoc-assets/filters/pygmentize.py \
         --output="${input_dirname}/${target_html}"
+}
+
+
+# -- Start and stop window managers. ------------------------------------------
+do-lunch() {
+  if lunchy status | grep -q 'yabai\|skhd\|autoraise'; then
+    {
+      lunchy stop yabai
+      lunchy stop skhd
+      lunchy stop autoraise
+    } &>/dev/null
+
+    echo "Stopped yabai, skhd, and autoraise."
+  else
+    {
+      lunchy start yabai
+      lunchy start skhd
+      lunchy start autoraise
+    } &>/dev/null
+
+    echo "Started yabai, skhd, and autoraise."
+  fi
 }
