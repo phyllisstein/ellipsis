@@ -174,7 +174,7 @@ export PATH="$PATH:/opt/vagrant-vmware-desktop/bin"
 # ----------------------------- Google Cloud SDK ----------------------------- #
 # export CLOUDSDK_PYTHON="${HOMEBREW_PREFIX}/opt/python@3.8/libexec/bin/python"
 
-# ----------------------------API-------- nvm ----------------------------------- #
+# ------------------------------------ nvm ----------------------------------- #
 export NVM_DIR="$HOME/.nvm"
 
 # ---------------------------------- direnv ---------------------------------- #
@@ -185,3 +185,6 @@ export NODE_VERSION_PREFIX="v"
 # export YARN_ENABLE_GLOBAL_CACHE=true
 
 export PATH="$PATH:$HOME/.yarn/bin:$HOME/.local/bin"
+
+# ----------------------------------- Pyenv ---------------------------------- #
+export PYENV_ROOT="$HOME/.pyenv"
