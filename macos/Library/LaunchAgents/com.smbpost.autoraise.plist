@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Disabled</key>
+	<false/>
+	<key>Label</key>
+	<string>com.smbpost.autoraise</string>
+	<key>ProcessType</key>
+	<string>Interactive</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/usr/local/bin/AutoRaise</string>
+		<string>-pollMillis</string>
+		<string>50</string>
+		<string>-disableKey</string>
+		<string>control</string>
+		<string>-delay</string>
+		<string>5</string>
+		<string>-mouseDelta</string>
+		<string>0.5</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>StandardErrorPath</key>
+	<string>/opt/homebrew/var/log/autoraise.log</string>
+	<key>StandardOutPath</key>
+	<string>/opt/homebrew/var/log/autoraise.log</string>
+</dict>
+</plist>

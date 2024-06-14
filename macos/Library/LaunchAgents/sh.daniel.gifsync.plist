@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Disabled</key>
+	<false/>
+	<key>Label</key>
+	<string>sh.daniel.gifsync</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/opt/homebrew/share/google-cloud-sdk/bin/gsutil</string>
+		<string>rsync</string>
+		<string>-r</string>
+		<string>-d</string>
+		<string>/Users/daniel/Dropbox/GIFs</string>
+		<string>gs://garb-dot-ag-gifs</string>
+	</array>
+	<key>StandardErrorPath</key>
+	<string>/usr/local/var/log/garb-ag-sync.log</string>
+	<key>StandardOutPath</key>
+	<string>/usr/local/var/log/garb-ag-sync.log</string>
+	<key>WatchPaths</key>
+	<array>
+		<string>/Users/daniel/Dropbox/GIFs</string>
+	</array>
+</dict>
+</plist>
