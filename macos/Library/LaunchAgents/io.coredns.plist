@@ -2,17 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>EnvironmentVariables</key>
-	<dict>
-		<key>PATH</key>
-		<string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
-		<key>SHELL</key>
-		<string>/opt/homebrew/bin/zsh</string>
-	</dict>
 	<key>KeepAlive</key>
 	<true/>
 	<key>Label</key>
-	<string>com.koekeishiya.yabai</string>
+	<string>io.coredns</string>
 	<key>LowPriorityBackgroundIO</key>
 	<false/>
 	<key>LowPriorityIO</key>
@@ -20,12 +13,14 @@
 	<key>ProcessType</key>
 	<string>Interactive</string>
 	<key>Program</key>
-	<string>/opt/homebrew/bin/yabai</string>
+	<string>/opt/homebrew/bin/coredns</string>
 	<key>RunAtLoad</key>
-	<true/>
+	<false/>
 	<key>StandardErrorPath</key>
-	<string>/opt/homebrew/var/log/yabai.log</string>
+	<string>/opt/homebrew/var/log/coredns.log</string>
 	<key>StandardOutPath</key>
-	<string>/opt/homebrew/var/log/yabai.log</string>
+	<string>/opt/homebrew/var/log/coredns.log</string>
+	<key>WorkingDirectory</key>
+	<string>/usr/local/etc/coredns</string>
 </dict>
 </plist>
