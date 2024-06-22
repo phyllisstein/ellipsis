@@ -13,8 +13,8 @@
 #
 
 # sudo codesign -fs yabai-cert /opt/homebrew/bin/yabai
-# yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
-# sudo yabai --load-sa || true
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa || true
 # launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist > /dev/null 2>&1 &
 
 yabai -m config                               \
@@ -64,6 +64,7 @@ yabai -m rule --add app=CrossOver manage=off
 yabai -m rule --add app=DaisyDisk manage=off
 yabai -m rule --add app=Dash manage=off
 yabai -m rule --add app="Default Folder X" manage=off
+yabai -m rule --add app=Discord manage=off
 yabai -m rule --add app=Docker manage=off
 yabai -m rule --add app=Dropbox manage=off mouse_follows_focus=off
 yabai -m rule --add app=Droplr manage=off mouse_follows_focus=off
@@ -157,7 +158,8 @@ yabai -m rule --add app="MeisterTask" manage=off
 yabai -m rule --add app="Roam" manage=off
 yabai -m rule --add app="Font Awesome" manage=off
 
-# yabai -m rule --add app=Music manage=off sticky=on
-yabai -m rule --add app=Music manage=off
+yabai -m rule --add app=Music manage=off sticky=on mouse_follows_focus=off
 yabai -m rule --add app=Reminders manage=off sticky=on
 yabai -m rule --add app=CatoClient manage=off sticky=on
+
+yabai -m rule --add title=DevTools mouse_follows_focus=off
