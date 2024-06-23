@@ -161,3 +161,5 @@ yabai -m rule --add app="Font Awesome" manage=off
 yabai -m rule --add app=Music manage=off sticky=on mouse_follows_focus=off
 yabai -m rule --add app=Reminders manage=off sticky=on
 yabai -m rule --add app=CatoClient manage=off sticky=on
+
+yabai -m rule --add title=DevTools mouse_follows_focus=off

@@ -39,10 +39,12 @@ if status --is-interactive
     # starship init fish | source
 end
 
+# pyenv init - | source
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-if test -f /Users/daniel/.asdf/installs/python/anaconda3-2023.03/bin/conda
-    eval /Users/daniel/.asdf/installs/python/anaconda3-2023.03/bin/conda "shell.fish" hook $argv | source
+if test -f /Users/daniel/.asdf/installs/python/anaconda3-2024.02-1/bin/conda
+    eval /Users/daniel/.asdf/installs/python/anaconda3-2024.02-1/bin/conda "shell.fish" hook $argv | source
 end
 # <<< conda initialize <<<
 
