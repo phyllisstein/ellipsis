@@ -13,8 +13,10 @@
 	<true/>
 	<key>Label</key>
 	<string>com.koekeishiya.yabai</string>
+	<key>LowPriorityBackgroundIO</key>
+	<false/>
 	<key>LowPriorityIO</key>
-	<true/>
+	<false/>
 	<key>ProcessType</key>
 	<string>Interactive</string>
 	<key>Program</key>
