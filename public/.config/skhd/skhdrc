@@ -98,7 +98,9 @@
 # yabai window_gap of 6.)
 :: default : yabai -m config window_opacity off
 
-:: focus @ : yabai -m config window_opacity on
+:: focus @ : yabai -m query --windows --window; \
+                    if [[ $? -eq 1 ]]; then yabai -m window --focus mouse; fi; \
+                    yabai -m config window_opacity on
 
 :: swap @ : yabai -m config window_opacity on
 
