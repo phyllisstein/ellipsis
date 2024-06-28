@@ -138,8 +138,8 @@ yabai -m rule --add app="^Finder$" manage=off title="Trash" mouse_follows_focus=
 yabai -m rule --add app="^Finder$" title="Info$" manage=off mouse_follows_focus=off
 
 yabai -m rule --add app="Aqua" manage=off
-yabai -m rule --add app="DataGrip" manage=off
-yabai -m rule --add app="IDEA" manage=off
+# yabai -m rule --add app="DataGrip" manage=off
+# yabai -m rule --add app="IDEA" manage=off
 yabai -m rule --add app="Gateway" manage=off
 yabai -m rule --add app="Fleet" manage=off
 yabai -m rule --add app="RustRover" manage=off

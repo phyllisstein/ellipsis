@@ -188,3 +188,7 @@ export PATH="$PATH:$HOME/.yarn/bin:$HOME/.local/bin"
 
 # ----------------------------------- Pyenv ---------------------------------- #
 export PYENV_ROOT="$HOME/.pyenv"
+
+
+# ------------------------------ Next.js Spyware ----------------------------- #
+export NEXT_TELEMETRY_DISABLED=1
