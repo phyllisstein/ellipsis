@@ -54,6 +54,7 @@ yabai -m rule --add app=AltTab manage=off mouse_follows_focus=off
 yabai -m rule --add app="Archive" manage=off
 yabai -m rule --add app=Bartender manage=off mouse_follows_focus=off
 yabai -m rule --add app=BetterTouchTool manage=off
+yabai -m rule --add app=ChatGPT manage=off
 yabai -m rule --add app=Cinemagraph manage=off
 yabai -m rule --add app=CleanMyMac manage=off
 yabai -m rule --add app=CleanShot manage=off mouse_follows_focus=off
