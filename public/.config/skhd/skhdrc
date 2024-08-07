@@ -146,12 +146,13 @@ focus, swap, warp, warpnf, resize, create < c ; create
 # current mode.
 focus, swap, warp, warpnf, resize, create < space : yabai -m space --rotate 90
 focus, swap, warp, warpnf, resize, create < shift - space : yabai -m space --rotate 270
-focus, swap, warp, warpnf, resize, create < x : yabai -m space --mirror x-axis
-focus, swap, warp, warpnf, resize, create < y : yabai -m space --mirror y-axis
+# focus, swap, warp, warpnf, resize, create < x : yabai -m space --mirror x-axis
+# focus, swap, warp, warpnf, resize, create < y : yabai -m space --mirror y-axis
 focus, swap, warp, warpnf, resize, create < e : yabai -m space --balance
 focus, swap, warp, warpnf, resize, create < shift - e : yabai -m space --balance y-axis
 focus, swap, warp, warpnf, resize, create < alt - e : yabai -m space --balance x-axis
 focus, swap, warp, warpnf, resize, create <  0x2F : yabai -m space --layout bsp; yabai -m space --balance       # `.` on US keyboard
+focus, swap, warp, warpnf, resize, create <  x : yabai -m window --close
 
 
 
