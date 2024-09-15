@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Disabled</key>
-	<true/>
+	<false/>
 	<key>Label</key>
 	<string>com.smbpost.autoraise</string>
 	<key>LowPriorityBackgroundIO</key>
@@ -16,7 +16,15 @@
 	<array>
 		<string>/usr/local/bin/AutoRaise</string>
 		<string>-delay</string>
-		<string>5</string>
+		<string>0</string>
+		<string>-focusDelay</string>
+		<string>3</string>
+		<string>-mouseDelta</string>
+		<string>0.1</string>
+		<string>-ignoreSpaceChanged</string>
+		<string>true</string>
+		<string>-ignoreApps</string>
+		<string>SlidePad</string>
 	</array>
 	<key>RunAtLoad</key>
 	<true/>

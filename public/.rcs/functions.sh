@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 # -- Run BrowserStack on a locally-hosted address. -----------------------------
-bsl() { BrowserStackLocal --key="$BROWSERSTACK_LOCAL_KEY" --force-local "$*"; }
+# bsl() { BrowserStackLocal --key="$BROWSERSTACK_LOCAL_KEY" --force-local "$*"; }
 
 # -- Create a new directory and cd into it. ------------------------------------
 mkd() { mkdir -p "$@" && cd "$@"; }

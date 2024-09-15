@@ -18,17 +18,18 @@ sudo yabai --load-sa || true
 # launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist > /dev/null 2>&1 &
 
 yabai -m config                               \
-  mouse_follows_focus          on             \
+  mouse_follows_focus          off             \
   focus_follows_mouse          off            \
   window_origin_display        default         \
   window_placement             second_child         \
   window_shadow                on             \
   window_animation_duration    0.0            \
   window_animation_easing      ease_in_out_quad              \
-  window_opacity_duration      0.2            \
+  window_opacity_duration      0.1            \
   active_window_opacity        1.0            \
   normal_window_opacity        0.9           \
   window_opacity               off            \
+  opacity_animation_easing      ease_in_out_quad              \
   insert_feedback_color        0xffd75f5f   \
   split_ratio                  0.50           \
   split_type                   auto           \
@@ -54,7 +55,7 @@ yabai -m rule --add app=AltTab manage=off mouse_follows_focus=off
 yabai -m rule --add app="Archive" manage=off
 yabai -m rule --add app=Bartender manage=off mouse_follows_focus=off
 yabai -m rule --add app=BetterTouchTool manage=off
-yabai -m rule --add app=ChatGPT manage=off
+yabai -m rule --add app=ChatGPT manage=off mouse_follows_focus=off
 yabai -m rule --add app=Cinemagraph manage=off
 yabai -m rule --add app=CleanMyMac manage=off
 yabai -m rule --add app=CleanShot manage=off mouse_follows_focus=off
@@ -159,8 +160,10 @@ yabai -m rule --add app="MeisterTask" manage=off
 yabai -m rule --add app="Roam" manage=off
 yabai -m rule --add app="Font Awesome" manage=off
 
-yabai -m rule --add app=Music manage=off sticky=on mouse_follows_focus=off
+yabai -m rule --add app=Music manage=off sticky=on
 yabai -m rule --add app=Reminders manage=off sticky=on
 yabai -m rule --add app=CatoClient manage=off sticky=on
 
-yabai -m rule --add title=DevTools mouse_follows_focus=off
+# yabai -m rule --add title=DevTools mouse_follows_focus=off
+
+# yabai -m rule --add app=ChatGPT manage=off mouse_follows_focus=off
