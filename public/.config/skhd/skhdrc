@@ -144,8 +144,8 @@ focus, swap, warp, warpnf, resize, create < c ; create
 # These common operations are also available in any mode: pressing `space` will
 # always rotate your windows 90° clockwise, without dropping you out of the
 # current mode.
-focus, swap, warp, warpnf, resize, create < space : yabai -m space --rotate 90
-focus, swap, warp, warpnf, resize, create < shift - space : yabai -m space --rotate 270
+focus, swap, warp, warpnf, resize, create < left : yabai -m space --rotate 90
+focus, swap, warp, warpnf, resize, create < right : yabai -m space --rotate 270
 # focus, swap, warp, warpnf, resize, create < x : yabai -m space --mirror x-axis
 # focus, swap, warp, warpnf, resize, create < y : yabai -m space --mirror y-axis
 focus, swap, warp, warpnf, resize, create < e : yabai -m space --balance
@@ -165,18 +165,21 @@ focus, swap, warp, warpnf, resize, create <  x : yabai -m window --close
 # biggest window.
 focus < k : yabai -m window --focus north
 focus < j : yabai -m window --focus south
-focus < h : yabai -m window --focus west; \
-                if [[ $? -eq 1 ]]; then \
-                    current_y="$(yabai -m query --windows --window | jq '.frame.y')"; \
-                    target="$(yabai -m query --windows --space | jq "sort_by(.frame.x) | .[-1].frame.x as \$maxX | map(select(.frame.x >= \$maxX)) | map({y: (.frame.y - $current_y | abs), id: .id}) | sort_by(.y)[0].id")"; \
-                    yabai -m window --focus "$target"; \
-                fi
-focus < l : yabai -m window --focus east; \
-                if [[ $? -eq 1 ]]; then \
-                    current_y="$(yabai -m query --windows --window | jq '.frame.y')"; \
-                    target="$(yabai -m query --windows --space | jq "sort_by(.frame.x) | .[0].frame.x as \$minX | map(select(.frame.x <= \$minX)) | map({y: (.frame.y - $current_y | abs), id: .id}) | sort_by(.y)[0].id")"; \
-                    yabai -m window --focus "$target"; \
-                fi
+
+# focus < h : yabai -m window --focus west; \
+#                 if [[ $? -eq 1 ]]; then \
+#                     current_y="$(yabai -m query --windows --window | jq '.frame.y')"; \
+#                     target="$(yabai -m query --windows --space | jq "sort_by(.frame.x) | .[-1].frame.x as \$maxX | map(select(.frame.x >= \$maxX)) | map({y: (.frame.y - $current_y | abs), id: .id}) | sort_by(.y)[0].id")"; \
+#                     yabai -m window --focus "$target"; \
+focus < h : yabai -m window --focus west
+
+# focus < l : yabai -m window --focus east; \
+#                 if [[ $? -eq 1 ]]; then \
+#                     current_y="$(yabai -m query --windows --window | jq '.frame.y')"; \
+#                     target="$(yabai -m query --windows --space | jq "sort_by(.frame.x) | .[0].frame.x as \$minX | map(select(.frame.x <= \$minX)) | map({y: (.frame.y - $current_y | abs), id: .id}) | sort_by(.y)[0].id")"; \
+#                     yabai -m window --focus "$target"; \
+#                 fi
+focus < l : yabai -m window --focus east
 
 # Change the next insertion point using standard vi directional keys. As these
 # operations are intended for the next window that is opened, exit focus mode

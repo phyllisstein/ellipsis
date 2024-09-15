@@ -49,7 +49,6 @@ zstyle ':prezto:load' pmodule \
   'history' \
   'syntax-highlighting' \
   'autosuggestions' \
-  'prompt' \
   'history-substring-search'
 
 #
@@ -139,7 +138,7 @@ zstyle ':prezto:module:osx:man' dash-keyword 'man'
 # zstyle ':prezto:module:prompt' theme 'paradox'
 # zstyle ':prezto:module:prompt' theme 'filthy'
 # zstyle ':prezto:module:prompt' theme 'giddie'
-zstyle ':prezto:module:prompt' theme 'powerlevel10k'
+# zstyle ':prezto:module:prompt' theme 'powerlevel10k'
 
 # zstyle ':prezto:module:prompt' theme 'peepcode' '❯'
 # zstyle ':prezto:module:prompt' theme 'sorin'

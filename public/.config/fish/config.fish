@@ -28,29 +28,71 @@ end
 set -gx CAROOT "$DROPBOX_PATH/Settings/SSL"
 set -gx NODE_EXTRA_CERTS "$CAROOT/rootCA.pem"
 
-test -e {$HOME}/.iterm2_shell_integration.fish; and source {$HOME}/.iterm2_shell_integration.fish
-
-set -g async_prompt_functions _pure_prompt_git
-
 set -gx NEXT_TELEMETRY_DISABLED 1
 
-string match -q "$TERM_PROGRAM" vscode
-and . (code --locate-shell-integration-path fish)
-
-if status --is-interactive
-    keychain --ignore-missing --quiet --eval -Q ~/.ssh/personal_ed25519 ~/.ssh/id_rsa | source
-    # starship init fish | source
+if string match -q "$TERM_PROGRAM" vscode
+    set -x VSCODE_SUGGEST 1
+    source (code --locate-shell-integration-path fish)
 end
+
+# keychain --ignore-missing --quiet --eval -Q ~/.ssh/personal_ed25519 ~/.ssh/id_rsa ~/.ssh/auohp_ed25519
+zoxide init fish | source
+starship init fish | source
 
 # pyenv init - | source
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-if test -f /Users/daniel/.asdf/installs/python/anaconda3-2024.02-1/bin/conda
-    eval /Users/daniel/.asdf/installs/python/anaconda3-2024.02-1/bin/conda "shell.fish" hook $argv | source
+set -gx SSH_AUTH_SOCK $HOME/.1password/agent.sock
+
+if string match -q "$TERM_PROGRAM" "iTerm.app"
+    test -e $HOME/.iterm2_shell_integration.fish; and source $HOME/.iterm2_shell_integration.fish
 end
-# <<< conda initialize <<<
+if string match -q "$TERM_PROGRAM" "WarpTerminal"
+    set -x fish_autosuggestion_enabled 0
+else
+    set -x fish_autosuggestion_enabled 1
+end
 
-zoxide init fish | source
+function edit-command-line
+    # Create a temporary file securely
+    set -l tmpfile (mktemp /tmp/fish_edit_command.XXXXXX)
 
-starship init fish | source
+    # Write the current command line to the temporary file without escaping
+    commandline > $tmpfile
+
+    # Open the temporary file in the editor specified by $EDITOR
+    # Since EDITOR is a list, it handles the command and its arguments correctly
+    $EDITOR $tmpfile
+
+    # Check if the temporary file still exists (in case the editor was closed unexpectedly)
+    if test -f $tmpfile
+        # Read the edited content, trimming any trailing whitespace
+        set -l edited (string trim (cat $tmpfile))
+
+        # Replace the current command line with the edited content
+        commandline -r "$edited"
+
+        # Remove the temporary file to clean up
+        rm $tmpfile
+    end
+end
+
+# Bind Ctrl+x to the edit_command_line function
+bind \cx edit-command-line
+
+function insert-dot
+    # Get the text before the cursor
+    set current_before_cursor (commandline -t)
+
+    # Get the last two characters before the cursor
+    set last_two (string sub -s -2 "$current_before_cursor")
+
+    if test "$last_two" = ".."
+      # If the last two characters are '..', insert '/..'
+      commandline -i "/.."
+    else
+      # Otherwise, insert a single '.'
+      commandline -i "."
+    end
+  end
+
+  bind '.' insert-dot
