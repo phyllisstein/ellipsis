@@ -62,3 +62,5 @@ eval "$(pyenv init -)"
 if [ "$TERM_PROGRAM" == "vscode" ]; then
   . "$(code --locate-shell-integration-path zsh)"
 fi
+
+eval "$(gh copilot alias -- zsh)"

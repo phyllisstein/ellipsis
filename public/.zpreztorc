@@ -34,21 +34,17 @@ zstyle ':prezto:load' zfunction 'zargs' 'zmv'
 #   * `history-substring-search` must come after `syntax-highlighting`.
 zstyle ':prezto:load' pmodule \
   'utility' \
-  'completion' \
   'environment' \
   'spectrum' \
   'archive' \
   'docker' \
   'command-not-found' \
   'directory' \
-  'editor' \
   'git' \
   'history' \
   'osx' \
   'terminal' \
   'history' \
-  'syntax-highlighting' \
-  'autosuggestions' \
   'history-substring-search'
 
 #

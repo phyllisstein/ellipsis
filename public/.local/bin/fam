@@ -3,7 +3,6 @@
 from argparse import ArgumentParser
 import fontforge
 from pathlib import Path
-import sys
 
 parser = ArgumentParser(description='Rename fonts in bulk.')
 parser.add_argument('paths', metavar='P', type=str, nargs=1, help='Font file search paths.')
@@ -28,10 +27,8 @@ def main(paths):
         web_base = path.parent.joinpath(family_name, 'Web', font.fontname)
         web_base.parent.mkdir(parents=True, exist_ok=True)
 
-        woff_path = web_base.with_suffix('.woff').resolve()
         woff2_path = web_base.with_suffix('.woff2').resolve()
 
-        font.generate(str(woff_path), flags=('opentype', 'no-hints', 'omit-instructions',))
         font.generate(str(woff2_path), flags=('opentype', 'no-hints', 'omit-instructions',))
 
         font.close()

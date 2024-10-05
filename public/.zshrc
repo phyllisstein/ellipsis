@@ -14,9 +14,9 @@ alias zmv='noglob zmv'
 alias zcp='noglob zmv -C'
 alias zln='noglob zmv -Ls'
 
-source "$HOME/.rcs/prezto.sh"
+# source "$HOME/.rcs/prezto.sh"
 
-# source "$HOME/.rcs/oh-my-zsh.sh"
+source "$HOME/.rcs/oh-my-zsh.sh"
 
 source "$HOME/.rcs/shared.sh"
 
