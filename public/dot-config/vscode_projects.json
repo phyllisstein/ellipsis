@@ -1,0 +1,104 @@
+{
+  "groups": [
+    {
+      "name": "Ignota",
+      "projects": [
+        {
+          "name": "Commonplace",
+          "icon": "versions",
+          "path": "~/Code/Ignota/commonplace/Commonplace.code-workspace"
+        }
+      ]
+    },
+    {
+      "name": "EPE",
+      "projects": [
+        {
+          "name": "Eater Maps",
+          "icon": "location",
+          "path": "~/Code/EPX/epx-standalone-mapstack/EPX Standalone MapStack.code-workspace"
+        },
+        {
+          "name": "A Cappella",
+          "icon": "mute",
+          "path": "~/Code/EPX/acappella/Acappella.code-workspace"
+        }
+      ]
+    },
+    {
+      "name": "Personal",
+      "projects": [
+        {
+          "name": "Menagerie",
+          "path": "~/Code/Personal/menagerie",
+          "icon": "beaker"
+        },
+        {
+          "name": "Composition",
+          "path": "~/Code/Personal/composition",
+          "icon": "pencil"
+        },
+        {
+          "name": "Ellipsis",
+          "path": "~/.ellipsis",
+          "icon": "settings"
+        },
+        {
+          "name": "Three.js Journey",
+          "path": "~/Code/Learning/threejs-journey",
+          "icon": "symbol-misc"
+        },
+        {
+          "name": "Pandoc Assets",
+          "path": "~/Code/Personal/pandoc-assets",
+          "icon": "file-code"
+        },
+        {
+          "name": "VSCode Settings",
+          "path": "~/.ellipsis/.config/vscode_projects.json",
+          "icon": "debug-configure"
+        },
+        {
+          "name": "Next.js Starter",
+          "path": "~/Code/Personal/nextjs-typescript-starter",
+          "icon": "lightbulb"
+        }
+      ]
+    },
+    {
+      "name": "Vox",
+      "projects": [
+        {
+          "name": "SBN Stack",
+          "path": "~/Code/Vox/SBN Stack.code-workspace",
+          "icon": "ruby"
+        },
+        {
+          "name": "JS Guild",
+          "projects": [
+            {
+              "name": "Graph Modeling",
+              "path": "~/Code/Learning/product-js-graph-data",
+              "icon": "source-control"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Clay",
+      "projects": [
+        {
+          "name": "NYM Sites",
+          "path": "~/Code/NY/sites",
+          "icon": "globe"
+        },
+        {
+          "name": "Clay CLI",
+          "path": "~/Code/Clay/Clay CLI Webpack.code-workspace",
+          "icon": "gather"
+        }
+      ]
+    }
+  ]
+}

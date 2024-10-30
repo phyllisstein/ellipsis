@@ -1,4 +1,0 @@
-ngram/*
-!ngram/.gitkeep
-word2vec/*
-!word2vec/.gitkeep

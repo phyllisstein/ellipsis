@@ -1,1 +1,0 @@
-set -gx VAGRANT_DEFAULT_PROVIDER parallels

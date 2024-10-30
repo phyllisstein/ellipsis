@@ -1,0 +1,9 @@
+#/usr/bin/arch -x86_64 /bin/zsh -f
+
+BATTLE_NET_PATH="/Users/daniel/.wine/drive_c/Program Files (x86)/Battle.net"
+
+find "$BATTLE_NET_PATH" -type d ! \( -name '*.bak' -or -name '.*' \) -depth 1 -print0 | xargs -0 rm -rf
+cp -R "$BATTLE_NET_PATH/14494.bak" "$BATTLE_NET_PATH/Battle.net.14494"
+eval "$(/usr/local/bin/brew shellenv)"
+gameportingtoolkit-no-hud ~/.wine ~/.wine/drive_c/Diablo\ IV/Diablo\ IV.exe &
+disown

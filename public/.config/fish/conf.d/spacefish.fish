@@ -1,1 +1,0 @@
-set -gx SPACEFISH_CHAR_SYMBOL '❯'

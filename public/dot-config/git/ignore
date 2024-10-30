@@ -1,0 +1,14 @@
+.atom
+.bloop
+.classpath
+.direnv
+.DS_Store
+.elixir_ls
+.envrc
+.metals
+.metaserver
+.project
+.settings
+.sonarlint
+.wakatime-project
+*gitFinderDeleted

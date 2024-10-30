@@ -1,0 +1,169 @@
+#!/opt/homebrew/bin/zsh
+
+# the scripting-addition must be loaded manually if
+# you are running yabai on macOS Big Sur. Uncomment
+# the following line to have the injection performed
+# when the config is executed during startup.
+#
+# for this to work you must configure sudo such that
+# it will be able to run the command without password
+#
+# see this wiki page for information:
+#  - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)
+#
+
+# sudo codesign -fs yabai-cert /opt/homebrew/bin/yabai
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa || true
+# launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist > /dev/null 2>&1 &
+
+yabai -m config                               \
+  mouse_follows_focus          on             \
+  focus_follows_mouse          off            \
+  window_origin_display        default         \
+  window_placement             second_child         \
+  window_shadow                on             \
+  window_animation_duration    0.0            \
+  window_animation_easing      ease_in_out_quad              \
+  window_opacity_duration      0.1            \
+  active_window_opacity        1.0            \
+  normal_window_opacity        0.9           \
+  window_opacity               off            \
+  opacity_animation_easing      ease_in_out_quad              \
+  insert_feedback_color        0xffd75f5f   \
+  split_ratio                  0.50           \
+  split_type                   auto           \
+  auto_balance                 off           \
+  top_padding                  0             \
+  bottom_padding               0            \
+  left_padding                 0             \
+  right_padding                0             \
+  window_gap                   0              \
+  layout                       bsp            \
+  mouse_modifier               fn             \
+  mouse_action1                move           \
+  mouse_action2                resize         \
+  mouse_drop_action            swap
+
+# app specific settings
+yabai -m rule --add app=1Password manage=off
+yabai -m rule --add app="^ABBYY" manage=off
+yabai -m rule --add app="Acrobat" manage=off
+yabai -m rule --add app="AdGuard" manage=off
+yabai -m rule --add app="Adobe" manage=off
+yabai -m rule --add app=AltTab manage=off mouse_follows_focus=off
+yabai -m rule --add app="Archive" manage=off
+yabai -m rule --add app=Bartender manage=off mouse_follows_focus=off
+yabai -m rule --add app=BetterTouchTool manage=off
+yabai -m rule --add app=ChatGPT manage=off mouse_follows_focus=off
+yabai -m rule --add app=Cinemagraph manage=off
+yabai -m rule --add app=CleanMyMac manage=off
+yabai -m rule --add app=CleanShot manage=off mouse_follows_focus=off
+yabai -m rule --add app=Cocktail manage=off
+yabai -m rule --add app=ColorSlurp manage=off mouse_follows_focus=off
+yabai -m rule --add app="Creative Cloud" manage=off
+yabai -m rule --add app=CrossOver manage=off
+yabai -m rule --add app=DaisyDisk manage=off
+yabai -m rule --add app=Dash manage=off
+yabai -m rule --add app="Default Folder X" manage=off
+yabai -m rule --add app=Discord manage=off
+yabai -m rule --add app=Docker manage=off
+yabai -m rule --add app=Dropbox manage=off mouse_follows_focus=off
+yabai -m rule --add app=Droplr manage=off mouse_follows_focus=off
+yabai -m rule --add app=Due manage=off mouse_follows_focus=off
+yabai -m rule --add app=Epic manage=off mouse_follows_focus=off
+yabai -m rule --add app=FaceTime manage=off
+yabai -m rule --add app=Fantastical manage=off mouse_follows_focus=off
+yabai -m rule --add app=Finder mouse_follows_focus=off
+yabai -m rule --add app=Focus manage=off mouse_follows_focus=off
+yabai -m rule --add app=Folx manage=off mouse_follows_focus=off
+yabai -m rule --add app="Font Book" manage=off
+yabai -m rule --add app=GitFinder manage=off mouse_follows_focus=off
+yabai -m rule --add app=Glyphs manage=off
+yabai -m rule --add app=Goose manage=off
+yabai -m rule --add app=Hazel manage=off
+yabai -m rule --add app=IINA manage=off
+yabai -m rule --add app=Infuse manage=off
+yabai -m rule --add app=Installer manage=off
+yabai -m rule --add app="^iStat" manage=off mouse_follows_focus=off
+yabai -m rule --add app="JetBrains Toolbox" manage=off mouse_follows_focus=off
+yabai -m rule --add app=Kaleidoscope manage=off
+yabai -m rule --add app=KeyboardCleanTool manage=off
+yabai -m rule --add app=MeetInOne manage=off
+yabai -m rule --add app=Metronome manage=off
+yabai -m rule --add app="Microsoft Remote Desktop" manage=off mouse_follows_focus=off
+yabai -m rule --add app=Neo4j manage=off
+yabai -m rule --add app="Norton 360" manage=off
+# yabai -m rule --add app=Notes manage=off
+# yabai -m rule --add app=Obsidian sticky=on layer=above
+yabai -m rule --add app=Pastebot manage=off
+yabai -m rule --add app=Preview manage=off
+yabai -m rule --add app="Put.IO Adder" manage=off mouse_follows_focus=off
+yabai -m rule --add app=".*qemu.*" manage=off
+yabai -m rule --add app=QuickTime manage=off
+yabai -m rule --add app=Raycast manage=off mouse_follows_focus=off
+yabai -m rule --add app=REALFORCE manage=off mouse_follows_focus=off
+yabai -m rule --add app=ScreenFlow manage=off mouse_follows_focus=off
+yabai -m rule --add app=Screens manage=off mouse_follows_focus=off
+yabai -m rule --add app=SetApp manage=off
+yabai -m rule --add app=Simulator manage=off
+yabai -m rule --add app=Sip manage=off
+yabai -m rule --add app=SnippetsLab manage=off mouse_follows_focus=off
+yabai -m rule --add app=Slidepad manage=off mouse_follows_focus=off
+yabai -m rule --add app=SoundSource manage=off mouse_follows_focus=off
+yabai -m rule --add app=Speediness manage=off mouse_follows_focus=off
+yabai -m rule --add app=Steam manage=off mouse_follows_focus=off
+yabai -m rule --add app="System Preferences" manage=off
+yabai -m rule --add app="System Settings" manage=off
+yabai -m rule --add app=TextExpander manage=off
+yabai -m rule --add app=Things manage=off
+yabai -m rule --add app=Topaz manage=off
+yabai -m rule --add app=Transmission manage=off
+yabai -m rule --add app=Tuple manage=off mouse_follows_focus=off
+yabai -m rule --add app=TV manage=off
+yabai -m rule --add app=Tweetbot manage=off
+yabai -m rule --add app=Unclutter manage=off mouse_follows_focus=off
+yabai -m rule --add app=VLC manage=off
+yabai -m rule --add app="^VMware" manage=off
+yabai -m rule --add app=WireGuard manage=off
+yabai -m rule --add app=Yoink manage=off mouse_follows_focus=off
+yabai -m rule --add app=zoom.us manage=off
+yabai -m rule --add app=xScope manage=off mouse_follows_focus=off
+
+yabai -m rule --add app=eso manage=off mouse_follows_focus=off
+yabai -m rule --add app=wine manage=off mouse_follows_focus=off
+yabai -m rule --add app=XIV manage=off mouse_follows_focus=off
+
+yabai -m rule --add title=Preferences manage=off
+yabai -m rule --add app="^Finder$" manage=off title="Copy" mouse_follows_focus=off
+yabai -m rule --add app="^Finder$" manage=off title="Trash" mouse_follows_focus=off
+yabai -m rule --add app="^Finder$" title="Info$" manage=off mouse_follows_focus=off
+
+yabai -m rule --add app="Aqua" manage=off
+# yabai -m rule --add app="DataGrip" manage=off
+# yabai -m rule --add app="IDEA" manage=off
+yabai -m rule --add app="Gateway" manage=off
+yabai -m rule --add app="Fleet" manage=off
+yabai -m rule --add app="RustRover" manage=off
+
+yabai -m rule --add app=Parallels manage=off mouse_follows_focus=off
+yabai -m rule --add app="Windows" manage=off mouse_follows_focus=off
+yabai -m rule --add app="Ubuntu" manage=off mouse_follows_focus=off
+yabai -m rule --add app="macOS" manage=off mouse_follows_focus=off
+yabai -m rule --add app="wine" manage=off mouse_follows_focus=off
+yabai -m rule --add app="Whisky" manage=off mouse_follows_focus=off
+
+yabai -m rule --add app=WebCatalog manage=off
+yabai -m rule --add app="Vox Slack" manage=off sticky=on
+yabai -m rule --add app=".*Jira.*" manage=off
+yabai -m rule --add app="MeisterTask" manage=off
+yabai -m rule --add app="Roam" manage=off
+yabai -m rule --add app="Font Awesome" manage=off
+
+yabai -m rule --add app=Music manage=off sticky=on
+yabai -m rule --add app=Reminders manage=off sticky=on
+yabai -m rule --add app=CatoClient manage=off sticky=on
+
+# yabai -m rule --add title=DevTools mouse_follows_focus=off
+
+# yabai -m rule --add app=ChatGPT manage=off mouse_follows_focus=off
