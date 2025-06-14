@@ -30,12 +30,6 @@ set -gx NODE_EXTRA_CERTS "$CAROOT/rootCA.pem"
 
 set -gx NEXT_TELEMETRY_DISABLED 1
 
-if string match -q "$TERM_PROGRAM" vscode
-    set -x VSCODE_SUGGEST 1
-    source (code --locate-shell-integration-path fish)
-end
-
-# keychain --ignore-missing --quiet --eval -Q ~/.ssh/personal_ed25519 ~/.ssh/id_rsa ~/.ssh/auohp_ed25519
 zoxide init fish | source
 starship init fish | source
 # oh-my-posh init fish | source
@@ -47,7 +41,7 @@ set -gx SSH_AUTH_SOCK $HOME/.1password/agent.sock
 if string match -q "$TERM_PROGRAM" "iTerm.app"
     test -e $HOME/.iterm2_shell_integration.fish; and source $HOME/.iterm2_shell_integration.fish
 end
-if string match -q "$TERM_PROGRAM" WarpTerminal
+if string match -q "$TERM_PROGRAM" WarpTerminal or string match -q "$TERM_PROGRAM" vscode
     set -x fish_autosuggestion_enabled 0
 else
     set -x fish_autosuggestion_enabled 1
@@ -97,3 +91,14 @@ function insert-dot
 end
 
 bind '.' insert-dot
+
+if string match -q "$TERM_PROGRAM" vscode
+    source (code --locate-shell-integration-path fish)
+end
+
+# pnpm
+set -gx PNPM_HOME "/Users/daniel/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
