@@ -6,7 +6,6 @@
     },
     "default_options": [
         "--follow",
-        "--session=default",
         "--verify=no"
     ]
 }
