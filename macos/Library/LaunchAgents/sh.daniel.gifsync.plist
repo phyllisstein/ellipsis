@@ -17,7 +17,7 @@
 		<string>--delete</string>
 		<string>--quiet</string>
 		<string>/Users/daniel/Dropbox/GIFs</string>
-		<string>s3://garb-dot-ag-hex8diatom</string>
+		<string>s3://gifs-screeching-dawn-1983</string>
 	</array>
 	<key>StandardErrorPath</key>
 	<string>/opt/homebrew/var/log/garb-ag-sync.log</string>
