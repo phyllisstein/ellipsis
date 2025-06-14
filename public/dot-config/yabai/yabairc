@@ -15,6 +15,7 @@
 # sudo codesign -fs yabai-cert /opt/homebrew/bin/yabai
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa || true
+# YABAI_CERT=yabai-cert sh -c "$(curl -fsSL "https://git.io/update-yabai")" &
 # launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist > /dev/null 2>&1 &
 
 yabai -m config                               \
@@ -24,16 +25,15 @@ yabai -m config                               \
   window_placement             second_child         \
   window_shadow                on             \
   window_animation_duration    0.0            \
-  window_animation_easing      ease_in_out_quad              \
-  window_opacity_duration      0.1            \
+  window_animation_easing      ease_out_quint              \
+  window_opacity_duration      0.2            \
   active_window_opacity        1.0            \
-  normal_window_opacity        0.9           \
+  normal_window_opacity        0.8           \
   window_opacity               off            \
-  opacity_animation_easing      ease_in_out_quad              \
   insert_feedback_color        0xffd75f5f   \
   split_ratio                  0.50           \
   split_type                   auto           \
-  auto_balance                 off           \
+  auto_balance                 off \
   top_padding                  0             \
   bottom_padding               0            \
   left_padding                 0             \
@@ -49,7 +49,7 @@ yabai -m config                               \
 yabai -m rule --add app=1Password manage=off
 yabai -m rule --add app="^ABBYY" manage=off
 yabai -m rule --add app="Acrobat" manage=off
-yabai -m rule --add app="AdGuard" manage=off
+yabai -m rule --add app="AdGuard" manage=off mouse_follows_focus=off
 yabai -m rule --add app="Adobe" manage=off
 yabai -m rule --add app=AltTab manage=off mouse_follows_focus=off
 yabai -m rule --add app="Archive" manage=off
@@ -57,6 +57,7 @@ yabai -m rule --add app=Bartender manage=off mouse_follows_focus=off
 yabai -m rule --add app=BetterTouchTool manage=off
 yabai -m rule --add app=ChatGPT manage=off mouse_follows_focus=off
 yabai -m rule --add app=Cinemagraph manage=off
+yabai -m rule --add app=Claude manage=off
 yabai -m rule --add app=CleanMyMac manage=off
 yabai -m rule --add app=CleanShot manage=off mouse_follows_focus=off
 yabai -m rule --add app=Cocktail manage=off
@@ -81,8 +82,10 @@ yabai -m rule --add app="Font Book" manage=off
 yabai -m rule --add app=GitFinder manage=off mouse_follows_focus=off
 yabai -m rule --add app=Glyphs manage=off
 yabai -m rule --add app=Goose manage=off
+yabai -m rule --add app="Happy Hacking" manage=off
 yabai -m rule --add app=Hazel manage=off
 yabai -m rule --add app=IINA manage=off
+yabai -m rule --add app="iPhone Mirroring" manage=off
 yabai -m rule --add app=Infuse manage=off
 yabai -m rule --add app=Installer manage=off
 yabai -m rule --add app="^iStat" manage=off mouse_follows_focus=off
@@ -92,8 +95,9 @@ yabai -m rule --add app=KeyboardCleanTool manage=off
 yabai -m rule --add app=MeetInOne manage=off
 yabai -m rule --add app=Metronome manage=off
 yabai -m rule --add app="Microsoft Remote Desktop" manage=off mouse_follows_focus=off
+yabai -m rule --add app="Monotype" manage=off mouse_follows_focus=off
 yabai -m rule --add app=Neo4j manage=off
-yabai -m rule --add app="Norton 360" manage=off
+yabai -m rule --add app="Norton" manage=off
 # yabai -m rule --add app=Notes manage=off
 # yabai -m rule --add app=Obsidian sticky=on layer=above
 yabai -m rule --add app=Pastebot manage=off

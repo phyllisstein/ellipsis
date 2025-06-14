@@ -98,9 +98,9 @@
 # yabai window_gap of 6.)
 :: default : yabai -m config window_opacity off
 
-:: focus @ : yabai -m query --windows --window; \
-                    if [[ $? -eq 1 ]]; then yabai -m window --focus mouse; fi; \
-                    yabai -m config window_opacity on
+:: focus @ : yabai -m query --windows --window >/dev/null 2>&1; \
+              if [[ $? -eq 1 ]]; then yabai -m window --focus mouse; fi && \
+              yabai -m config window_opacity on
 
 :: swap @ : yabai -m config window_opacity on
 
@@ -152,7 +152,9 @@ focus, swap, warp, warpnf, resize, create < e : yabai -m space --balance
 focus, swap, warp, warpnf, resize, create < shift - e : yabai -m space --balance y-axis
 focus, swap, warp, warpnf, resize, create < alt - e : yabai -m space --balance x-axis
 focus, swap, warp, warpnf, resize, create <  0x2F : yabai -m space --layout bsp; yabai -m space --balance       # `.` on US keyboard
-focus, swap, warp, warpnf, resize, create <  x : yabai -m window --close
+focus, swap, warp, warpnf, resize, create <  x : yabai -m window --close; \
+                                                  yabai -m query --windows --window >/dev/null 2>&1; \
+                                                  if [[ $? -eq 1 ]]; then yabai -m window --focus mouse; fi
 
 
 
@@ -300,30 +302,47 @@ warpnf < cmd - h : yabai -m window --space prev
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Creation Mode ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 # Creation mode can be activated by pressing `c`.
 
-# Create a new space, but do not follow.
-create < h : ADJACENT_LEFT="$(yabai -m query --spaces --space | jq '.index - 1')"; \
-                    yabai -m space --create; \
-                    yabai -m space last --move "$ADJACENT_LEFT"
+# Create a new space.
+create < h : yabai -m space --create; \
+                    LAST_DISPLAY_SPACE="$(yabai -m query --spaces | jq 'sort_by(.index) | map(select(.display == 1))[-1].index')"; \
+                    yabai -m space "$LAST_DISPLAY_SPACE" --move 1; \
+                    yabai -m space --focus 1;
 create < j : yabai -m space --create; \
-                    yabai -m space last --move first
-create < k : yabai -m space --create
-create < l : ADJACENT_RIGHT="$(yabai -m query --spaces --space | jq '.index + 1')"; \
-                    yabai -m space --create; \
-                    yabai -m space last --move "$ADJACENT_RIGHT"
+               PREV_SPACE="$(yabai -m query --spaces --space | jq '.index')"; \
+             LAST_DISPLAY_SPACE="$(yabai -m query --spaces | jq 'sort_by(.index) | map(select(.display == 1))[-1].index')"; \
+             yabai -m space "$LAST_DISPLAY_SPACE" --move "$PREV_SPACE"; \
+             yabai -m space --focus "$PREV_SPACE"
+create < k : yabai -m space --create; \
+                    NEXT_SPACE="$(yabai -m query --spaces --space | jq '.index + 1')"; \
+                    LAST_DISPLAY_SPACE="$(yabai -m query --spaces | jq 'sort_by(.index) | map(select(.display == 1))[-1].index')"; \
+                    yabai -m space "$LAST_DISPLAY_SPACE" --move "$NEXT_SPACE"; \
+                    yabai -m space --focus "$NEXT_SPACE"
+create < l : yabai -m space --create; \
+              LAST_DISPLAY_SPACE="$(yabai -m query --spaces | jq 'sort_by(.index) | map(select(.display == 1))[-1].index')"; \
+               yabai -m space --focus "$LAST_DISPLAY_SPACE"
 
-# Create a new space and follow.
-create < cmd - h : ADJACENT_LEFT="$(yabai -m query --spaces --space | jq '.index - 1')"; \
-                    yabai -m space --create; \
-                    yabai -m space last --move "$ADJACENT_LEFT"; \
-                    yabai -m space --focus "$ADJACENT_LEFT"
-create < cmd - j : yabai -m space --create; \
-                    yabai -m space last --move first \
-                    yabai -m space --focus first
-create < cmd - k : yabai -m space --create
-create < cmd - l : ADJACENT_RIGHT="$(yabai -m query --spaces --space | jq '.index + 1')"; \
-                    yabai -m space --create; \
-                    yabai -m space last --move "$ADJACENT_RIGHT" \
-                    yabai -m space --focus "$ADJACENT_RIGHT"
+# Create a new space and move the current window to it.
+create < shift - h : yabai -m space --create; \
+                    LAST_DISPLAY_SPACE="$(yabai -m query --spaces | jq 'sort_by(.index) | map(select(.display == 1))[-1].index')"; \
+                    yabai -m window --space "$LAST_DISPLAY_SPACE"; \
+                    yabai -m space "$LAST_DISPLAY_SPACE" --move 1; \
+                    yabai -m space --focus 1;
+create < shift - j : yabai -m space --create; \
+               PREV_SPACE="$(yabai -m query --spaces --space | jq '.index')"; \
+                LAST_DISPLAY_SPACE="$(yabai -m query --spaces | jq 'sort_by(.index) | map(select(.display == 1))[-1].index')"; \
+                yabai -m window --space "$LAST_DISPLAY_SPACE"; \
+             yabai -m space "$LAST_DISPLAY_SPACE" --move "$PREV_SPACE"; \
+             yabai -m space --focus "$PREV_SPACE"
+create < shift - k : yabai -m space --create; \
+                    NEXT_SPACE="$(yabai -m query --spaces --space | jq '.index + 1')"; \
+                    LAST_DISPLAY_SPACE="$(yabai -m query --spaces | jq 'sort_by(.index) | map(select(.display == 1))[-1].index')"; \
+                    yabai -m window --space "$LAST_DISPLAY_SPACE"; \
+                    yabai -m space "$LAST_DISPLAY_SPACE" --move "$NEXT_SPACE"; \
+                    yabai -m space --focus "$NEXT_SPACE"
+create < shift - l : yabai -m space --create; \
+              LAST_DISPLAY_SPACE="$(yabai -m query --spaces | jq 'sort_by(.index) | map(select(.display == 1))[-1].index')"; \
+              yabai -m window --space "$LAST_DISPLAY_SPACE"; \
+               yabai -m space --focus "$LAST_DISPLAY_SPACE"
 
 # Destroy the current space.
-create < cmd - w : yabai -m space --destroy
+create < w : yabai -m space --destroy
