@@ -1,4 +1,4 @@
-#!/opt/homebrew/bin/zsh
+#!/usr/bin/env sh
 
 # the scripting-addition must be loaded manually if
 # you are running yabai on macOS Big Sur. Uncomment
@@ -18,32 +18,37 @@ sudo yabai --load-sa || true
 # YABAI_CERT=yabai-cert sh -c "$(curl -fsSL "https://git.io/update-yabai")" &
 # launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist > /dev/null 2>&1 &
 
-yabai -m config                               \
-  mouse_follows_focus          on             \
-  focus_follows_mouse          off            \
-  window_origin_display        default         \
-  window_placement             second_child         \
-  window_shadow                on             \
-  window_animation_duration    0.0            \
-  window_animation_easing      ease_out_quint              \
-  window_opacity_duration      0.2            \
-  active_window_opacity        1.0            \
-  normal_window_opacity        0.8           \
-  window_opacity               off            \
-  insert_feedback_color        0xffd75f5f   \
-  split_ratio                  0.50           \
-  split_type                   auto           \
-  auto_balance                 off \
-  top_padding                  0             \
-  bottom_padding               0            \
-  left_padding                 0             \
-  right_padding                0             \
-  window_gap                   0              \
-  layout                       bsp            \
-  mouse_modifier               fn             \
-  mouse_action1                move           \
-  mouse_action2                resize         \
-  mouse_drop_action            swap
+yabai -m config \
+	external_bar off:40:0 \
+	menubar_opacity 1.0 \
+	mouse_follows_focus off \
+	focus_follows_mouse off \
+	display_arrangement_order horizontal \
+	window_origin_display cursor \
+	window_placement second_child \
+	window_insertion_point focused \
+	window_zoom_persist on \
+	window_shadow on \
+	window_animation_duration 0.0 \
+	window_animation_easing ease_out_circ \
+	window_opacity_duration 0.1 \
+	active_window_opacity 1.0 \
+	normal_window_opacity 0.90 \
+	window_opacity off \
+	insert_feedback_color 0xffd75f5f \
+	split_ratio 0.50 \
+	split_type auto \
+	auto_balance off \
+	top_padding 0 \
+	bottom_padding 0 \
+	left_padding 0 \
+	right_padding 0 \
+	window_gap 0 \
+	layout bsp \
+	mouse_modifier fn \
+	mouse_action1 move \
+	mouse_action2 resize \
+	mouse_drop_action swap
 
 # app specific settings
 yabai -m rule --add app=1Password manage=off
@@ -148,6 +153,9 @@ yabai -m rule --add app="DataGrip" manage=off
 # yabai -m rule --add app="IDEA" manage=off
 yabai -m rule --add app="IDEA" title="Tip" manage=off
 yabai -m rule --add app="IDEA" title="Welcome" manage=off
+yabai -m rule --add app="IDEA" title="Settings" manage=off
+yabai -m rule --add app="IDEA" title="Updates" manage=off
+yabai -m rule --add app="IDEA" title="Manage" manage=off
 yabai -m rule --add app="Gateway" manage=off
 yabai -m rule --add app="Fleet" manage=off
 yabai -m rule --add app="RustRover" manage=off

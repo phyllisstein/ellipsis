@@ -97,8 +97,8 @@ if string match -q "$TERM_PROGRAM" vscode
 end
 
 # pnpm
-set -gx PNPM_HOME "/Users/daniel/Library/pnpm"
+set -gx PNPM_HOME /Users/daniel/Library/pnpm
 if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
