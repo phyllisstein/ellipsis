@@ -1,4 +1,4 @@
-#!/opt/homebrew/bin/zsh
+#!/opt/homebrew/bin/zsh -o norcs
 
 # ################################################################ #
 # THE FOLLOWING IS AN EXPLANATION OF THE GRAMMAR THAT SKHD PARSES. #
@@ -101,6 +101,7 @@
 :: focus @ : yabai -m query --windows --window >/dev/null 2>&1; \
               if [[ $? -eq 1 ]]; then yabai -m window --focus mouse; fi && \
               yabai -m config window_opacity on
+# :: focus @ : yabai -m config window_opacity on
 
 :: swap @ : yabai -m config window_opacity on
 
@@ -195,9 +196,12 @@ focus < cmd - l : yabai -m window --insert east; skhd -k "alt - space"
 # using tab and shift - tab. If you have multiple displays attached to your
 # computer, keybindings move from leftmost (1) to rightmost (3) display, as
 # arranged, not based on primary/secondary designation.
-focus < 1 : yabai -m display --focus "$(yabai -m query --displays | jq 'sort_by(.frame.x)[0].index')"
-focus < 2 : yabai -m display --focus "$(yabai -m query --displays | jq 'sort_by(.frame.x)[1].index')"
-focus < 3 : yabai -m display --focus "$(yabai -m query --displays | jq 'sort_by(.frame.x)[2].index')"
+# focus < 1 : yabai -m display --focus "$(yabai -m query --displays | jq 'sort_by(.frame.x)[0].index')"
+# focus < 2 : yabai -m display --focus "$(yabai -m query --displays | jq 'sort_by(.frame.x)[1].index')"
+# focus < 3 : yabai -m display --focus "$(yabai -m query --displays | jq 'sort_by(.frame.x)[2].index')"
+focus < 1 : yabai -m display --focus 1
+focus < 2 : yabai -m display --focus 2
+focus < 3 : yabai -m display --focus 3
 focus < tab : yabai -m display --focus next
 focus < shift - tab : yabai -m display --focus prev
 
@@ -246,15 +250,22 @@ warp, warpnf < l : yabai -m window --warp east
 warp, warpnf < h : yabai -m window --warp west
 
 # Warp window to monitor and follow.
-warp < 1 : display_idx="$(yabai -m query --displays | jq 'sort_by(.frame.x)[0].index')"; \
-              yabai -m window --display "$display_idx"; \
-              yabai -m display --focus "$display_idx"
-warp < 2 : display_idx="$(yabai -m query --displays | jq 'sort_by(.frame.x)[1].index')"; \
-              yabai -m window --display "$display_idx"; \
-              yabai -m display --focus "$display_idx"
-warp < 3 : display_idx="$(yabai -m query --displays | jq 'sort_by(.frame.x)[2].index')"; \
-              yabai -m window --display "$display_idx"; \
-              yabai -m display --focus "$display_idx"
+# warp < 1 : display_idx="$(yabai -m query --displays | jq 'sort_by(.frame.x)[0].index')"; \
+#               yabai -m window --display "$display_idx"; \
+#               yabai -m display --focus "$display_idx"
+# warp < 2 : display_idx="$(yabai -m query --displays | jq 'sort_by(.frame.x)[1].index')"; \
+#               yabai -m window --display "$display_idx"; \
+#               yabai -m display --focus "$display_idx"
+# warp < 3 : display_idx="$(yabai -m query --displays | jq 'sort_by(.frame.x)[2].index')"; \
+#               yabai -m window --display "$display_idx"; \
+#               yabai -m display --focus "$display_idx"
+warp < 1 : yabai -m window --display 1; \
+              yabai -m display --focus 1
+warp < 2 : yabai -m window --display 2; \
+              yabai -m display --focus 2
+warp < 3 : yabai -m window --display 3; \
+              yabai -m display --focus 3
+
 warp < tab : yabai -m window --display next; yabai -m display --focus next
 warp < shift - tab : yabai -m window --display prev; yabai -m display --focus prev
 
@@ -273,12 +284,9 @@ warp < cmd - l : yabai -m window --space next; yabai -m space --focus next
 warp < cmd - h : yabai -m window --space prev; yabai -m space --focus prev
 
 # Prefix with cmd to warp to monitor but do not follow.
-warpnf < 1 : display_idx="$(yabai -m query --displays | jq 'sort_by(.frame.x)[0].index')"; \
-              yabai -m window --display "$display_idx"
-warpnf < 2 : display_idx="$(yabai -m query --displays | jq 'sort_by(.frame.x)[1].index')"; \
-              yabai -m window --display "$display_idx"
-warpnf < 3 : display_idx="$(yabai -m query --displays | jq 'sort_by(.frame.x)[2].index')"; \
-              yabai -m window --display "$display_idx"
+warpnf < 1 : yabai -m window --display 1
+warpnf < 2 : yabai -m window --display 2
+warpnf < 3 : yabai -m window --display 3
 warpnf < tab : yabai -m window --display next
 warpnf < shift - tab : yabai -m window --display prev
 warpnf < tab : yabai -m window --display next
@@ -303,43 +311,43 @@ warpnf < cmd - h : yabai -m window --space prev
 # Creation mode can be activated by pressing `c`.
 
 # Create a new space.
-create < h : yabai -m space --create; \
+create < j : yabai -m space --create; \
                     LAST_DISPLAY_SPACE="$(yabai -m query --spaces | jq 'sort_by(.index) | map(select(.display == 1))[-1].index')"; \
                     yabai -m space "$LAST_DISPLAY_SPACE" --move 1; \
-                    yabai -m space --focus 1;
-create < j : yabai -m space --create; \
+                    yabai -m space --focus 1
+create < h : yabai -m space --create; \
                PREV_SPACE="$(yabai -m query --spaces --space | jq '.index')"; \
-             LAST_DISPLAY_SPACE="$(yabai -m query --spaces | jq 'sort_by(.index) | map(select(.display == 1))[-1].index')"; \
-             yabai -m space "$LAST_DISPLAY_SPACE" --move "$PREV_SPACE"; \
-             yabai -m space --focus "$PREV_SPACE"
-create < k : yabai -m space --create; \
+               LAST_DISPLAY_SPACE="$(yabai -m query --spaces | jq 'sort_by(.index) | map(select(.display == 1))[-1].index')"; \
+               yabai -m space "$LAST_DISPLAY_SPACE" --move "$PREV_SPACE"; \
+               yabai -m space --focus "$PREV_SPACE"
+create < l : yabai -m space --create; \
                     NEXT_SPACE="$(yabai -m query --spaces --space | jq '.index + 1')"; \
                     LAST_DISPLAY_SPACE="$(yabai -m query --spaces | jq 'sort_by(.index) | map(select(.display == 1))[-1].index')"; \
                     yabai -m space "$LAST_DISPLAY_SPACE" --move "$NEXT_SPACE"; \
                     yabai -m space --focus "$NEXT_SPACE"
-create < l : yabai -m space --create; \
+create < k : yabai -m space --create; \
               LAST_DISPLAY_SPACE="$(yabai -m query --spaces | jq 'sort_by(.index) | map(select(.display == 1))[-1].index')"; \
                yabai -m space --focus "$LAST_DISPLAY_SPACE"
 
-# Create a new space and move the current window to it.
-create < shift - h : yabai -m space --create; \
+# # Create a new space and move the current window to it.
+create < shift - j : yabai -m space --create; \
                     LAST_DISPLAY_SPACE="$(yabai -m query --spaces | jq 'sort_by(.index) | map(select(.display == 1))[-1].index')"; \
                     yabai -m window --space "$LAST_DISPLAY_SPACE"; \
                     yabai -m space "$LAST_DISPLAY_SPACE" --move 1; \
                     yabai -m space --focus 1;
-create < shift - j : yabai -m space --create; \
+create < shift - h : yabai -m space --create; \
                PREV_SPACE="$(yabai -m query --spaces --space | jq '.index')"; \
                 LAST_DISPLAY_SPACE="$(yabai -m query --spaces | jq 'sort_by(.index) | map(select(.display == 1))[-1].index')"; \
                 yabai -m window --space "$LAST_DISPLAY_SPACE"; \
              yabai -m space "$LAST_DISPLAY_SPACE" --move "$PREV_SPACE"; \
              yabai -m space --focus "$PREV_SPACE"
-create < shift - k : yabai -m space --create; \
+create < shift - l : yabai -m space --create; \
                     NEXT_SPACE="$(yabai -m query --spaces --space | jq '.index + 1')"; \
                     LAST_DISPLAY_SPACE="$(yabai -m query --spaces | jq 'sort_by(.index) | map(select(.display == 1))[-1].index')"; \
                     yabai -m window --space "$LAST_DISPLAY_SPACE"; \
                     yabai -m space "$LAST_DISPLAY_SPACE" --move "$NEXT_SPACE"; \
                     yabai -m space --focus "$NEXT_SPACE"
-create < shift - l : yabai -m space --create; \
+create < shift - k : yabai -m space --create; \
               LAST_DISPLAY_SPACE="$(yabai -m query --spaces | jq 'sort_by(.index) | map(select(.display == 1))[-1].index')"; \
               yabai -m window --space "$LAST_DISPLAY_SPACE"; \
                yabai -m space --focus "$LAST_DISPLAY_SPACE"

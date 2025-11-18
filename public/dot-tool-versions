@@ -1,6 +1,9 @@
-java oracle-24
+java oracle-20
 nodejs 22.3.0
 python 3.11.8
-clojure 1.12.1.1550
+clojure 1.12.1.1561
 scala 3.5.1
 sbt 1.10.2
+leiningen 2.11.2
+sqlite 3.50.4
+babashka 1.12.208

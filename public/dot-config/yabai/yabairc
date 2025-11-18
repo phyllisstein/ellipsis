@@ -29,7 +29,7 @@ yabai -m config \
 	window_insertion_point focused \
 	window_zoom_persist on \
 	window_shadow on \
-	window_animation_duration 0.0 \
+	window_animation_duration 0.1 \
 	window_animation_easing ease_out_circ \
 	window_opacity_duration 0.1 \
 	active_window_opacity 1.0 \
@@ -84,6 +84,7 @@ yabai -m rule --add app=Finder mouse_follows_focus=off
 yabai -m rule --add app=Focus manage=off mouse_follows_focus=off
 yabai -m rule --add app=Folx manage=off mouse_follows_focus=off
 yabai -m rule --add app="Font Book" manage=off
+yabai -m rule --add app="GeForce" manage=off mouse_follows_focus=off
 yabai -m rule --add app=GitFinder manage=off mouse_follows_focus=off
 yabai -m rule --add app=Glyphs manage=off
 yabai -m rule --add app=Goose manage=off

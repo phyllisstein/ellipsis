@@ -1,5 +1,13 @@
-if test -f /opt/homebrew/opt/asdf/libexec/asdf.fish
-    source /opt/homebrew/opt/asdf/libexec/asdf.fish
-else if test -f $HOME/.asdf/asdf.fish
-    source $HOME/.asdf/asdf.fish
+function asdf_update_java_home
+    set --local java_path (asdf which java)
+    if test -n "$java_path"
+        set --local full_path (builtin realpath "$java_path")
+
+        # `builtin realpath` returns $JAVA_HOME/bin/java, so we need two `dirname` calls
+        # in order to get the correct JAVA_HOME directory
+        set -gx JAVA_HOME (dirname (dirname "$full_path"))
+        set -gx JDK_HOME "$JAVA_HOME"
+    end
 end
+
+asdf_update_java_home

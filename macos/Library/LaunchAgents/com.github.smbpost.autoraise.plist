@@ -15,12 +15,14 @@
 	<key>ProgramArguments</key>
 	<array>
 		<string>/usr/local/bin/AutoRaise</string>
+		<string>-pollMillis</string>
+		<string>50</string>
 		<string>-delay</string>
-		<string>6</string>
+		<string>1</string>
+		<string>-ignoreSpaceChanged</string>
+		<string>false</string>
 		<string>-mouseDelta</string>
-		<string>0.2</string>
-		<string>-ignoreApps</string>
-		<string>SlideP0d</string>
+		<string>0.3</string>
 	</array>
 	<key>RunAtLoad</key>
 	<true/>

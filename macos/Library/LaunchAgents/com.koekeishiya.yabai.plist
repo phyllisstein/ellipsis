@@ -2,12 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Disabled</key>
+	<false/>
 	<key>EnvironmentVariables</key>
 	<dict>
 		<key>PATH</key>
-		<string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
-		<key>SHELL</key>
-		<string>/opt/homebrew/bin/zsh</string>
+		<string>/opt/homebrew/bin:/usr/bin:/bin</string>
 	</dict>
 	<key>KeepAlive</key>
 	<true/>
