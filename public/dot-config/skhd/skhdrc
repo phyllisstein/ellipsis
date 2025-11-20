@@ -145,6 +145,7 @@ focus, swap, warp, warpnf, resize, create < c ; create
 # These common operations are also available in any mode: pressing `space` will
 # always rotate your windows 90° clockwise, without dropping you out of the
 # current mode.
+focus, swap, warp, warpnf, resize, create < y : launchctl kickstart -k "gui/$(id -u)/com.koekeishiya.yabai"; skhd -k "alt - space"
 focus, swap, warp, warpnf, resize, create < left : yabai -m space --rotate 90
 focus, swap, warp, warpnf, resize, create < right : yabai -m space --rotate 270
 # focus, swap, warp, warpnf, resize, create < x : yabai -m space --mirror x-axis
@@ -152,7 +153,7 @@ focus, swap, warp, warpnf, resize, create < right : yabai -m space --rotate 270
 focus, swap, warp, warpnf, resize, create < e : yabai -m space --balance
 focus, swap, warp, warpnf, resize, create < shift - e : yabai -m space --balance y-axis
 focus, swap, warp, warpnf, resize, create < alt - e : yabai -m space --balance x-axis
-focus, swap, warp, warpnf, resize, create <  0x2F : yabai -m space --layout bsp; yabai -m space --balance       # `.` on US keyboard
+focus, swap, warp, warpnf, resize, create <  0x2F : yabai -m space --layout bsp; yabai -m space --balance; skhd -k "alt - space"       # `.` on US keyboard
 focus, swap, warp, warpnf, resize, create <  x : yabai -m window --close; \
                                                   yabai -m query --windows --window >/dev/null 2>&1; \
                                                   if [[ $? -eq 1 ]]; then yabai -m window --focus mouse; fi
