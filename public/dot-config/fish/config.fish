@@ -96,7 +96,7 @@ if string match -q "$TERM_PROGRAM" vscode
     source (code --locate-shell-integration-path fish)
 end
 
-bass source ~/.nvm/nvm.sh --no-use ';' nvm use default
+bass source ~/.nvm/nvm.sh --no-use ';' 'nvm use default > /dev/null 2>&1'
 
 eval (perl -I$HOME/.perl5/lib/perl5 -Mlocal::lib=$HOME/.perl5) || true
 
@@ -106,10 +106,6 @@ if not string match -q -- $PNPM_HOME $PATH
     set -gx PATH "$PNPM_HOME" $PATH
 end
 
-if test -f /opt/homebrew/opt/asdf/libexec/asdf.fish
-    source /opt/homebrew/opt/asdf/libexec/asdf.fish
-else if test -f $HOME/.asdf/asdf.fish
-    source $HOME/.asdf/asdf.fish
-end
-
 # pnpm end
+
+set -gx PATH "$HOME/.local/bin" $PATH
