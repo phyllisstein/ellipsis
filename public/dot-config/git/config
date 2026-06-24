@@ -19,6 +19,7 @@
 [merge]
 	tool = Kaleidoscope
 	log = true
+	ff = false
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [difftool]
@@ -65,7 +66,7 @@
 [init]
 	defaultBranch = main
 [pull]
-	rebase = false
+	rebase = true
 	twohead = ort
 [checkout]
 	defaultRemote = origin

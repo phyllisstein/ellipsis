@@ -17,7 +17,7 @@
 		<string>--delete</string>
 		<string>--quiet</string>
 		<string>/Users/daniel/Documents/GIFs</string>
-		<string>s3://affectionate-smokescreen-345</string>
+		<string>s3://garb-dot-ag-joyful-badlands-7066</string>
 	</array>
 	<key>StandardErrorPath</key>
 	<string>/opt/homebrew/var/log/garb-ag-sync.log</string>

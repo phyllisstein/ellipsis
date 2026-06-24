@@ -12,3 +12,5 @@
 .sonarlint
 .wakatime-project
 *gitFinderDeleted
+
+**/.claude/settings.local.json

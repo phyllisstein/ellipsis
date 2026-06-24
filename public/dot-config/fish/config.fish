@@ -36,12 +36,10 @@ starship init fish | source
 
 # pyenv init - | source
 
-set -gx SSH_AUTH_SOCK $HOME/.1password/agent.sock
-
-if string match -q "$TERM_PROGRAM" "iTerm.app"
-    test -e $HOME/.iterm2_shell_integration.fish; and source $HOME/.iterm2_shell_integration.fish
-end
-if string match -q "$TERM_PROGRAM" WarpTerminal or string match -q "$TERM_PROGRAM" vscode
+# if string match -q "$TERM_PROGRAM" "iTerm.app"
+#     test -e $HOME/.iterm2_shell_integration.fish; and source $HOME/.iterm2_shell_integration.fish
+# end
+if contains -- "$TERM_PROGRAM" WarpTerminal vscode
     set -x fish_autosuggestion_enabled 0
 else
     set -x fish_autosuggestion_enabled 1
@@ -98,14 +96,20 @@ end
 
 bass source ~/.nvm/nvm.sh --no-use ';' 'nvm use default > /dev/null 2>&1'
 
-eval (perl -I$HOME/.perl5/lib/perl5 -Mlocal::lib=$HOME/.perl5) || true
+# eval (perl -I$HOME/.perl5/lib/perl5 -Mlocal::lib=$HOME/.perl5) || true
 
 # pnpm
-set -gx PNPM_HOME /Users/daniel/Library/pnpm
-if not string match -q -- $PNPM_HOME $PATH
-    set -gx PATH "$PNPM_HOME" $PATH
-end
+# set -gx PNPM_HOME /Users/daniel/Library/pnpm
+# if not string match -q -- $PNPM_HOME $PATH
+#     set -gx PATH "$PNPM_HOME" $PATH
+# end
 
 # pnpm end
 
 set -gx PATH "$HOME/.local/bin" $PATH
+
+# bun
+# set --export BUN_INSTALL "$HOME/.bun"
+# set --export PATH $BUN_INSTALL/bin $PATH
+
+# set -x SSH_AUTH_SOCK $HOME/.1password/agent.sock

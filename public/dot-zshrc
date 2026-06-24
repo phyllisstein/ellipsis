@@ -49,3 +49,5 @@ fpath=(/Users/daniel/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+
+alias claude-mem='/Users/daniel/.bun/bin/bun "/Users/daniel/.claude/plugins/marketplaces/thedotmack/plugin/scripts/worker-service.cjs"'
